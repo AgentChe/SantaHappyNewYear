@@ -444,6 +444,7 @@
 		DE6964FD2E8D60C0004D4115 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				DE6965002E8D60C0004D4115 /* TryAgain */,
 				DE6964F62E8D60C0004D4115 /* Paygate */,
 				DE6964FC2E8D60C0004D4115 /* Splash */,
 			);
@@ -453,8 +454,8 @@
 		DE6965002E8D60C0004D4115 /* TryAgain */ = {
 			isa = PBXGroup;
 			children = (
-				DE6964FE2E8D60C0004D4115 /* TryAgainView.swift */,
 				DE6964FF2E8D60C0004D4115 /* TryAgainViewController.swift */,
+				DE6964FE2E8D60C0004D4115 /* TryAgainView.swift */,
 			);
 			path = TryAgain;
 			sourceTree = "<group>";
@@ -464,7 +465,6 @@
 			children = (
 				DE6966FA2E8E55D0004D4115 /* Main */,
 				DE6964FD2E8D60C0004D4115 /* Splash */,
-				DE6965002E8D60C0004D4115 /* TryAgain */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
