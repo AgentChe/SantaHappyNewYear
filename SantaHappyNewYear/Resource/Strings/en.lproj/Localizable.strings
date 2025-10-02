@@ -62,3 +62,8 @@
 "Home.Text" = "Welcome to\nSanta’s office";
 "Home.CallSanta" = "Call Santa";
 "Home.WriteMessage" = "Write a message";
+
+// MARK: Chats
+"Chats.Title" = "Messages";
+"Chats.Today" = "Today";
+"Chats.Tomorrow" = "Tomorrow";

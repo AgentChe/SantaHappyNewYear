@@ -55,8 +55,12 @@ private extension SettingsViewController {
     func action(_ action: SettingsViewModel.Action) {
         switch action {
         case .openPaygate:
-            let vc = PaygateViewController.make()
-            present(vc, animated: true)
+            // TODO
+//            let vc = PaygateViewController.make()
+//            present(vc, animated: true)
+            
+            let vc = ChatViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
         case .openURL(let url):
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }

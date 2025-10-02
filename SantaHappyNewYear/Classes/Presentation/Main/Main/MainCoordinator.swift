@@ -11,7 +11,7 @@ final class MainCoordinator {
     weak var parentVC: MainViewController?
     
     lazy var homeVC = HomeViewController.make()
-    lazy var messagesVC = UIViewController()
+    lazy var messagesVC = ChatsViewController.make()
     lazy var settingsVC = SettingsViewController.make()
     
     private var previousVC: UIViewController?

@@ -22,4 +22,5 @@ struct Appearance {
     static let custom245_236_229 = UIColor(integralRed: 245, green: 236, blue: 229)
     static let custom12_57_50 = UIColor(integralRed: 12, green: 57, blue: 50)
     static let custom35 = UIColor(integralRed: 35, green: 35, blue: 35)
+    static let custom153 = UIColor(integralRed: 153, green: 153, blue: 153)
 }
