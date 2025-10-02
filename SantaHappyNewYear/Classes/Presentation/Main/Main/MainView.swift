@@ -26,7 +26,7 @@ final class MainView: UIView {
 // MARK: Private
 private extension MainView {
     func initialize() {
-        backgroundColor = Appearance.custom227_188_136
+        backgroundColor = UIColor.clear
     }
 }
 
@@ -41,8 +41,6 @@ private extension MainView {
         ])
         
         NSLayoutConstraint.activate([
-            tabView.widthAnchor.constraint(equalToConstant: 294.scale),
-            tabView.heightAnchor.constraint(equalToConstant: 62.scale),
             tabView.centerXAnchor.constraint(equalTo: centerXAnchor),
             tabView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16.scale)
         ])

@@ -25,10 +25,10 @@
 "Paygate.Error.Title" = "Error";
 "Paygate.Error.Text" = "An error occurred during execution. Try later.";
 "Paygate.Error.Button" = "OK";
-"Paygate.Title" = "Upgrade Premium";
-"Paygate.Info1" = "Create stunning looks, and discover\nnew styles";
-"Paygate.Info2" = "Capture your clothing, remove backgrounds";
-"Paygate.Info3" = "Store items in your virtual wardrobe";
+"Paygate.Title" = "Get Unlimited";
+"Paygate.Info1" = "Video Call with Santa";
+"Paygate.Info2" = "Unlimited Calls & Chats";
+"Paygate.Info3" = "Schedule Your Call";
 "Paygate.EnableFreeTrial" = "Enable Free Trial";
 "Paygate.FreeTrialEnabled" = "Free Trial Enabled";
 "Paygate.Yearly" = "Yearly";
@@ -57,3 +57,8 @@
 "Settings.Links.TermsOfUse" = "Terms of use";
 "Settings.Links.ContactUs" = "Contact us";
 "Settings.Links.PrivacyPolicy" = "Privacy Policy";
+
+// MARK: Home
+"Home.Text" = "Welcome to\nSanta’s office";
+"Home.CallSanta" = "Call Santa";
+"Home.WriteMessage" = "Write a message";

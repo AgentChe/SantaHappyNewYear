@@ -10,7 +10,7 @@ import UIKit
 final class MainCoordinator {
     weak var parentVC: MainViewController?
     
-    lazy var homeVC = UIViewController()
+    lazy var homeVC = HomeViewController.make()
     lazy var messagesVC = UIViewController()
     lazy var settingsVC = SettingsViewController.make()
     

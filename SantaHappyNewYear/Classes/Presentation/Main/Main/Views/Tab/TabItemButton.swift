@@ -58,9 +58,6 @@ private extension TabItemButton {
     func update() {
         selectedView.isHidden = !marked
         
-        let iconName = code + (marked ? ".S" : ".D")
-        iconView.image = UIImage(named: iconName)
-        
         let attrs = marked ? selectedAttrs : deselectedAttrs
         label.attributedText = code.localized.attributed(with: attrs)
     }
@@ -91,7 +88,7 @@ private extension TabItemButton {
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             label.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-            label.topAnchor.constraint(equalTo: container.topAnchor, constant: 30.scale),
+            label.topAnchor.constraint(equalTo: container.topAnchor, constant: 26.scale),
             label.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         ])
     }
@@ -102,8 +99,8 @@ private extension TabItemButton {
     func makeSelectedView() -> UIView {
         let view = UIView()
         view.isUserInteractionEnabled = false
-        view.backgroundColor = Appearance.custom237
-        view.layer.cornerRadius = 24.scale
+        view.backgroundColor = Appearance.mono100
+        view.layer.cornerRadius = 25.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -120,6 +117,7 @@ private extension TabItemButton {
     
     func makeImageView() -> UIImageView {
         let view = UIImageView()
+        view.image = UIImage(named: code)
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)

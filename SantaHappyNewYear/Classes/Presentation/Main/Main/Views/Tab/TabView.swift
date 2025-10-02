@@ -26,6 +26,7 @@ final class TabView: UIView {
         super.init(frame: frame)
         
         makeConstraints()
+        initialize()
         update()
     }
     
@@ -37,8 +38,10 @@ final class TabView: UIView {
 // MARK: Private
 private extension TabView {
     func initialize() {
-        backgroundColor = Appearance.main200
-        layer.cornerRadius = 24.scale
+        backgroundColor = Appearance.mono100.withAlphaComponent(0.4)
+        layer.borderColor = Appearance.mono100.cgColor
+        layer.borderWidth = 1.scale
+        layer.cornerRadius = 29.scale
         layer.masksToBounds = true
     }
     
@@ -53,26 +56,28 @@ private extension TabView {
 private extension TabView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            homeButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            homeButton.trailingAnchor.constraint(equalTo: messagesButton.leadingAnchor),
-            homeButton.heightAnchor.constraint(equalToConstant: 54.scale),
-            homeButton.widthAnchor.constraint(equalTo: messagesButton.widthAnchor),
-            homeButton.topAnchor.constraint(equalTo: topAnchor, constant: 4.scale)
+            homeButton.heightAnchor.constraint(equalToConstant: 50.scale),
+            homeButton.widthAnchor.constraint(equalToConstant: 102.scale),
+            homeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4.scale),
+            homeButton.topAnchor.constraint(equalTo: topAnchor, constant: 4.scale),
+            homeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4.scale)
         ])
         
         NSLayoutConstraint.activate([
+            messagesButton.heightAnchor.constraint(equalToConstant: 50.scale),
+            messagesButton.widthAnchor.constraint(equalToConstant: 102.scale),
             messagesButton.leadingAnchor.constraint(equalTo: homeButton.trailingAnchor),
-            messagesButton.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor),
-            messagesButton.heightAnchor.constraint(equalToConstant: 54.scale),
-            messagesButton.widthAnchor.constraint(equalTo: settingsButton.widthAnchor),
-            messagesButton.topAnchor.constraint(equalTo: topAnchor, constant: 4.scale)
+            messagesButton.topAnchor.constraint(equalTo: topAnchor, constant: 4.scale),
+            messagesButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4.scale)
         ])
         
         NSLayoutConstraint.activate([
+            settingsButton.heightAnchor.constraint(equalToConstant: 50.scale),
+            settingsButton.widthAnchor.constraint(equalToConstant: 102.scale),
             settingsButton.leadingAnchor.constraint(equalTo: messagesButton.trailingAnchor),
-            settingsButton.trailingAnchor.constraint(equalTo: trailingAnchor),
-            settingsButton.heightAnchor.constraint(equalToConstant: 54.scale),
-            settingsButton.topAnchor.constraint(equalTo: topAnchor, constant: 4.scale)
+            settingsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4.scale),
+            settingsButton.topAnchor.constraint(equalTo: topAnchor, constant: 4.scale),
+            settingsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4.scale)
         ])
     }
 }

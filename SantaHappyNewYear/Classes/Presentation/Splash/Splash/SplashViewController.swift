@@ -45,10 +45,6 @@ final class SplashViewController: UIViewController {
             self?.didSDKConfiguredTrigger.accept(Void())
         }
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .darkContent
-    }
 }
 
 // MARK: Make

@@ -12,7 +12,7 @@ final class PaygateInfoView: UIView {
     lazy var label = makeLabel()
     
     private lazy var infoAttrs = TextAttributes()
-        .textColor(Appearance.mono100)
+        .textColor(Appearance.mono200)
         .font(Fonts.PlayfairDisplay.regular(size: 12.scale))
         .lineHeight(15.scale)
         .textAlignment(.center)
