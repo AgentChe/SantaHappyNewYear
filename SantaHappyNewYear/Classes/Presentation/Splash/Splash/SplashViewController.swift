@@ -72,10 +72,10 @@ private extension SplashViewController {
             
             switch route {
             case .main:
-                break // TODO
+                window.rootViewController = MainViewController.make(requestReview: false)
             case .paygateTransitionMain:
-                let vc = PaygateViewController.make {
-                    // TODO
+                let vc = PaygateViewController.make { [weak window] in
+                    window?.rootViewController = MainViewController.make(requestReview: false)
                 }
                 self?.present(vc, animated: true)
             }

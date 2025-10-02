@@ -44,3 +44,16 @@
 "Paygate.PrivacyPolicy" = "Privacy Policy";
 "Paygate.RestorePurchases" = "Restore Purchases";
 "Paygate.BestOffer" = "⭐ Best Offer";
+
+// MARK: Main
+"Main.Home" = "Home";
+"Main.Messages" = "Messages";
+"Main.Settings" = "Settings";
+
+// MARK: Settings
+"Settings.Title" = "Settings";
+"Settings.Upgrade.Title" = "Enjoy more calls\nwith Santa";
+"Settings.Upgrade.Button" = "Upgrade";
+"Settings.Links.TermsOfUse" = "Terms of use";
+"Settings.Links.ContactUs" = "Contact us";
+"Settings.Links.PrivacyPolicy" = "Privacy Policy";

@@ -81,6 +81,20 @@
 		DE6966EC2E8D82B8004D4115 /* PlayfairDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6966EB2E8D82B8004D4115 /* PlayfairDisplay-Medium.ttf */; };
 		DE6966EF2E8D82C0004D4115 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6966ED2E8D82C0004D4115 /* PlayfairDisplay-Regular.ttf */; };
 		DE6966F02E8D82C0004D4115 /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6966EE2E8D82C0004D4115 /* PlayfairDisplay-SemiBold.ttf */; };
+		DE6966FD2E8E55FD004D4115 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6966FC2E8E55FD004D4115 /* MainViewController.swift */; };
+		DE6966FF2E8E5624004D4115 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6966FE2E8E5624004D4115 /* MainView.swift */; };
+		DE6967012E8E562A004D4115 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967002E8E562A004D4115 /* MainCoordinator.swift */; };
+		DE6967052E8E563C004D4115 /* TabItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967042E8E563C004D4115 /* TabItemButton.swift */; };
+		DE6967072E8E5644004D4115 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967062E8E5644004D4115 /* TabView.swift */; };
+		DE69670A2E8E6025004D4115 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967092E8E6025004D4115 /* SettingsViewController.swift */; };
+		DE69670C2E8E602A004D4115 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69670B2E8E602A004D4115 /* SettingsViewModel.swift */; };
+		DE69670E2E8E6030004D4115 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69670D2E8E6030004D4115 /* SettingsView.swift */; };
+		DE6967122E8E6231004D4115 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967112E8E6231004D4115 /* SettingsTableView.swift */; };
+		DE6967142E8E6239004D4115 /* SettingsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967132E8E6239004D4115 /* SettingsTableElement.swift */; };
+		DE6967172E8E6248004D4115 /* SettingsTableUpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967162E8E6248004D4115 /* SettingsTableUpgradeCell.swift */; };
+		DE6967192E8E6252004D4115 /* SettingsTableLinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967182E8E6252004D4115 /* SettingsTableLinksCell.swift */; };
+		DE69671C2E8E68BC004D4115 /* SettingsUpgradeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69671B2E8E68BC004D4115 /* SettingsUpgradeButton.swift */; };
+		DE69671F2E8E6CD5004D4115 /* SettingsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69671E2E8E6CD5004D4115 /* SettingsLinkButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +174,20 @@
 		DE6966EB2E8D82B8004D4115 /* PlayfairDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		DE6966ED2E8D82C0004D4115 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		DE6966EE2E8D82C0004D4115 /* PlayfairDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
+		DE6966FC2E8E55FD004D4115 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DE6966FE2E8E5624004D4115 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DE6967002E8E562A004D4115 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		DE6967042E8E563C004D4115 /* TabItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemButton.swift; sourceTree = "<group>"; };
+		DE6967062E8E5644004D4115 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		DE6967092E8E6025004D4115 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DE69670B2E8E602A004D4115 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		DE69670D2E8E6030004D4115 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DE6967112E8E6231004D4115 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
+		DE6967132E8E6239004D4115 /* SettingsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableElement.swift; sourceTree = "<group>"; };
+		DE6967162E8E6248004D4115 /* SettingsTableUpgradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableUpgradeCell.swift; sourceTree = "<group>"; };
+		DE6967182E8E6252004D4115 /* SettingsTableLinksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableLinksCell.swift; sourceTree = "<group>"; };
+		DE69671B2E8E68BC004D4115 /* SettingsUpgradeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUpgradeButton.swift; sourceTree = "<group>"; };
+		DE69671E2E8E6CD5004D4115 /* SettingsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLinkButton.swift; sourceTree = "<group>"; };
 		F26B083FDB382D9325FD39F0 /* Pods_SantaHappyNewYear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SantaHappyNewYear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F345A752228B5D53298AD4 /* Pods-SantaHappyNewYear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SantaHappyNewYear.release.xcconfig"; path = "Target Support Files/Pods-SantaHappyNewYear/Pods-SantaHappyNewYear.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -434,6 +462,7 @@
 		DE69652C2E8D60C0004D4115 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE6966FA2E8E55D0004D4115 /* Main */,
 				DE6964FD2E8D60C0004D4115 /* Splash */,
 				DE6965002E8D60C0004D4115 /* TryAgain */,
 			);
@@ -514,6 +543,99 @@
 				DE6965722E8D60C0004D4115 /* Service */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		DE6966FA2E8E55D0004D4115 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967082E8E601A004D4115 /* Settings */,
+				DE6966FB2E8E55F3004D4115 /* Main */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DE6966FB2E8E55F3004D4115 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967022E8E562E004D4115 /* Views */,
+				DE6966FC2E8E55FD004D4115 /* MainViewController.swift */,
+				DE6966FE2E8E5624004D4115 /* MainView.swift */,
+				DE6967002E8E562A004D4115 /* MainCoordinator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DE6967022E8E562E004D4115 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967032E8E5632004D4115 /* Tab */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE6967032E8E5632004D4115 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967042E8E563C004D4115 /* TabItemButton.swift */,
+				DE6967062E8E5644004D4115 /* TabView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		DE6967082E8E601A004D4115 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DE69670F2E8E621A004D4115 /* Views */,
+				DE6967092E8E6025004D4115 /* SettingsViewController.swift */,
+				DE69670B2E8E602A004D4115 /* SettingsViewModel.swift */,
+				DE69670D2E8E6030004D4115 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DE69670F2E8E621A004D4115 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967102E8E6229004D4115 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE6967102E8E6229004D4115 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967152E8E623B004D4115 /* Cells */,
+				DE6967112E8E6231004D4115 /* SettingsTableView.swift */,
+				DE6967132E8E6239004D4115 /* SettingsTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE6967152E8E623B004D4115 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DE69671D2E8E6CC3004D4115 /* Links */,
+				DE69671A2E8E68A6004D4115 /* Upgrade */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE69671A2E8E68A6004D4115 /* Upgrade */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967162E8E6248004D4115 /* SettingsTableUpgradeCell.swift */,
+				DE69671B2E8E68BC004D4115 /* SettingsUpgradeButton.swift */,
+			);
+			path = Upgrade;
+			sourceTree = "<group>";
+		};
+		DE69671D2E8E6CC3004D4115 /* Links */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967182E8E6252004D4115 /* SettingsTableLinksCell.swift */,
+				DE69671E2E8E6CD5004D4115 /* SettingsLinkButton.swift */,
+			);
+			path = Links;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -645,6 +767,7 @@
 				DE6965802E8D60C0004D4115 /* ProductPrice.swift in Sources */,
 				DE6965812E8D60C0004D4115 /* ProfileBindingRequest.swift in Sources */,
 				DE69658A2E8D60C0004D4115 /* PaygateInfoCell.swift in Sources */,
+				DE6967122E8E6231004D4115 /* SettingsTableView.swift in Sources */,
 				DE69658C2E8D60C0004D4115 /* PaygateView.swift in Sources */,
 				DE6965922E8D60C0004D4115 /* ContentError.swift in Sources */,
 				DE69659A2E8D60C0004D4115 /* TryAgainView.swift in Sources */,
@@ -658,10 +781,14 @@
 				DE6965C22E8D60C0004D4115 /* ObservableRetrySingle.swift in Sources */,
 				DE6965C42E8D60C0004D4115 /* PaygateInfoView.swift in Sources */,
 				DE6965C72E8D60C0004D4115 /* Currency.swift in Sources */,
+				DE6967012E8E562A004D4115 /* MainCoordinator.swift in Sources */,
 				DE6965C92E8D60C0004D4115 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				DE69670A2E8E6025004D4115 /* SettingsViewController.swift in Sources */,
 				DE6965CD2E8D60C0004D4115 /* PaygateViewController.swift in Sources */,
+				DE6967192E8E6252004D4115 /* SettingsTableLinksCell.swift in Sources */,
 				DE6965D22E8D60C0004D4115 /* TryAgainViewController.swift in Sources */,
 				DE6965DA2E8D60C0004D4115 /* SessionManager.swift in Sources */,
+				DE6967052E8E563C004D4115 /* TabItemButton.swift in Sources */,
 				DE6965EA2E8D60C0004D4115 /* UIDevice+Extension.swift in Sources */,
 				DE6965F02E8D60C0004D4115 /* IAPError.swift in Sources */,
 				DE6965F62E8D60C0004D4115 /* RestAPITransport.swift in Sources */,
@@ -669,6 +796,7 @@
 				DE69660A2E8D60C0004D4115 /* UIView+RxExtension.swift in Sources */,
 				DE69660B2E8D60C0004D4115 /* NumberLaunches.swift in Sources */,
 				DE6966112E8D60C0004D4115 /* TapAreaButton.swift in Sources */,
+				DE6967142E8E6239004D4115 /* SettingsTableElement.swift in Sources */,
 				DE6966142E8D60C0004D4115 /* RequestReview.swift in Sources */,
 				DE6966172E8D60C0004D4115 /* APIFormDataRequestBody.swift in Sources */,
 				DE69661A2E8D60C0004D4115 /* NavigationControllerSettings.swift in Sources */,
@@ -678,27 +806,34 @@
 				DE69662B2E8D60C0004D4115 /* NavigationController.swift in Sources */,
 				DE69662C2E8D60C0004D4115 /* ScreenSize.swift in Sources */,
 				DE6966312E8D60C0004D4115 /* ProfileCreateRequest.swift in Sources */,
+				DE6967172E8E6248004D4115 /* SettingsTableUpgradeCell.swift in Sources */,
 				DE6966342E8D60C0004D4115 /* PaygateViewModel.swift in Sources */,
 				DE6966E62E8D81E8004D4115 /* UIApplication+Extension.swift in Sources */,
+				DE69670E2E8E6030004D4115 /* SettingsView.swift in Sources */,
 				DE6966442E8D60C0004D4115 /* UIEdgeInsets+Extension.swift in Sources */,
 				DE6966452E8D60C0004D4115 /* TextAttributes.swift in Sources */,
 				DE6966492E8D60C0004D4115 /* IAPErrorHelper.swift in Sources */,
 				DE6966512E8D60C0004D4115 /* GradientView.swift in Sources */,
 				DE6966562E8D60C0004D4115 /* SceneDelegate.swift in Sources */,
 				DE69665E2E8D60C0004D4115 /* TakePhoto.swift in Sources */,
+				DE6966FD2E8E55FD004D4115 /* MainViewController.swift in Sources */,
 				DE6966642E8D60C0004D4115 /* PaygateProductButton.swift in Sources */,
 				DE6966652E8D60C0004D4115 /* PaygateInteractor.swift in Sources */,
 				DE6966712E8D60C0004D4115 /* GlobalDefinitions.swift in Sources */,
 				DE69668C2E8D60C0004D4115 /* ChoosePhotoFromGallery.swift in Sources */,
+				DE6966FF2E8E5624004D4115 /* MainView.swift in Sources */,
 				DE6966922E8D60C0004D4115 /* Fonts.swift in Sources */,
 				DE6966942E8D60C0004D4115 /* IAPActionResult.swift in Sources */,
 				DE6966952E8D60C0004D4115 /* IAPProduct.swift in Sources */,
 				DE69669A2E8D60C0004D4115 /* PaygateBestOfferView.swift in Sources */,
 				DE6966A82E8D60C0004D4115 /* NetworkError.swift in Sources */,
 				DE6966AD2E8D60C0004D4115 /* IAPManager.swift in Sources */,
+				DE69671F2E8E6CD5004D4115 /* SettingsLinkButton.swift in Sources */,
 				DE6966AF2E8D60C0004D4115 /* Collection+Extension.swift in Sources */,
+				DE6967072E8E5644004D4115 /* TabView.swift in Sources */,
 				DE6966B62E8D60C0004D4115 /* SplashReceiptValidationObserver.swift in Sources */,
 				DE6966B72E8D60C0004D4115 /* AppDelegate.swift in Sources */,
+				DE69671C2E8E68BC004D4115 /* SettingsUpgradeButton.swift in Sources */,
 				DE6966C72E8D60C0004D4115 /* APIRequestBody.swift in Sources */,
 				DE6966CB2E8D60C0004D4115 /* SplashView.swift in Sources */,
 				DE6966D22E8D60C0004D4115 /* PaddingLabel.swift in Sources */,
@@ -706,6 +841,7 @@
 				DE6966DA2E8D60C0004D4115 /* PurchaseValidationObserver.swift in Sources */,
 				DE6966DE2E8D60C0004D4115 /* Scalable.swift in Sources */,
 				DE6966E12E8D60C0004D4115 /* Appearance.swift in Sources */,
+				DE69670C2E8E602A004D4115 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
