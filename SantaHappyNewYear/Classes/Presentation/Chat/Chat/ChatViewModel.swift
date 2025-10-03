@@ -9,28 +9,17 @@ import RxSwift
 import RxCocoa
 
 final class ChatViewModel {
-    typealias DataForSendMessage = (UIImage?, String)
-    
-    enum DisplayInput {
-        case questionInput
-        case regenerateLastQuestion
-    }
-    
     enum Action {
-        case reset
         case insertPage([ChatTableElement])
         case add([ChatTableElement])
-        case removeAnswer(String)
         case startWaiting
         case stopWaiting
-        case changeInput(DisplayInput)
         case clearInput
-        case copy(String)
         case lockSendMessage(Bool)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
-    
+
     private lazy var chatManager = ChatManager()
     
     private lazy var observableRetrySingle = ObservableRetrySingle()
@@ -39,14 +28,9 @@ final class ChatViewModel {
 // MARK: Public
 extension ChatViewModel {
     struct Input {
-        let didSelectChatFromHistory: Signal<Chat>
-        let didStartNewChat: Signal<Void>
+        let chat: Chat?
         let didScrollToTop: Signal<Void>
-        let didSendMessage: Signal<DataForSendMessage>
-        let didTapRegenerate: Signal<DataForSendMessage>
-        let didTapCopy: Signal<String>
-        let didTapRefresh: Signal<ChatTableAnswerElement>
-        let inputFocusChanged: Signal<Bool>
+        let didSendMessage: Signal<String>
     }
     
     struct Output {
@@ -54,12 +38,7 @@ extension ChatViewModel {
     }
     
     func configure(input: Input) -> Output {
-        let didStartNewChat = input.didStartNewChat
-            .startWith(())
-        let mode = makeMode(
-            didSelectChatFromHistory: input.didSelectChatFromHistory,
-            didStartNewChat: didStartNewChat
-        )
+        let mode = makeMode(chat: input.chat)
         let chatId = makeChatId(mode: mode)
         
         return Output(
@@ -67,9 +46,6 @@ extension ChatViewModel {
                 mode: mode,
                 chatId: chatId,
                 didSendMessage: input.didSendMessage,
-                didTapRegenerate: input.didTapRegenerate,
-                didTapCopy: input.didTapCopy,
-                didTapRefresh: input.didTapRefresh,
                 didScrollToTop: input.didScrollToTop
             )
         )
@@ -82,43 +58,24 @@ private extension ChatViewModel {
         case newChat, history(Chat)
     }
     
-    func makeMode(
-        didSelectChatFromHistory: Signal<Chat>,
-        didStartNewChat: Signal<Void>
-    ) -> Driver<Mode> {
-        let history = didSelectChatFromHistory
-            .map { Mode.history($0) }
-            .asDriver(onErrorDriveWith: .never())
-        
-        let newChat = didStartNewChat
-            .map { Mode.newChat }
-            .asDriver(onErrorDriveWith: .never())
-        
-        return Driver
-            .merge(history, newChat)
+    func makeMode(chat: Chat?) -> Driver<Mode> {
+        .deferred {
+            guard let chat else { return .just(.newChat) }
+            return .just(.history(chat))
+        }
     }
     
     func makeAction(
         mode: Driver<Mode>,
         chatId: Driver<String>,
-        didSendMessage: Signal<DataForSendMessage>,
-        didTapRegenerate: Signal<DataForSendMessage>,
-        didTapCopy: Signal<String>,
-        didTapRefresh: Signal<ChatTableAnswerElement>,
+        didSendMessage: Signal<String>,
         didScrollToTop: Signal<Void>
     ) -> Driver<Action> {
-        let reset = mode
-            .map { _ in Action.reset }
-        
         let clearInput = Driver
             .merge(
                 mode.map { _ in Action.clearInput },
                 didSendMessage.map { _ in Action.clearInput }.asDriver(onErrorDriveWith: .never())
             )
-        
-        let copy = didTapCopy
-            .map { Action.copy($0) }
-            .asDriver(onErrorDriveWith: .never())
         
         let updateChat = mode
             .flatMapLatest { [weak self] _ -> Driver<Action> in
@@ -126,8 +83,7 @@ private extension ChatViewModel {
                 
                 let sendMessageResponse = makeSendMessageResponse(
                     chatId: chatId,
-                    didSendMessage: didSendMessage,
-                    didTapRegenerate: didTapRegenerate
+                    didSendMessage: didSendMessage
                 )
                 
                 let addQuestionInTable = sendMessageResponse
@@ -136,20 +92,13 @@ private extension ChatViewModel {
                         
                         var elements = [ChatTableElement]()
                         
-                        if let imageUrl = response.message.imageUrl {
-                            elements.append(.questionImageUrl(imageUrl))
-                        }
                         elements.append(.questionText(response.message.content))
                         
                         return .add(elements)
                     }
                 
                 let answerMessageResponse = makeAnswer(
-                    runner: Driver
-                        .merge(
-                            sendMessageResponse.compactMap { $0?.runner },
-                            didTapRefresh.map { $0.runner }.asDriver(onErrorDriveWith: .never())
-                        ),
+                    runner: sendMessageResponse.compactMap { $0?.runner },
                     chatId: chatId
                 )
                 
@@ -164,7 +113,6 @@ private extension ChatViewModel {
                 let loading = Driver<Bool>
                     .merge(
                         sendMessageResponse.compactMap { $0 == nil ? nil : true },
-                        didTapRefresh.map { _ in true }.asDriver(onErrorDriveWith: .never()),
                         answerMessageResponse.map { _ in false }
                     )
                 
@@ -173,25 +121,6 @@ private extension ChatViewModel {
                 
                 let lockSendMessage = loading
                     .map { Action.lockSendMessage($0) }
-                
-                let displayInput = Driver<DisplayInput>
-                    .merge(
-                        didTapRegenerate
-                            .map { _ in .questionInput }
-                            .asDriver(onErrorDriveWith: .never()),
-                        
-                        sendMessageResponse
-                            .map { $0 == nil ? .regenerateLastQuestion : .questionInput },
-                        
-                        answerMessageResponse
-                            .map { $0 == nil ? .regenerateLastQuestion : .questionInput }
-                    )
-                    .startWith(.questionInput)
-                    .map { Action.changeInput($0) }
-                
-                let removeAnswer = didTapRefresh
-                    .map { Action.removeAnswer($0.message.messageId) }
-                    .asDriver(onErrorDriveWith: .never())
                 
                 let historyPage = makeHistoryPage(
                     mode: mode,
@@ -207,9 +136,6 @@ private extension ChatViewModel {
                         messages.reversed().forEach { message in
                             switch message.role {
                             case .user:
-                                if let imageUrl = message.imageUrl {
-                                    elements.append(.questionImageUrl(imageUrl))
-                                }
                                 elements.append(.questionText(message.content))
                             case .assistant:
                                 elements.append(.historyAnswer(message))
@@ -221,11 +147,11 @@ private extension ChatViewModel {
                     .map { Action.insertPage($0) }
                 
                 return Driver
-                    .merge(addQuestionInTable, addAnswerInTable, waiting, lockSendMessage, displayInput, removeAnswer, historyElements)
+                    .merge(addQuestionInTable, addAnswerInTable, waiting, lockSendMessage, historyElements)
             }
         
         return Driver
-            .merge(reset, clearInput, copy, updateChat)
+            .merge(clearInput, updateChat)
     }
     
     func makeAnswer(runner: Driver<ChatMessageRunner>, chatId: Driver<String>) -> Driver<CheckMessageCompleteResponse?> {
@@ -250,20 +176,16 @@ private extension ChatViewModel {
     
     func makeSendMessageResponse(
         chatId: Driver<String>,
-        didSendMessage: Signal<DataForSendMessage>,
-        didTapRegenerate: Signal<DataForSendMessage>
+        didSendMessage: Signal<String>
     ) -> Driver<SendMessageResponse?> {
-        Signal
-            .merge(didSendMessage, didTapRegenerate)
+        didSendMessage
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(chatId) { ($0, $1) }
-            .flatMapLatest { [weak self] data, chatId -> Driver<SendMessageResponse?> in
+            .flatMapLatest { [weak self] message, chatId -> Driver<SendMessageResponse?> in
                 guard let self else { return .never() }
                 
-                let (image, message) = data
-                
                 return chatManager
-                    .send(image: image, message: message, chatId: chatId)
+                    .send(image: nil, message: message, chatId: chatId)
                     .asDriver(onErrorJustReturn: nil)
             }
     }

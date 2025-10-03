@@ -67,3 +67,7 @@
 "Chats.Title" = "Messages";
 "Chats.Today" = "Today";
 "Chats.Tomorrow" = "Tomorrow";
+
+// MARK: Chat
+"Chat.Title" = "New messages";
+"Chat.Input.Placeholder" = "New message";

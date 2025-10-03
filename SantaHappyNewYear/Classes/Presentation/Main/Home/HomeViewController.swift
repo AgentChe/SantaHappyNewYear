@@ -19,6 +19,13 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mainView.writeMessageButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                let vc = ChatViewController.make()
+                base.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

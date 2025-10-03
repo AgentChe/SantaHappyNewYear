@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 final class ChatInputField: UIView {
+    lazy var inputContainer = makeInputContainer()
     lazy var textField = makeTextField()
+    lazy var audioButton = makeAudioButton()
     lazy var sendButton = makeSendButton()
-    
-    private lazy var focusChangedTrigger = PublishRelay<Bool>()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,23 +25,8 @@ final class ChatInputField: UIView {
     }
 }
 
-// MARK: Public
-extension ChatInputField {
-    var focusChanged: Signal<Bool> {
-        focusChangedTrigger.asSignal()
-    }
-}
-
 // MARK: UITextFieldDelegate
 extension ChatInputField: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        focusChangedTrigger.accept(true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        focusChangedTrigger.accept(false)
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -53,12 +36,7 @@ extension ChatInputField: UITextFieldDelegate {
 // MARK: Private
 private extension ChatInputField {
     func initialize() {
-        backgroundColor = Appearance.mono100
-        layer.cornerRadius = 27.scale
-        layer.shadowColor = Appearance.mono200.withAlphaComponent(0.6).cgColor
-        layer.shadowOpacity = 0.1
-        layer.shadowOffset = .zero
-        layer.shadowRadius = 4.scale
+        backgroundColor = UIColor.clear
     }
 }
 
@@ -66,49 +44,90 @@ private extension ChatInputField {
 private extension ChatInputField {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            textField.leadingAnchor.constraint(equalTo: leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: trailingAnchor),
-            textField.topAnchor.constraint(equalTo: topAnchor),
-            textField.bottomAnchor.constraint(equalTo: bottomAnchor)
+            inputContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            inputContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60.scale),
+            inputContainer.topAnchor.constraint(equalTo: topAnchor),
+            inputContainer.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            sendButton.widthAnchor.constraint(equalToConstant: 24.scale),
-            sendButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            sendButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22.scale),
-            sendButton.centerYAnchor.constraint(equalTo: centerYAnchor)
+            textField.leadingAnchor.constraint(equalTo: inputContainer.leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: inputContainer.trailingAnchor, constant: -46.scale),
+            textField.topAnchor.constraint(equalTo: inputContainer.topAnchor),
+            textField.bottomAnchor.constraint(equalTo: inputContainer.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            audioButton.widthAnchor.constraint(equalToConstant: 18.scale),
+            audioButton.heightAnchor.constraint(equalToConstant: 20.scale),
+            audioButton.trailingAnchor.constraint(equalTo: inputContainer.trailingAnchor, constant: -28.scale),
+            audioButton.centerYAnchor.constraint(equalTo: inputContainer.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            sendButton.widthAnchor.constraint(equalToConstant: 48.scale),
+            sendButton.heightAnchor.constraint(equalToConstant: 48.scale),
+            sendButton.centerYAnchor.constraint(equalTo: inputContainer.centerYAnchor),
+            sendButton.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension ChatInputField {
-    func makeTextField() -> PaddingTextField {
-        let placeholderAttrs = TextAttributes()
-            .textColor(Appearance.mono200.withAlphaComponent(0.5))
-            .font(Fonts.SFProRounded.regular(size: 16.scale))
-            .lineHeight(19.scale)
-            .textAlignment(.left)
-        let textAttrs = TextAttributes()
-            .textColor(Appearance.mono200)
-            .font(Fonts.SFProRounded.regular(size: 16.scale))
-            .lineHeight(19.scale)
-            .textAlignment(.left)
-        
-        let view = PaddingTextField()
-        view.textPadding = UIEdgeInsets(t: 17.5.scale, l: 22.scale, b: 17.5.scale, r: 50.scale)
-        view.defaultTextAttributes = textAttrs.dictionary
-        view.attributedPlaceholder = "Chat.Input.Placeholder".localized.attributed(with: placeholderAttrs)
-        view.delegate = self
-        view.backgroundColor = UIColor.clear
+    func makeInputContainer() -> UIView {
+        let view = UIView()
+        view.backgroundColor = Appearance.mono100
+        view.layer.cornerRadius = 24.scale
+        view.layer.shadowColor = Appearance.mono200.withAlphaComponent(0.6).cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 4.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
+    func makeTextField() -> PaddingTextField {
+        let placeholderAttrs = TextAttributes()
+            .textColor(Appearance.custom217)
+            .font(Fonts.SFProRounded.medium(size: 17.scale))
+            .lineHeight(20.scale)
+            .textAlignment(.left)
+        let textAttrs = TextAttributes()
+            .textColor(Appearance.custom64)
+            .font(Fonts.SFProRounded.medium(size: 17.scale))
+            .lineHeight(20.scale)
+            .textAlignment(.left)
+        
+        let view = PaddingTextField()
+        view.textPadding = UIEdgeInsets(t: 14.scale, l: 16.scale, b: 14.scale, r: 50.scale)
+        view.defaultTextAttributes = textAttrs.dictionary
+        view.attributedPlaceholder = "Chat.Input.Placeholder".localized.attributed(with: placeholderAttrs)
+        view.delegate = self
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        inputContainer.addSubview(view)
+        return view
+    }
+    
+    func makeAudioButton() -> TapAreaButton {
+        let view = TapAreaButton()
+        view.setImage(UIImage(named: "Chat.Audio"), for: .normal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        inputContainer.addSubview(view)
+        return view
+    }
+    
     func makeSendButton() -> TapAreaButton {
         let view = TapAreaButton()
-        view.setImage(UIImage(named: "Chat.Input"), for: .normal)
+        view.layer.cornerRadius = 24.scale
+        view.backgroundColor = Appearance.mono100
+        view.layer.shadowColor = Appearance.mono200.withAlphaComponent(0.6).cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 4.scale
+        view.setImage(UIImage(named: "Chat.SendMessage"), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

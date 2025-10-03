@@ -8,8 +8,6 @@
 import UIKit
 
 enum ChatTableElement {
-    case questionImageUrl(URL)
-    case questionImage(UIImage)
     case questionText(String)
     case loading
     case answer(ChatTableAnswerElement)

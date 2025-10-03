@@ -60,7 +60,7 @@ private extension ChatsViewController {
     func action(_ action: ChatsViewModel.Action) {
         switch action {
         case .openChat(let chat):
-            let vc = ChatsViewController.make()
+            let vc = ChatViewController.make(chat: chat)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

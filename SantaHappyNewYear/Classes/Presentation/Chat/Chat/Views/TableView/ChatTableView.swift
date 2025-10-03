@@ -12,10 +12,7 @@ import RxCocoa
 final class ChatTableView: UITableView {
     private lazy var elements = [ChatTableElement]()
     
-    private lazy var didRefreshTrigger = PublishRelay<ChatTableAnswerElement>()
-    private lazy var didCopyTrigger = PublishRelay<String>()
     private lazy var didScrollToTopTrigger = PublishRelay<Void>()
-    private lazy var didChangeElementsCountTrigger = PublishRelay<Int>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -30,14 +27,6 @@ final class ChatTableView: UITableView {
 
 // MARK: Public
 extension ChatTableView {
-    func reset() {
-        elements = []
-        
-        reloadData()
-        
-        didChangeElementsCountTrigger.accept(elements.count)
-    }
-    
     func insert(elements: [ChatTableElement]) {
         self.elements.insert(contentsOf: elements, at: 0)
         
@@ -53,8 +42,6 @@ extension ChatTableView {
                 scrollToRow(at: indexPath, at: .bottom, animated: false)
             }
         }
-        
-        didChangeElementsCountTrigger.accept(elements.count)
     }
     
     func add(elements: [ChatTableElement]) {
@@ -66,8 +53,6 @@ extension ChatTableView {
             let index = IndexPath(row: self.elements.count - 1, section: 0)
             scrollToRow(at: index, at: .bottom, animated: false)
         }
-        
-        didChangeElementsCountTrigger.accept(elements.count)
     }
     
     func remove(answer messageId: String) {
@@ -81,8 +66,6 @@ extension ChatTableView {
         })
         
         reloadData()
-        
-        didChangeElementsCountTrigger.accept(elements.count)
     }
     
     func loading(waitAnswer: Bool) {
@@ -100,24 +83,10 @@ extension ChatTableView {
         }
         
         reloadData()
-        
-        didChangeElementsCountTrigger.accept(elements.count)
-    }
-    
-    var didRefresh: Signal<ChatTableAnswerElement> {
-        didRefreshTrigger.asSignal()
-    }
-    
-    var didCopy: Signal<String> {
-        didCopyTrigger.asSignal()
     }
     
     var didScrollToTop: Signal<Void> {
         didScrollToTopTrigger.asSignal()
-    }
-    
-    var didChangeElementsCount: Signal<Int> {
-        didChangeElementsCountTrigger.asSignal()
     }
 }
 
@@ -129,38 +98,19 @@ extension ChatTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch elements[indexPath.row] {
-        case .questionImageUrl(let url):
-            let cell = dequeueReusableCell(withIdentifier: String(describing: ChatQuestionImageCell.self), for: indexPath) as! ChatQuestionImageCell
-            cell.setup(url: url)
-            return cell
-        case .questionImage(let image):
-            let cell = dequeueReusableCell(withIdentifier: String(describing: ChatQuestionImageCell.self), for: indexPath) as! ChatQuestionImageCell
-            cell.setup(image: image)
-            return cell
         case .questionText(let question):
             let cell = dequeueReusableCell(withIdentifier: String(describing: ChatQuestionTextCell.self), for: indexPath) as! ChatQuestionTextCell
             cell.setup(question: question)
             return cell
         case .loading:
-            let cell =  dequeueReusableCell(withIdentifier: String(describing: ChatLoadingCell.self), for: indexPath) as! ChatLoadingCell
-            cell.preloader.startAnimating()
-            return cell
+            return dequeueReusableCell(withIdentifier: String(describing: ChatLoadingCell.self), for: indexPath)
         case .answer(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: ChatAnswerCell.self), for: indexPath) as! ChatAnswerCell
-            cell.setup(text: element.message.content, refreshHidden: false)
-            cell.didTapCopy = { [weak self] in
-                self?.didCopyTrigger.accept(element.message.content)
-            }
-            cell.didTapRefresh = { [weak self] in
-                self?.didRefreshTrigger.accept(element)
-            }
+            cell.setup(text: element.message.content)
             return cell
         case .historyAnswer(let message):
             let cell = dequeueReusableCell(withIdentifier: String(describing: ChatAnswerCell.self), for: indexPath) as! ChatAnswerCell
-            cell.setup(text: message.content, refreshHidden: true)
-            cell.didTapCopy = { [weak self] in
-                self?.didCopyTrigger.accept(message.content)
-            }
+            cell.setup(text: message.content)
             return cell
         }
     }
@@ -176,13 +126,29 @@ extension ChatTableView: UITableViewDelegate {
         if indexPath.row == 0 {
             didScrollToTopTrigger.accept(Void())
         }
+        
+        if let loadingCell = cell as? ChatLoadingCell {
+            loadingCell.startAnimating()
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let loadingCell = cell as? ChatLoadingCell {
+            loadingCell.stopAnimating()
+        }
     }
 }
 
 // MARK: Private
 private extension ChatTableView {
     func initialize() {
-        register(ChatQuestionImageCell.self, forCellReuseIdentifier: String(describing: ChatQuestionImageCell.self))
+        backgroundColor = UIColor.clear
+        contentInset = UIEdgeInsets(vertical: 16.scale)
+        setContentOffset(CGPoint(x: 0, y: -16.scale), animated: false)
+        separatorStyle = .none
+        showsVerticalScrollIndicator = false
+        contentInsetAdjustmentBehavior = .never
+        
         register(ChatQuestionTextCell.self, forCellReuseIdentifier: String(describing: ChatQuestionTextCell.self))
         register(ChatLoadingCell.self, forCellReuseIdentifier: String(describing: ChatLoadingCell.self))
         register(ChatAnswerCell.self, forCellReuseIdentifier: String(describing: ChatAnswerCell.self))

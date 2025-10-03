@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03FBCBD127171E8BE25ACBDE /* Pods_SantaHappyNewYear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F26B083FDB382D9325FD39F0 /* Pods_SantaHappyNewYear.framework */; };
+		DE2521022E8FEEE700557C74 /* ChatSpeechToTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521012E8FEEE700557C74 /* ChatSpeechToTextService.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -118,10 +119,7 @@
 		DE6967702E8EB26E004D4115 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967552E8EB26E004D4115 /* ChatView.swift */; };
 		DE6967722E8EB26E004D4115 /* ChatAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967492E8EB26E004D4115 /* ChatAnswerCell.swift */; };
 		DE6967732E8EB26E004D4115 /* ChatsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967592E8EB26E004D4115 /* ChatsTableCell.swift */; };
-		DE6967742E8EB26E004D4115 /* ChatQuestionImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69674B2E8EB26E004D4115 /* ChatQuestionImageCell.swift */; };
 		DE6967762E8EB26E004D4115 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967622E8EB26E004D4115 /* ChatsViewController.swift */; };
-		DE6967772E8EB26E004D4115 /* ChatPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967522E8EB26E004D4115 /* ChatPlaceholderView.swift */; };
-		DE6967782E8EB26E004D4115 /* ChatRegenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967532E8EB26E004D4115 /* ChatRegenerateView.swift */; };
 		DE6967792E8EB26E004D4115 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967632E8EB26E004D4115 /* ChatsViewModel.swift */; };
 		DE69677A2E8EB26E004D4115 /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69674F2E8EB26E004D4115 /* ChatTableView.swift */; };
 		DE69677B2E8EB26E004D4115 /* ChatTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69674E2E8EB26E004D4115 /* ChatTableElement.swift */; };
@@ -133,6 +131,7 @@
 
 /* Begin PBXFileReference section */
 		11B7ECF170F9DF4B7EF9C3D0 /* Pods-SantaHappyNewYear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SantaHappyNewYear.debug.xcconfig"; path = "Target Support Files/Pods-SantaHappyNewYear/Pods-SantaHappyNewYear.debug.xcconfig"; sourceTree = "<group>"; };
+		DE2521012E8FEEE700557C74 /* ChatSpeechToTextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSpeechToTextService.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -240,13 +239,10 @@
 		DE6967392E8EB24C004D4115 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		DE6967492E8EB26E004D4115 /* ChatAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnswerCell.swift; sourceTree = "<group>"; };
 		DE69674A2E8EB26E004D4115 /* ChatLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLoadingCell.swift; sourceTree = "<group>"; };
-		DE69674B2E8EB26E004D4115 /* ChatQuestionImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatQuestionImageCell.swift; sourceTree = "<group>"; };
 		DE69674C2E8EB26E004D4115 /* ChatQuestionTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatQuestionTextCell.swift; sourceTree = "<group>"; };
 		DE69674E2E8EB26E004D4115 /* ChatTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableElement.swift; sourceTree = "<group>"; };
 		DE69674F2E8EB26E004D4115 /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
 		DE6967512E8EB26E004D4115 /* ChatInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputField.swift; sourceTree = "<group>"; };
-		DE6967522E8EB26E004D4115 /* ChatPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPlaceholderView.swift; sourceTree = "<group>"; };
-		DE6967532E8EB26E004D4115 /* ChatRegenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRegenerateView.swift; sourceTree = "<group>"; };
 		DE6967552E8EB26E004D4115 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		DE6967562E8EB26E004D4115 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DE6967572E8EB26E004D4115 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -287,6 +283,14 @@
 				F4F345A752228B5D53298AD4 /* Pods-SantaHappyNewYear.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE2521002E8FEEDD00557C74 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521012E8FEEE700557C74 /* ChatSpeechToTextService.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		DE69631A2E8D5DA2004D4115 = {
@@ -768,7 +772,6 @@
 			children = (
 				DE6967492E8EB26E004D4115 /* ChatAnswerCell.swift */,
 				DE69674A2E8EB26E004D4115 /* ChatLoadingCell.swift */,
-				DE69674B2E8EB26E004D4115 /* ChatQuestionImageCell.swift */,
 				DE69674C2E8EB26E004D4115 /* ChatQuestionTextCell.swift */,
 			);
 			path = Cells;
@@ -789,8 +792,6 @@
 			children = (
 				DE6967502E8EB26E004D4115 /* TableView */,
 				DE6967512E8EB26E004D4115 /* ChatInputField.swift */,
-				DE6967522E8EB26E004D4115 /* ChatPlaceholderView.swift */,
-				DE6967532E8EB26E004D4115 /* ChatRegenerateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -798,6 +799,7 @@
 		DE6967582E8EB26E004D4115 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521002E8FEEDD00557C74 /* Utils */,
 				DE6967542E8EB26E004D4115 /* Views */,
 				DE6967562E8EB26E004D4115 /* ChatViewController.swift */,
 				DE6967572E8EB26E004D4115 /* ChatViewModel.swift */,
@@ -1020,10 +1022,7 @@
 				DE6967702E8EB26E004D4115 /* ChatView.swift in Sources */,
 				DE6967722E8EB26E004D4115 /* ChatAnswerCell.swift in Sources */,
 				DE6967732E8EB26E004D4115 /* ChatsTableCell.swift in Sources */,
-				DE6967742E8EB26E004D4115 /* ChatQuestionImageCell.swift in Sources */,
 				DE6967762E8EB26E004D4115 /* ChatsViewController.swift in Sources */,
-				DE6967772E8EB26E004D4115 /* ChatPlaceholderView.swift in Sources */,
-				DE6967782E8EB26E004D4115 /* ChatRegenerateView.swift in Sources */,
 				DE6967792E8EB26E004D4115 /* ChatsViewModel.swift in Sources */,
 				DE69677A2E8EB26E004D4115 /* ChatTableView.swift in Sources */,
 				DE69677B2E8EB26E004D4115 /* ChatTableElement.swift in Sources */,
@@ -1043,6 +1042,7 @@
 				DE6966292E8D60C0004D4115 /* ProfileManager.swift in Sources */,
 				DE69662B2E8D60C0004D4115 /* NavigationController.swift in Sources */,
 				DE69662C2E8D60C0004D4115 /* ScreenSize.swift in Sources */,
+				DE2521022E8FEEE700557C74 /* ChatSpeechToTextService.swift in Sources */,
 				DE6966312E8D60C0004D4115 /* ProfileCreateRequest.swift in Sources */,
 				DE6967172E8E6248004D4115 /* SettingsTableUpgradeCell.swift in Sources */,
 				DE6966342E8D60C0004D4115 /* PaygateViewModel.swift in Sources */,
@@ -1119,6 +1119,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SantaHappyNewYear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Santa Happy New Year";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Without this, you won’t be able to talk to Santa.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Without this, we won’t be able to recognize what you want to say to Santa.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1153,6 +1155,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SantaHappyNewYear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Santa Happy New Year";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Without this, you won’t be able to talk to Santa.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Without this, we won’t be able to recognize what you want to say to Santa.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

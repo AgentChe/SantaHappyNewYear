@@ -6,7 +6,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'SantaHappyNewYear' do
   pod 'Toast-Swift'
-  pod 'lottie-ios'
   pod 'Kingfisher'
   
   pod 'RxSwift'

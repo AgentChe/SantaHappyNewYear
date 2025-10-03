@@ -17,7 +17,17 @@ final class ChatViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
-    private lazy var didSelectChatFromHistoryTrigger = PublishRelay<Chat>()
+    private let chat: Chat?
+    
+    private init(chat: Chat?) {
+        self.chat = chat
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = mainView
@@ -34,36 +44,19 @@ final class ChatViewController: UIViewController {
             return self.open(error: error)
         }
         
-        mainView.tableView
-            .didChangeElementsCount
-            .emit(to: Binder(mainView) { base, count in
-                base.startNewChatButton.isHidden = (count == 0)
-                base.placeholderView.isHidden = (count > 0)
-                base.tableView.isHidden = (count == 0)
-            })
-            .disposed(by: disposeBag)
-        
         let didSendMessage = mainView.inputField
             .sendButton.rx.tap
             .withLatestFrom(mainView.inputField.textField.rx.text)
-            .compactMap { message -> ChatViewModel.DataForSendMessage? in
+            .compactMap { message -> String? in
                 guard let message, !message.isEmpty else { return nil }
-                return (nil, message)
+                return message
             }
             .asSignal(onErrorSignalWith: .never())
-        let didTapRegenerate = mainView.regenerateView
-            .regenerateButton.rx.tap.asSignal()
-            .withLatestFrom(didSendMessage)
         
         let output = viewModel.configure(input: ChatViewModel.Input(
-            didSelectChatFromHistory: didSelectChatFromHistoryTrigger.asSignal(),
-            didStartNewChat: mainView.startNewChatButton.rx.tap.asSignal(),
+            chat: chat,
             didScrollToTop: mainView.tableView.didScrollToTop,
-            didSendMessage: didSendMessage,
-            didTapRegenerate: didTapRegenerate,
-            didTapCopy: mainView.tableView.didCopy,
-            didTapRefresh: mainView.tableView.didRefresh,
-            inputFocusChanged: mainView.inputField.focusChanged
+            didSendMessage: didSendMessage
         ))
         
         output.action
@@ -76,9 +69,10 @@ final class ChatViewController: UIViewController {
 
 // MARK: Public
 extension ChatViewController {
-    static func make() -> ChatViewController {
-        let vc = ChatViewController()
+    static func make(chat: Chat? = nil) -> ChatViewController {
+        let vc = ChatViewController(chat: chat)
         vc.navigationItem.backButtonTitle = " "
+        vc.navigationItem.title = "Chat.Title".localized
         return vc
     }
 }
@@ -103,27 +97,16 @@ private extension ChatViewController {
     
     func action(_ action: ChatViewModel.Action) {
         switch action {
-        case .reset:
-            mainView.tableView.reset()
         case .insertPage(let elements):
             mainView.tableView.insert(elements: elements)
         case .add(let elements):
             mainView.tableView.add(elements: elements)
-        case .removeAnswer(let messageId):
-            mainView.tableView.remove(answer: messageId)
         case .startWaiting:
             mainView.tableView.loading(waitAnswer: true)
         case .stopWaiting:
             mainView.tableView.loading(waitAnswer: false)
-        case .changeInput(let input):
-            mainView.inputField.isHidden = (input != .questionInput)
-            mainView.regenerateView.isHidden = (input != .regenerateLastQuestion)
         case .clearInput:
             mainView.inputField.textField.text = ""
-        case .copy(let text):
-            UIPasteboard.general.string = text
-            
-            mainView.makeToast("Chat.Copied.Toast".localized)
         case .lockSendMessage(let lock):
             mainView.inputField.sendButton.isEnabled = !lock
         }

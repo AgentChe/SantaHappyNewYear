@@ -10,11 +10,13 @@ import UIKit
 final class ChatQuestionTextCell: UITableViewCell {
     lazy var container = makeContainer()
     lazy var label = makeLabel()
+    lazy var circle1View = makeCircleView(cornerRadius: 6.scale)
+    lazy var circle2View = makeCircleView(cornerRadius: 4.scale)
     
     private lazy var attrs = TextAttributes()
-        .textColor(Appearance.mono100)
-        .font(Fonts.SFProRounded.regular(size: 16.scale))
-        .lineHeight(19.scale)
+        .textColor(Appearance.main100)
+        .font(Fonts.SFProRounded.medium(size: 17.scale))
+        .lineHeight(20.scale)
         .textAlignment(.left)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -53,7 +55,7 @@ private extension ChatQuestionTextCell {
             container.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 40.scale),
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
             container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16.scale),
-            container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -21.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -62,6 +64,20 @@ private extension ChatQuestionTextCell {
             label.topAnchor.constraint(equalTo: container.topAnchor, constant: 16.scale),
             label.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -16.scale)
         ])
+        
+        NSLayoutConstraint.activate([
+            circle1View.widthAnchor.constraint(equalToConstant: 12.scale),
+            circle1View.heightAnchor.constraint(equalToConstant: 12.scale),
+            circle1View.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
+            circle1View.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -9.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            circle2View.widthAnchor.constraint(equalToConstant: 8.scale),
+            circle2View.heightAnchor.constraint(equalToConstant: 8.scale),
+            circle2View.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10.scale),
+            circle2View.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 }
 
@@ -69,11 +85,8 @@ private extension ChatQuestionTextCell {
 private extension ChatQuestionTextCell {
     func makeContainer() -> UIView {
         let view = UIView()
-        view.backgroundColor = Appearance.main200
-        view.layer.cornerRadius = 16.scale
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        view.layer.borderColor = Appearance.main200.cgColor
-        view.layer.borderWidth = 1.scale
+        view.backgroundColor = Appearance.mono100
+        view.layer.cornerRadius = 24.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view
@@ -84,6 +97,15 @@ private extension ChatQuestionTextCell {
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
+        return view
+    }
+    
+    func makeCircleView(cornerRadius: CGFloat) -> UIView {
+        let view = UIView()
+        view.backgroundColor = Appearance.mono100
+        view.layer.cornerRadius = cornerRadius
+        view.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(view)
         return view
     }
 }
