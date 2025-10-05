@@ -49,7 +49,7 @@ extension PaygateView {
 // MARK: Private
 private extension PaygateView {
     func initialize() {
-        backgroundColor = Appearance.custom245_236_229
+        backgroundColor = Appearance.main200
     }
 }
 

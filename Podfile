@@ -5,9 +5,6 @@ use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'SantaHappyNewYear' do
-  pod 'Toast-Swift'
-  pod 'Kingfisher'
-  
   pod 'RxSwift'
   pod 'RxCocoa'
   

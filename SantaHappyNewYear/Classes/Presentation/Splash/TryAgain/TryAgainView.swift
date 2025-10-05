@@ -33,7 +33,7 @@ final class TryAgainView: UIView {
 // MARK: Private
 private extension TryAgainView {
     func initialize() {
-        backgroundColor = Appearance.custom245_236_229
+        backgroundColor = Appearance.main200
     }
     
     func errorMessage() -> String {

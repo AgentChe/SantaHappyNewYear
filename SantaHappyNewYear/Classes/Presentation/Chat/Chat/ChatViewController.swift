@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Toast_Swift
 
 final class ChatViewController: UIViewController {
     private lazy var mainView = ChatView()

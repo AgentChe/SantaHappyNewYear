@@ -71,3 +71,16 @@
 // MARK: Chat
 "Chat.Title" = "New messages";
 "Chat.Input.Placeholder" = "New message";
+
+// MARK: ChooseCallMethod
+"ChooseCallMethod.Title" = "How do you want?";
+"ChooseCallMethod.Audio" = "Audio";
+"ChooseCallMethod.Video" = "Video";
+"ChooseCallMethod.Schedule" = "Schedule call for another time";
+
+// MARK: ScheduleCall
+"ScheduleCall.Title" = "When Santa should call?";
+"ScheduleCall.Date" = "Date";
+"ScheduleCall.Time" = "Time";
+"CreateScheduleCall.InvalidDate.Title" = "Invalid date time";
+"CreateScheduleCall.InvalidDate.Text" = "You cannot select a date in the past tense.";

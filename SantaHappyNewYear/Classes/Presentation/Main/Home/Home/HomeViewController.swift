@@ -26,6 +26,26 @@ final class HomeViewController: UIViewController {
                 base.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        mainView.callSantaButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                let vc = ChooseCallMethodViewController.make { result in
+                    switch result {
+                    case .nowAudio:
+                        print("nowAudio") // TODO
+                    case .nowVideo:
+                        print("nowVideo") // TODO
+                    case .scheduleAudio:
+                        let vc = ScheduleCallViewController.make(callMethod: .audio)
+                        base.present(vc, animated: false)
+                    case .scheduleVideo:
+                        let vc = ScheduleCallViewController.make(callMethod: .video)
+                        base.present(vc, animated: false)
+                    }
+                }
+                base.present(vc, animated: false)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

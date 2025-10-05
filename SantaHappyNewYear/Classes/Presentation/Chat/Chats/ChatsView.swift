@@ -27,7 +27,7 @@ final class ChatsView: UIView {
 // MARK: Private
 private extension ChatsView {
     func initialize() {
-        backgroundColor = Appearance.custom245_236_229
+        backgroundColor = Appearance.main200
     }
 }
 

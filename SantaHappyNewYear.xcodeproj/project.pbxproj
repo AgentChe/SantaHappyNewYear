@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		03FBCBD127171E8BE25ACBDE /* Pods_SantaHappyNewYear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F26B083FDB382D9325FD39F0 /* Pods_SantaHappyNewYear.framework */; };
 		DE2521022E8FEEE700557C74 /* ChatSpeechToTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521012E8FEEE700557C74 /* ChatSpeechToTextService.swift */; };
+		DE2521062E901C2C00557C74 /* ChooseCallMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521052E901C2C00557C74 /* ChooseCallMethodViewController.swift */; };
+		DE2521082E901C3D00557C74 /* ChooseCallMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521072E901C3D00557C74 /* ChooseCallMethodView.swift */; };
+		DE25210B2E901E8300557C74 /* CCMMethodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25210A2E901E8300557C74 /* CCMMethodButton.swift */; };
+		DE25210D2E90235F00557C74 /* CCMScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25210C2E90235F00557C74 /* CCMScheduleView.swift */; };
+		DE2521102E9034CF00557C74 /* ScheduleCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25210F2E9034CF00557C74 /* ScheduleCallViewController.swift */; };
+		DE2521122E9034D500557C74 /* ScheduleCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521112E9034D500557C74 /* ScheduleCallView.swift */; };
+		DE2521142E9035F300557C74 /* ScheduleCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521132E9035F300557C74 /* ScheduleCallViewModel.swift */; };
+		DE2521172E9036F600557C74 /* ScheduleCallDateTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521162E9036F600557C74 /* ScheduleCallDateTimeView.swift */; };
+		DE25211B2E92876900557C74 /* ScheduleCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25211A2E92876900557C74 /* ScheduleCall.swift */; };
+		DE25211D2E9287C000557C74 /* CallsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25211C2E9287C000557C74 /* CallsManager.swift */; };
+		DE25211F2E9287C700557C74 /* CallsMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25211E2E9287C700557C74 /* CallsMediator.swift */; };
+		DE2521222E9294AC00557C74 /* CSCInvalidDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521212E9294AC00557C74 /* CSCInvalidDateViewController.swift */; };
+		DE2521242E9294B900557C74 /* CSCInvalidDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521232E9294B900557C74 /* CSCInvalidDateView.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -132,6 +145,19 @@
 /* Begin PBXFileReference section */
 		11B7ECF170F9DF4B7EF9C3D0 /* Pods-SantaHappyNewYear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SantaHappyNewYear.debug.xcconfig"; path = "Target Support Files/Pods-SantaHappyNewYear/Pods-SantaHappyNewYear.debug.xcconfig"; sourceTree = "<group>"; };
 		DE2521012E8FEEE700557C74 /* ChatSpeechToTextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSpeechToTextService.swift; sourceTree = "<group>"; };
+		DE2521052E901C2C00557C74 /* ChooseCallMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCallMethodViewController.swift; sourceTree = "<group>"; };
+		DE2521072E901C3D00557C74 /* ChooseCallMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCallMethodView.swift; sourceTree = "<group>"; };
+		DE25210A2E901E8300557C74 /* CCMMethodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCMMethodButton.swift; sourceTree = "<group>"; };
+		DE25210C2E90235F00557C74 /* CCMScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCMScheduleView.swift; sourceTree = "<group>"; };
+		DE25210F2E9034CF00557C74 /* ScheduleCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallViewController.swift; sourceTree = "<group>"; };
+		DE2521112E9034D500557C74 /* ScheduleCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallView.swift; sourceTree = "<group>"; };
+		DE2521132E9035F300557C74 /* ScheduleCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallViewModel.swift; sourceTree = "<group>"; };
+		DE2521162E9036F600557C74 /* ScheduleCallDateTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallDateTimeView.swift; sourceTree = "<group>"; };
+		DE25211A2E92876900557C74 /* ScheduleCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCall.swift; sourceTree = "<group>"; };
+		DE25211C2E9287C000557C74 /* CallsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsManager.swift; sourceTree = "<group>"; };
+		DE25211E2E9287C700557C74 /* CallsMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsMediator.swift; sourceTree = "<group>"; };
+		DE2521212E9294AC00557C74 /* CSCInvalidDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCInvalidDateViewController.swift; sourceTree = "<group>"; };
+		DE2521232E9294B900557C74 /* CSCInvalidDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCInvalidDateView.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -291,6 +317,81 @@
 				DE2521012E8FEEE700557C74 /* ChatSpeechToTextService.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DE2521032E901BFC00557C74 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DE6967232E8E79A3004D4115 /* HomeViewController.swift */,
+				DE6967252E8E79AA004D4115 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DE2521042E901C0500557C74 /* ChooseCallMethod */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521092E901E7100557C74 /* Views */,
+				DE2521052E901C2C00557C74 /* ChooseCallMethodViewController.swift */,
+				DE2521072E901C3D00557C74 /* ChooseCallMethodView.swift */,
+			);
+			path = ChooseCallMethod;
+			sourceTree = "<group>";
+		};
+		DE2521092E901E7100557C74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE25210A2E901E8300557C74 /* CCMMethodButton.swift */,
+				DE25210C2E90235F00557C74 /* CCMScheduleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE25210E2E9034BA00557C74 /* ScheduleCall */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521152E9036E900557C74 /* Views */,
+				DE25210F2E9034CF00557C74 /* ScheduleCallViewController.swift */,
+				DE2521132E9035F300557C74 /* ScheduleCallViewModel.swift */,
+				DE2521112E9034D500557C74 /* ScheduleCallView.swift */,
+			);
+			path = ScheduleCall;
+			sourceTree = "<group>";
+		};
+		DE2521152E9036E900557C74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521202E92949400557C74 /* InvalidDate */,
+				DE2521162E9036F600557C74 /* ScheduleCallDateTimeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE2521182E92874F00557C74 /* Calls */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521192E92875400557C74 /* Model */,
+				DE25211C2E9287C000557C74 /* CallsManager.swift */,
+				DE25211E2E9287C700557C74 /* CallsMediator.swift */,
+			);
+			path = Calls;
+			sourceTree = "<group>";
+		};
+		DE2521192E92875400557C74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE25211A2E92876900557C74 /* ScheduleCall.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE2521202E92949400557C74 /* InvalidDate */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521212E9294AC00557C74 /* CSCInvalidDateViewController.swift */,
+				DE2521232E9294B900557C74 /* CSCInvalidDateView.swift */,
+			);
+			path = InvalidDate;
 			sourceTree = "<group>";
 		};
 		DE69631A2E8D5DA2004D4115 = {
@@ -601,6 +702,7 @@
 		DE6965722E8D60C0004D4115 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521182E92874F00557C74 /* Calls */,
 				DE69673A2E8EB24C004D4115 /* Chat */,
 				DE6965652E8D60C0004D4115 /* Profile */,
 				DE69656F2E8D60C0004D4115 /* Purchase */,
@@ -716,8 +818,9 @@
 		DE6967222E8E799A004D4115 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DE6967232E8E79A3004D4115 /* HomeViewController.swift */,
-				DE6967252E8E79AA004D4115 /* HomeView.swift */,
+				DE25210E2E9034BA00557C74 /* ScheduleCall */,
+				DE2521042E901C0500557C74 /* ChooseCallMethod */,
+				DE2521032E901BFC00557C74 /* Home */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -973,6 +1076,7 @@
 			files = (
 				DE6967262E8E79AA004D4115 /* HomeView.swift in Sources */,
 				DE6965752E8D60C0004D4115 /* UIColor+Extension.swift in Sources */,
+				DE25210B2E901E8300557C74 /* CCMMethodButton.swift in Sources */,
 				DE6965802E8D60C0004D4115 /* ProductPrice.swift in Sources */,
 				DE6965812E8D60C0004D4115 /* ProfileBindingRequest.swift in Sources */,
 				DE69658A2E8D60C0004D4115 /* PaygateInfoCell.swift in Sources */,
@@ -989,11 +1093,14 @@
 				DE6965BE2E8D60C0004D4115 /* Weak.swift in Sources */,
 				DE6965C22E8D60C0004D4115 /* ObservableRetrySingle.swift in Sources */,
 				DE6965C42E8D60C0004D4115 /* PaygateInfoView.swift in Sources */,
+				DE2521082E901C3D00557C74 /* ChooseCallMethodView.swift in Sources */,
 				DE6965C72E8D60C0004D4115 /* Currency.swift in Sources */,
 				DE6967012E8E562A004D4115 /* MainCoordinator.swift in Sources */,
 				DE6965C92E8D60C0004D4115 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE69670A2E8E6025004D4115 /* SettingsViewController.swift in Sources */,
+				DE25210D2E90235F00557C74 /* CCMScheduleView.swift in Sources */,
 				DE6965CD2E8D60C0004D4115 /* PaygateViewController.swift in Sources */,
+				DE2521102E9034CF00557C74 /* ScheduleCallViewController.swift in Sources */,
 				DE6967192E8E6252004D4115 /* SettingsTableLinksCell.swift in Sources */,
 				DE69673B2E8EB24C004D4115 /* DeleteChatRequest.swift in Sources */,
 				DE69673C2E8EB24C004D4115 /* ChatMessagesPage.swift in Sources */,
@@ -1008,6 +1115,8 @@
 				DE6967452E8EB24C004D4115 /* GetChatsRequest.swift in Sources */,
 				DE6967462E8EB24C004D4115 /* ChatManager.swift in Sources */,
 				DE6967472E8EB24C004D4115 /* Chat.swift in Sources */,
+				DE2521172E9036F600557C74 /* ScheduleCallDateTimeView.swift in Sources */,
+				DE25211D2E9287C000557C74 /* CallsManager.swift in Sources */,
 				DE6967482E8EB24C004D4115 /* ChatMessage.swift in Sources */,
 				DE6965D22E8D60C0004D4115 /* TryAgainViewController.swift in Sources */,
 				DE6965DA2E8D60C0004D4115 /* SessionManager.swift in Sources */,
@@ -1025,6 +1134,7 @@
 				DE6967762E8EB26E004D4115 /* ChatsViewController.swift in Sources */,
 				DE6967792E8EB26E004D4115 /* ChatsViewModel.swift in Sources */,
 				DE69677A2E8EB26E004D4115 /* ChatTableView.swift in Sources */,
+				DE2521222E9294AC00557C74 /* CSCInvalidDateViewController.swift in Sources */,
 				DE69677B2E8EB26E004D4115 /* ChatTableElement.swift in Sources */,
 				DE69677D2E8EB26E004D4115 /* ChatViewController.swift in Sources */,
 				DE69677E2E8EB26E004D4115 /* ChatLoadingCell.swift in Sources */,
@@ -1036,13 +1146,16 @@
 				DE6967142E8E6239004D4115 /* SettingsTableElement.swift in Sources */,
 				DE6966142E8D60C0004D4115 /* RequestReview.swift in Sources */,
 				DE6966172E8D60C0004D4115 /* APIFormDataRequestBody.swift in Sources */,
+				DE2521242E9294B900557C74 /* CSCInvalidDateView.swift in Sources */,
 				DE69661A2E8D60C0004D4115 /* NavigationControllerSettings.swift in Sources */,
 				DE69661D2E8D60C0004D4115 /* SplashViewModel.swift in Sources */,
 				DE69661F2E8D60C0004D4115 /* PaygateActionsView.swift in Sources */,
 				DE6966292E8D60C0004D4115 /* ProfileManager.swift in Sources */,
+				DE2521142E9035F300557C74 /* ScheduleCallViewModel.swift in Sources */,
 				DE69662B2E8D60C0004D4115 /* NavigationController.swift in Sources */,
 				DE69662C2E8D60C0004D4115 /* ScreenSize.swift in Sources */,
 				DE2521022E8FEEE700557C74 /* ChatSpeechToTextService.swift in Sources */,
+				DE25211B2E92876900557C74 /* ScheduleCall.swift in Sources */,
 				DE6966312E8D60C0004D4115 /* ProfileCreateRequest.swift in Sources */,
 				DE6967172E8E6248004D4115 /* SettingsTableUpgradeCell.swift in Sources */,
 				DE6966342E8D60C0004D4115 /* PaygateViewModel.swift in Sources */,
@@ -1053,6 +1166,7 @@
 				DE6966492E8D60C0004D4115 /* IAPErrorHelper.swift in Sources */,
 				DE6966512E8D60C0004D4115 /* GradientView.swift in Sources */,
 				DE6966562E8D60C0004D4115 /* SceneDelegate.swift in Sources */,
+				DE25211F2E9287C700557C74 /* CallsMediator.swift in Sources */,
 				DE69665E2E8D60C0004D4115 /* TakePhoto.swift in Sources */,
 				DE6966FD2E8E55FD004D4115 /* MainViewController.swift in Sources */,
 				DE6966642E8D60C0004D4115 /* PaygateProductButton.swift in Sources */,
@@ -1063,6 +1177,7 @@
 				DE6966922E8D60C0004D4115 /* Fonts.swift in Sources */,
 				DE6966942E8D60C0004D4115 /* IAPActionResult.swift in Sources */,
 				DE6966952E8D60C0004D4115 /* IAPProduct.swift in Sources */,
+				DE2521062E901C2C00557C74 /* ChooseCallMethodViewController.swift in Sources */,
 				DE69669A2E8D60C0004D4115 /* PaygateBestOfferView.swift in Sources */,
 				DE6966A82E8D60C0004D4115 /* NetworkError.swift in Sources */,
 				DE6966AD2E8D60C0004D4115 /* IAPManager.swift in Sources */,
@@ -1080,6 +1195,7 @@
 				DE6966DA2E8D60C0004D4115 /* PurchaseValidationObserver.swift in Sources */,
 				DE6966DE2E8D60C0004D4115 /* Scalable.swift in Sources */,
 				DE6967812E8EDCFB004D4115 /* ChatsTableElement.swift in Sources */,
+				DE2521122E9034D500557C74 /* ScheduleCallView.swift in Sources */,
 				DE6966E12E8D60C0004D4115 /* Appearance.swift in Sources */,
 				DE69670C2E8E602A004D4115 /* SettingsViewModel.swift in Sources */,
 			);
@@ -1113,8 +1229,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7FN7933CDF;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SantaHappyNewYear/Info.plist;
@@ -1131,8 +1250,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = akosnt17.aienglish2.dev.SantaHappyNewYear;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.vin.proverka.auto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Proverka Auto Development";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1149,8 +1270,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7FN7933CDF;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SantaHappyNewYear/Info.plist;
@@ -1167,8 +1291,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = akosnt17.aienglish2.dev.SantaHappyNewYear;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.vin.proverka.auto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Proverka Auto Development";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.10.2)
-  - Kingfisher (8.5.0)
   - OtterScaleiOS (1.26)
   - RxCocoa (6.9.0):
     - RxRelay (= 6.9.0)
@@ -9,26 +8,21 @@ PODS:
     - RxSwift (= 6.9.0)
   - RxSwift (6.9.0)
   - SwiftyStoreKit (0.16.1)
-  - Toast-Swift (5.1.1)
 
 DEPENDENCIES:
   - Alamofire
-  - Kingfisher
   - OtterScaleiOS (from `https://github.com/AgentChe/OtterScaleiOS.git`)
   - RxCocoa
   - RxSwift
   - SwiftyStoreKit
-  - Toast-Swift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - Kingfisher
     - RxCocoa
     - RxRelay
     - RxSwift
     - SwiftyStoreKit
-    - Toast-Swift
 
 EXTERNAL SOURCES:
   OtterScaleiOS:
@@ -41,14 +35,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
-  Kingfisher: ff0d31a1f07bdff6a1ebb3ba08b8e6e567b6500c
   OtterScaleiOS: 7797bb943c69572cd25a6118939ddb7c4684f03c
   RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
-  Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
 
-PODFILE CHECKSUM: 3cb3feef668a53a1213f45bc9dc40798c79baed9
+PODFILE CHECKSUM: a8a6d0289f3fd5846391a2fc9ed0b49d56ba46d6
 
 COCOAPODS: 1.16.2
