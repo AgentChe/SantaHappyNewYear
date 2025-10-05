@@ -13,15 +13,21 @@
 		DE2521082E901C3D00557C74 /* ChooseCallMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521072E901C3D00557C74 /* ChooseCallMethodView.swift */; };
 		DE25210B2E901E8300557C74 /* CCMMethodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25210A2E901E8300557C74 /* CCMMethodButton.swift */; };
 		DE25210D2E90235F00557C74 /* CCMScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25210C2E90235F00557C74 /* CCMScheduleView.swift */; };
-		DE2521102E9034CF00557C74 /* ScheduleCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25210F2E9034CF00557C74 /* ScheduleCallViewController.swift */; };
-		DE2521122E9034D500557C74 /* ScheduleCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521112E9034D500557C74 /* ScheduleCallView.swift */; };
-		DE2521142E9035F300557C74 /* ScheduleCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521132E9035F300557C74 /* ScheduleCallViewModel.swift */; };
-		DE2521172E9036F600557C74 /* ScheduleCallDateTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521162E9036F600557C74 /* ScheduleCallDateTimeView.swift */; };
+		DE2521102E9034CF00557C74 /* CreateScheduleCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25210F2E9034CF00557C74 /* CreateScheduleCallViewController.swift */; };
+		DE2521122E9034D500557C74 /* CreateScheduleCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521112E9034D500557C74 /* CreateScheduleCallView.swift */; };
+		DE2521142E9035F300557C74 /* CreateScheduleCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521132E9035F300557C74 /* CreateScheduleCallViewModel.swift */; };
+		DE2521172E9036F600557C74 /* CreateScheduleCallDateTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521162E9036F600557C74 /* CreateScheduleCallDateTimeView.swift */; };
 		DE25211B2E92876900557C74 /* ScheduleCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25211A2E92876900557C74 /* ScheduleCall.swift */; };
 		DE25211D2E9287C000557C74 /* CallsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25211C2E9287C000557C74 /* CallsManager.swift */; };
 		DE25211F2E9287C700557C74 /* CallsMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25211E2E9287C700557C74 /* CallsMediator.swift */; };
 		DE2521222E9294AC00557C74 /* CSCInvalidDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521212E9294AC00557C74 /* CSCInvalidDateViewController.swift */; };
 		DE2521242E9294B900557C74 /* CSCInvalidDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521232E9294B900557C74 /* CSCInvalidDateView.swift */; };
+		DE2521272E929C4700557C74 /* HomeActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521262E929C4700557C74 /* HomeActionsView.swift */; };
+		DE2521292E929E7400557C74 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521282E929E7400557C74 /* HomeViewModel.swift */; };
+		DE25212C2E929FE800557C74 /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25212B2E929FE800557C74 /* HomeTableView.swift */; };
+		DE25212E2E929FEE00557C74 /* HomeTableScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25212D2E929FEE00557C74 /* HomeTableScheduleCell.swift */; };
+		DE2521302E92A22600557C74 /* HomeTableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25212F2E92A22600557C74 /* HomeTableContainer.swift */; };
+		DE2521332E92AB6F00557C74 /* HomeTableScheduleActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521322E92AB6F00557C74 /* HomeTableScheduleActionButton.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -149,15 +155,21 @@
 		DE2521072E901C3D00557C74 /* ChooseCallMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCallMethodView.swift; sourceTree = "<group>"; };
 		DE25210A2E901E8300557C74 /* CCMMethodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCMMethodButton.swift; sourceTree = "<group>"; };
 		DE25210C2E90235F00557C74 /* CCMScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCMScheduleView.swift; sourceTree = "<group>"; };
-		DE25210F2E9034CF00557C74 /* ScheduleCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallViewController.swift; sourceTree = "<group>"; };
-		DE2521112E9034D500557C74 /* ScheduleCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallView.swift; sourceTree = "<group>"; };
-		DE2521132E9035F300557C74 /* ScheduleCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallViewModel.swift; sourceTree = "<group>"; };
-		DE2521162E9036F600557C74 /* ScheduleCallDateTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallDateTimeView.swift; sourceTree = "<group>"; };
+		DE25210F2E9034CF00557C74 /* CreateScheduleCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleCallViewController.swift; sourceTree = "<group>"; };
+		DE2521112E9034D500557C74 /* CreateScheduleCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleCallView.swift; sourceTree = "<group>"; };
+		DE2521132E9035F300557C74 /* CreateScheduleCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleCallViewModel.swift; sourceTree = "<group>"; };
+		DE2521162E9036F600557C74 /* CreateScheduleCallDateTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleCallDateTimeView.swift; sourceTree = "<group>"; };
 		DE25211A2E92876900557C74 /* ScheduleCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCall.swift; sourceTree = "<group>"; };
 		DE25211C2E9287C000557C74 /* CallsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsManager.swift; sourceTree = "<group>"; };
 		DE25211E2E9287C700557C74 /* CallsMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsMediator.swift; sourceTree = "<group>"; };
 		DE2521212E9294AC00557C74 /* CSCInvalidDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCInvalidDateViewController.swift; sourceTree = "<group>"; };
 		DE2521232E9294B900557C74 /* CSCInvalidDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCInvalidDateView.swift; sourceTree = "<group>"; };
+		DE2521262E929C4700557C74 /* HomeActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActionsView.swift; sourceTree = "<group>"; };
+		DE2521282E929E7400557C74 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DE25212B2E929FE800557C74 /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
+		DE25212D2E929FEE00557C74 /* HomeTableScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableScheduleCell.swift; sourceTree = "<group>"; };
+		DE25212F2E92A22600557C74 /* HomeTableContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableContainer.swift; sourceTree = "<group>"; };
+		DE2521322E92AB6F00557C74 /* HomeTableScheduleActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableScheduleActionButton.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -322,7 +334,9 @@
 		DE2521032E901BFC00557C74 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521252E929C2700557C74 /* Views */,
 				DE6967232E8E79A3004D4115 /* HomeViewController.swift */,
+				DE2521282E929E7400557C74 /* HomeViewModel.swift */,
 				DE6967252E8E79AA004D4115 /* HomeView.swift */,
 			);
 			path = Home;
@@ -347,22 +361,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		DE25210E2E9034BA00557C74 /* ScheduleCall */ = {
+		DE25210E2E9034BA00557C74 /* CreateScheduleCall */ = {
 			isa = PBXGroup;
 			children = (
 				DE2521152E9036E900557C74 /* Views */,
-				DE25210F2E9034CF00557C74 /* ScheduleCallViewController.swift */,
-				DE2521132E9035F300557C74 /* ScheduleCallViewModel.swift */,
-				DE2521112E9034D500557C74 /* ScheduleCallView.swift */,
+				DE25210F2E9034CF00557C74 /* CreateScheduleCallViewController.swift */,
+				DE2521132E9035F300557C74 /* CreateScheduleCallViewModel.swift */,
+				DE2521112E9034D500557C74 /* CreateScheduleCallView.swift */,
 			);
-			path = ScheduleCall;
+			path = CreateScheduleCall;
 			sourceTree = "<group>";
 		};
 		DE2521152E9036E900557C74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DE2521202E92949400557C74 /* InvalidDate */,
-				DE2521162E9036F600557C74 /* ScheduleCallDateTimeView.swift */,
+				DE2521162E9036F600557C74 /* CreateScheduleCallDateTimeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -392,6 +406,34 @@
 				DE2521232E9294B900557C74 /* CSCInvalidDateView.swift */,
 			);
 			path = InvalidDate;
+			sourceTree = "<group>";
+		};
+		DE2521252E929C2700557C74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE25212A2E929FDF00557C74 /* TableView */,
+				DE2521262E929C4700557C74 /* HomeActionsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE25212A2E929FDF00557C74 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521312E92AB4400557C74 /* ScheduleCell */,
+				DE25212B2E929FE800557C74 /* HomeTableView.swift */,
+				DE25212F2E92A22600557C74 /* HomeTableContainer.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE2521312E92AB4400557C74 /* ScheduleCell */ = {
+			isa = PBXGroup;
+			children = (
+				DE25212D2E929FEE00557C74 /* HomeTableScheduleCell.swift */,
+				DE2521322E92AB6F00557C74 /* HomeTableScheduleActionButton.swift */,
+			);
+			path = ScheduleCell;
 			sourceTree = "<group>";
 		};
 		DE69631A2E8D5DA2004D4115 = {
@@ -818,7 +860,7 @@
 		DE6967222E8E799A004D4115 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DE25210E2E9034BA00557C74 /* ScheduleCall */,
+				DE25210E2E9034BA00557C74 /* CreateScheduleCall */,
 				DE2521042E901C0500557C74 /* ChooseCallMethod */,
 				DE2521032E901BFC00557C74 /* Home */,
 			);
@@ -1077,6 +1119,7 @@
 				DE6967262E8E79AA004D4115 /* HomeView.swift in Sources */,
 				DE6965752E8D60C0004D4115 /* UIColor+Extension.swift in Sources */,
 				DE25210B2E901E8300557C74 /* CCMMethodButton.swift in Sources */,
+				DE2521272E929C4700557C74 /* HomeActionsView.swift in Sources */,
 				DE6965802E8D60C0004D4115 /* ProductPrice.swift in Sources */,
 				DE6965812E8D60C0004D4115 /* ProfileBindingRequest.swift in Sources */,
 				DE69658A2E8D60C0004D4115 /* PaygateInfoCell.swift in Sources */,
@@ -1100,7 +1143,7 @@
 				DE69670A2E8E6025004D4115 /* SettingsViewController.swift in Sources */,
 				DE25210D2E90235F00557C74 /* CCMScheduleView.swift in Sources */,
 				DE6965CD2E8D60C0004D4115 /* PaygateViewController.swift in Sources */,
-				DE2521102E9034CF00557C74 /* ScheduleCallViewController.swift in Sources */,
+				DE2521102E9034CF00557C74 /* CreateScheduleCallViewController.swift in Sources */,
 				DE6967192E8E6252004D4115 /* SettingsTableLinksCell.swift in Sources */,
 				DE69673B2E8EB24C004D4115 /* DeleteChatRequest.swift in Sources */,
 				DE69673C2E8EB24C004D4115 /* ChatMessagesPage.swift in Sources */,
@@ -1110,12 +1153,14 @@
 				DE6967402E8EB24C004D4115 /* CreateChatResponse.swift in Sources */,
 				DE6967412E8EB24C004D4115 /* CheckMessageCompleteRequest.swift in Sources */,
 				DE6967422E8EB24C004D4115 /* SendMessageResponse.swift in Sources */,
+				DE2521292E929E7400557C74 /* HomeViewModel.swift in Sources */,
 				DE6967432E8EB24C004D4115 /* ChatMessageRunner.swift in Sources */,
+				DE2521302E92A22600557C74 /* HomeTableContainer.swift in Sources */,
 				DE6967442E8EB24C004D4115 /* CreateChatRequest.swift in Sources */,
 				DE6967452E8EB24C004D4115 /* GetChatsRequest.swift in Sources */,
 				DE6967462E8EB24C004D4115 /* ChatManager.swift in Sources */,
 				DE6967472E8EB24C004D4115 /* Chat.swift in Sources */,
-				DE2521172E9036F600557C74 /* ScheduleCallDateTimeView.swift in Sources */,
+				DE2521172E9036F600557C74 /* CreateScheduleCallDateTimeView.swift in Sources */,
 				DE25211D2E9287C000557C74 /* CallsManager.swift in Sources */,
 				DE6967482E8EB24C004D4115 /* ChatMessage.swift in Sources */,
 				DE6965D22E8D60C0004D4115 /* TryAgainViewController.swift in Sources */,
@@ -1151,11 +1196,13 @@
 				DE69661D2E8D60C0004D4115 /* SplashViewModel.swift in Sources */,
 				DE69661F2E8D60C0004D4115 /* PaygateActionsView.swift in Sources */,
 				DE6966292E8D60C0004D4115 /* ProfileManager.swift in Sources */,
-				DE2521142E9035F300557C74 /* ScheduleCallViewModel.swift in Sources */,
+				DE2521142E9035F300557C74 /* CreateScheduleCallViewModel.swift in Sources */,
 				DE69662B2E8D60C0004D4115 /* NavigationController.swift in Sources */,
 				DE69662C2E8D60C0004D4115 /* ScreenSize.swift in Sources */,
+				DE25212C2E929FE800557C74 /* HomeTableView.swift in Sources */,
 				DE2521022E8FEEE700557C74 /* ChatSpeechToTextService.swift in Sources */,
 				DE25211B2E92876900557C74 /* ScheduleCall.swift in Sources */,
+				DE2521332E92AB6F00557C74 /* HomeTableScheduleActionButton.swift in Sources */,
 				DE6966312E8D60C0004D4115 /* ProfileCreateRequest.swift in Sources */,
 				DE6967172E8E6248004D4115 /* SettingsTableUpgradeCell.swift in Sources */,
 				DE6966342E8D60C0004D4115 /* PaygateViewModel.swift in Sources */,
@@ -1166,6 +1213,7 @@
 				DE6966492E8D60C0004D4115 /* IAPErrorHelper.swift in Sources */,
 				DE6966512E8D60C0004D4115 /* GradientView.swift in Sources */,
 				DE6966562E8D60C0004D4115 /* SceneDelegate.swift in Sources */,
+				DE25212E2E929FEE00557C74 /* HomeTableScheduleCell.swift in Sources */,
 				DE25211F2E9287C700557C74 /* CallsMediator.swift in Sources */,
 				DE69665E2E8D60C0004D4115 /* TakePhoto.swift in Sources */,
 				DE6966FD2E8E55FD004D4115 /* MainViewController.swift in Sources */,
@@ -1195,7 +1243,7 @@
 				DE6966DA2E8D60C0004D4115 /* PurchaseValidationObserver.swift in Sources */,
 				DE6966DE2E8D60C0004D4115 /* Scalable.swift in Sources */,
 				DE6967812E8EDCFB004D4115 /* ChatsTableElement.swift in Sources */,
-				DE2521122E9034D500557C74 /* ScheduleCallView.swift in Sources */,
+				DE2521122E9034D500557C74 /* CreateScheduleCallView.swift in Sources */,
 				DE6966E12E8D60C0004D4115 /* Appearance.swift in Sources */,
 				DE69670C2E8E602A004D4115 /* SettingsViewModel.swift in Sources */,
 			);

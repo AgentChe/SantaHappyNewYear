@@ -1,5 +1,5 @@
 //
-//  ScheduleCallViewController.swift
+//  CreateScheduleCallViewController.swift
 //  SantaHappyNewYear
 //
 //  Created by Андрей Чернышев on 03.10.2025.
@@ -9,19 +9,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ScheduleCallViewController: UIViewController {
+final class CreateScheduleCallViewController: UIViewController {
     enum CallMethod {
         case audio, video
     }
     
-    private lazy var mainView = ScheduleCallView()
+    private lazy var mainView = CreateScheduleCallView()
     
-    private let viewModel: ScheduleCallViewModel
+    private let viewModel: CreateScheduleCallViewModel
     
     private lazy var disposeBag = DisposeBag()
     
     private init(callMethod: CallMethod) {
-        viewModel = ScheduleCallViewModel(callMethod: callMethod)
+        viewModel = CreateScheduleCallViewModel(callMethod: callMethod)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -55,7 +55,7 @@ final class ScheduleCallViewController: UIViewController {
             }
             .asSignal(onErrorSignalWith: .never())
         
-        let output = viewModel.configure(input: ScheduleCallViewModel.Input(
+        let output = viewModel.configure(input: CreateScheduleCallViewModel.Input(
             didTapSave: didTapSave
         ))
         
@@ -74,17 +74,17 @@ final class ScheduleCallViewController: UIViewController {
 }
 
 // MARK: Public
-extension ScheduleCallViewController {
-    static func make(callMethod: CallMethod) -> ScheduleCallViewController {
-        let vc = ScheduleCallViewController(callMethod: callMethod)
+extension CreateScheduleCallViewController {
+    static func make(callMethod: CallMethod) -> CreateScheduleCallViewController {
+        let vc = CreateScheduleCallViewController(callMethod: callMethod)
         vc.modalPresentationStyle = .overFullScreen
         return vc
     }
 }
 
 // MARK: Private
-private extension ScheduleCallViewController {
-    func action(_ action: ScheduleCallViewModel.Action) {
+private extension CreateScheduleCallViewController {
+    func action(_ action: CreateScheduleCallViewModel.Action) {
         switch action {
         case .notifyInvalidDate:
             let vc = CSCInvalidDateViewController.make()

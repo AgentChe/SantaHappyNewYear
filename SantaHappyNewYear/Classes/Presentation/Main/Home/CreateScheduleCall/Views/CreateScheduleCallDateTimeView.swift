@@ -1,12 +1,5 @@
 //
-//  ScheduleCallDateTimeView.swift
-//  SantaHappyNewYear
-//
-//  Created by Андрей Чернышев on 03.10.2025.
-//
-
-//
-//  ScheduleCallDateTimeView.swift
+//  CreateScheduleCallDateTimeView.swift
 //  SantaHappyNewYear
 //
 //  Created by Андрей Чернышев on 03.10.2025.
@@ -126,8 +119,8 @@ private extension ScheduleCallDateTimeView {
         let view = UILabel()
         view.attributedText = {
             switch dateTime {
-            case .date: return "ScheduleCall.Date".localized.attributed(with: attrs)
-            case .time: return "ScheduleCall.Time".localized.attributed(with: attrs)
+            case .date: return "CreateScheduleCall.Date".localized.attributed(with: attrs)
+            case .time: return "CreateScheduleCall.Time".localized.attributed(with: attrs)
             }
         }()
         view.translatesAutoresizingMaskIntoConstraints = false

@@ -9,9 +9,10 @@ import UIKit
 
 final class HomeView: UIView {
     lazy var imageView = makeImageView()
-    lazy var textLabel = makeTextLabel()
-    lazy var callSantaButton = makeCallSantaButton()
-    lazy var writeMessageButton = makeWriteMessageButton()
+    lazy var actionsView = makeActionsView()
+    lazy var tableContainer = makeTableContainer()
+    
+    private lazy var actionsViewBottomConstraint = NSLayoutConstraint()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +23,23 @@ final class HomeView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: Public
+extension HomeView {
+    func setup(elements: [ScheduleCall]) {
+        let isEmpty = elements.isEmpty
+        
+        tableContainer.isHidden = isEmpty
+        
+        actionsViewBottomConstraint.isActive = false
+        actionsViewBottomConstraint.constant = isEmpty ? 0 : -80.scale
+        actionsViewBottomConstraint.isActive = true
+        
+        tableContainer.tableView.setup(elements: elements)
+        
+        layoutIfNeeded()
     }
 }
 
@@ -42,23 +60,18 @@ private extension HomeView {
             imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 730 / 874)
         ])
         
+        actionsViewBottomConstraint = actionsView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
         NSLayoutConstraint.activate([
-            textLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            textLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -80.scale)
+            actionsView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            actionsView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            actionsViewBottomConstraint
         ])
         
         NSLayoutConstraint.activate([
-            callSantaButton.widthAnchor.constraint(equalToConstant: 175.scale),
-            callSantaButton.heightAnchor.constraint(equalToConstant: 60.scale),
-            callSantaButton.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -6.scale),
-            callSantaButton.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 20.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            writeMessageButton.widthAnchor.constraint(equalToConstant: 175.scale),
-            writeMessageButton.heightAnchor.constraint(equalToConstant: 60.scale),
-            writeMessageButton.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 6.scale),
-            writeMessageButton.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 20.scale)
+            tableContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableContainer.topAnchor.constraint(equalTo: actionsView.bottomAnchor, constant: 1.scale)
         ])
     }
 }
@@ -75,44 +88,15 @@ private extension HomeView {
         return view
     }
     
-    func makeTextLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.main100)
-            .font(Fonts.PlayfairDisplay.bold(size: 36.scale))
-            .lineHeight(48.scale)
-            .textAlignment(.center)
-        
-        let view = UILabel()
-        view.numberOfLines = 2
-        view.attributedText = "Home.Text".localized.attributed(with: attrs)
+    func makeActionsView() -> HomeActionsView {
+        let view = HomeActionsView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
-    func makeCallSantaButton() -> UIButton {
-        let attrs = TextAttributes()
-            .textColor(Appearance.mono100)
-            .font(Fonts.SFProRounded.medium(size: 17.scale))
-        
-        let view = UIButton()
-        view.setAttributedTitle("Home.CallSanta".localized.attributed(with: attrs), for: .normal)
-        view.backgroundColor = Appearance.main100
-        view.layer.cornerRadius = 30.scale
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeWriteMessageButton() -> UIButton {
-        let attrs = TextAttributes()
-            .textColor(Appearance.mono100)
-            .font(Fonts.SFProRounded.medium(size: 17.scale))
-        
-        let view = UIButton()
-        view.setAttributedTitle("Home.WriteMessage".localized.attributed(with: attrs), for: .normal)
-        view.backgroundColor = Appearance.main100
-        view.layer.cornerRadius = 30.scale
+    func makeTableContainer() -> HomeTableContainer {
+        let view = HomeTableContainer()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

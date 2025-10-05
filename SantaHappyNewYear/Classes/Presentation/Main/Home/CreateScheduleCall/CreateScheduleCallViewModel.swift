@@ -1,5 +1,5 @@
 //
-//  ScheduleCallViewModel.swift
+//  CreateScheduleCallViewModel.swift
 //  SantaHappyNewYear
 //
 //  Created by Андрей Чернышев on 03.10.2025.
@@ -8,23 +8,23 @@
 import RxSwift
 import RxCocoa
 
-final class ScheduleCallViewModel {
+final class CreateScheduleCallViewModel {
     enum Action {
         case notifyInvalidDate
         case close
     }
     
-    private let callMethod: Driver<ScheduleCallViewController.CallMethod>
+    private let callMethod: Driver<CreateScheduleCallViewController.CallMethod>
     
     private lazy var callsManager = CallsManager()
     
-    init(callMethod: ScheduleCallViewController.CallMethod) {
+    init(callMethod: CreateScheduleCallViewController.CallMethod) {
         self.callMethod = BehaviorRelay(value: callMethod).asDriver()
     }
 }
 
 // MARK: Public
-extension ScheduleCallViewModel {
+extension CreateScheduleCallViewModel {
     struct Input {
         let didTapSave: Signal<(Date, Date)>
     }
@@ -44,9 +44,9 @@ extension ScheduleCallViewModel {
 }
 
 // MARK: Private
-private extension ScheduleCallViewModel {
+private extension CreateScheduleCallViewModel {
     func makeAction(
-        callMethod: Driver<ScheduleCallViewController.CallMethod>,
+        callMethod: Driver<CreateScheduleCallViewController.CallMethod>,
         didTapSave: Signal<(Date, Date)>
     ) -> Driver<Action> {
         didTapSave
@@ -78,7 +78,7 @@ private extension ScheduleCallViewModel {
 }
 
 // MARK: Additional
-private extension ScheduleCallViewModel {
+private extension CreateScheduleCallViewModel {
     static func combine(date: Date, time: Date) -> Date {
         let calendar = Calendar.current
         let timeComponents = calendar.dateComponents([.hour, .minute, .second], from: time)

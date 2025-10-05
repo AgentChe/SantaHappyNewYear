@@ -62,6 +62,7 @@
 "Home.Text" = "Welcome to\nSanta’s office";
 "Home.CallSanta" = "Call Santa";
 "Home.WriteMessage" = "Write a message";
+"Home.ScheduleCall.Title" = "Santa will call on";
 
 // MARK: Chats
 "Chats.Title" = "Messages";
@@ -78,9 +79,9 @@
 "ChooseCallMethod.Video" = "Video";
 "ChooseCallMethod.Schedule" = "Schedule call for another time";
 
-// MARK: ScheduleCall
-"ScheduleCall.Title" = "When Santa should call?";
-"ScheduleCall.Date" = "Date";
-"ScheduleCall.Time" = "Time";
+// MARK: CreateScheduleCall
+"CreateScheduleCall.Title" = "When Santa should call?";
+"CreateScheduleCall.Date" = "Date";
+"CreateScheduleCall.Time" = "Time";
 "CreateScheduleCall.InvalidDate.Title" = "Invalid date time";
 "CreateScheduleCall.InvalidDate.Text" = "You cannot select a date in the past tense.";

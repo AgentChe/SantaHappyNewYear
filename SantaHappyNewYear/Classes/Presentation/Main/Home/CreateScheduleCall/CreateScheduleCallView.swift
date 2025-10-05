@@ -1,5 +1,5 @@
 //
-//  ScheduleCallView.swift
+//  CreateScheduleCallView.swift
 //  SantaHappyNewYear
 //
 //  Created by Андрей Чернышев on 03.10.2025.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ScheduleCallView: UIView {
+final class CreateScheduleCallView: UIView {
     lazy var dimmedView = makeDimmedView()
     lazy var container = makeContainer()
     lazy var titleLabel = makeTitleLabel()
@@ -29,7 +29,7 @@ final class ScheduleCallView: UIView {
 }
 
 // MARK: Public
-extension ScheduleCallView {
+extension CreateScheduleCallView {
     func animateShow() {
         containerYConstraint.isActive = false
         containerYConstraint = container.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -27.scale)
@@ -56,7 +56,7 @@ extension ScheduleCallView {
 }
 
 // MARK: Make constraints
-private extension ScheduleCallView {
+private extension CreateScheduleCallView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             dimmedView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -102,7 +102,7 @@ private extension ScheduleCallView {
 }
 
 // MARK: Lazy initialization
-private extension ScheduleCallView {
+private extension CreateScheduleCallView {
     func makeDimmedView() -> UIView {
         let view = UIView()
         view.alpha = 0
@@ -129,7 +129,7 @@ private extension ScheduleCallView {
             .textAlignment(.center)
         
         let view = UILabel()
-        view.attributedText = "ScheduleCall.Title".localized.attributed(with: attrs)
+        view.attributedText = "CreateScheduleCall.Title".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view
