@@ -13,6 +13,7 @@ final class ChatsTableView: UITableView {
     private lazy var elements = [ChatsTableElement]()
     
     private lazy var didSelectTrigger = PublishRelay<Chat>()
+    private lazy var didDeleteTrigger = PublishRelay<Chat>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -35,6 +36,10 @@ extension ChatsTableView {
     
     var didSelect: Signal<Chat> {
         didSelectTrigger.asSignal()
+    }
+    
+    var didDelete: Signal<Chat> {
+        didDeleteTrigger.asSignal()
     }
 }
 
@@ -60,6 +65,25 @@ extension ChatsTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chat = elements[indexPath.row].chat
         didSelectTrigger.accept(chat)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: nil) { [weak self] _, _, completion in
+            guard let self else {
+                completion(false)
+                return
+            }
+            
+            didDeleteTrigger.accept(elements[indexPath.row].chat)
+            
+            completion(true)
+        }
+        delete.image = UIImage(named: "Chats.Delete")
+        delete.backgroundColor = Appearance.main200
+
+        let config = UISwipeActionsConfiguration(actions: [delete])
+        config.performsFirstActionWithFullSwipe = true
+        return config
     }
 }
 

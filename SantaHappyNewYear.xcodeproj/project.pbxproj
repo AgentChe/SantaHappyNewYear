@@ -33,6 +33,8 @@
 		DE25213A2E92B27600557C74 /* ScheduleCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521392E92B27600557C74 /* ScheduleCallView.swift */; };
 		DE25213E2E92B6B500557C74 /* SCConfirmDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25213D2E92B6B500557C74 /* SCConfirmDeleteViewController.swift */; };
 		DE2521402E92B6C000557C74 /* SCConfirmDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25213F2E92B6C000557C74 /* SCConfirmDeleteView.swift */; };
+		DE2521432E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521422E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift */; };
+		DE2521452E93B9AC00557C74 /* ChatsConfirmDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521442E93B9AC00557C74 /* ChatsConfirmDeleteView.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -180,6 +182,8 @@
 		DE2521392E92B27600557C74 /* ScheduleCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallView.swift; sourceTree = "<group>"; };
 		DE25213D2E92B6B500557C74 /* SCConfirmDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConfirmDeleteViewController.swift; sourceTree = "<group>"; };
 		DE25213F2E92B6C000557C74 /* SCConfirmDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConfirmDeleteView.swift; sourceTree = "<group>"; };
+		DE2521422E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsConfirmDeleteViewController.swift; sourceTree = "<group>"; };
+		DE2521442E93B9AC00557C74 /* ChatsConfirmDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsConfirmDeleteView.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -470,6 +474,15 @@
 			children = (
 				DE25213D2E92B6B500557C74 /* SCConfirmDeleteViewController.swift */,
 				DE25213F2E92B6C000557C74 /* SCConfirmDeleteView.swift */,
+			);
+			path = ConfirmDelete;
+			sourceTree = "<group>";
+		};
+		DE2521412E93B98D00557C74 /* ConfirmDelete */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521422E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift */,
+				DE2521442E93B9AC00557C74 /* ChatsConfirmDeleteView.swift */,
 			);
 			path = ConfirmDelete;
 			sourceTree = "<group>";
@@ -1005,6 +1018,7 @@
 		DE6967602E8EB26E004D4115 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521412E93B98D00557C74 /* ConfirmDelete */,
 				DE69675F2E8EB26E004D4115 /* TableView */,
 			);
 			path = Views;
@@ -1166,6 +1180,7 @@
 				DE69658C2E8D60C0004D4115 /* PaygateView.swift in Sources */,
 				DE6965922E8D60C0004D4115 /* ContentError.swift in Sources */,
 				DE69659A2E8D60C0004D4115 /* TryAgainView.swift in Sources */,
+				DE2521452E93B9AC00557C74 /* ChatsConfirmDeleteView.swift in Sources */,
 				DE6965A12E8D60C0004D4115 /* PaddingTextField.swift in Sources */,
 				DE6965A22E8D60C0004D4115 /* XOREncryption.swift in Sources */,
 				DE6965A72E8D60C0004D4115 /* PaygateEnableTrialButton.swift in Sources */,
@@ -1287,6 +1302,7 @@
 				DE6966DA2E8D60C0004D4115 /* PurchaseValidationObserver.swift in Sources */,
 				DE6966DE2E8D60C0004D4115 /* Scalable.swift in Sources */,
 				DE6967812E8EDCFB004D4115 /* ChatsTableElement.swift in Sources */,
+				DE2521432E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift in Sources */,
 				DE2521122E9034D500557C74 /* CreateScheduleCallView.swift in Sources */,
 				DE6966E12E8D60C0004D4115 /* Appearance.swift in Sources */,
 				DE69670C2E8E602A004D4115 /* SettingsViewModel.swift in Sources */,

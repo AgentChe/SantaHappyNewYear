@@ -69,6 +69,8 @@
 "Chats.Title" = "Messages";
 "Chats.Today" = "Today";
 "Chats.Tomorrow" = "Tomorrow";
+"Chats.ConfirmDelete.Title" = "Are you sure?";
+"Chats.ConfirmDelete.Text" = "All messages will be permanently deleted.";
 
 // MARK: Chat
 "Chat.Title" = "New messages";
@@ -90,3 +92,4 @@
 // MARK: ScheduleCall
 "ScheduleCall.ConfirmDelete.Title" = "Are you sure?";
 "ScheduleCall.ConfirmDelete.Text" = "If you delete the notification, Santa won't call you.";
+

@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class ChatsViewController: UIViewController {
     private lazy var mainView = ChatsView()
@@ -14,6 +15,8 @@ final class ChatsViewController: UIViewController {
     private lazy var viewModel = ChatsViewModel()
     
     private lazy var disposeBag = DisposeBag()
+    
+    private lazy var didConfirmDeleteTrigger = PublishRelay<Chat>()
     
     override func loadView() {
         view = mainView
@@ -23,7 +26,9 @@ final class ChatsViewController: UIViewController {
         super.viewDidLoad()
         
         let output = viewModel.configure(input: ChatsViewModel.Input(
-            didSelectChat: mainView.tableView.didSelect
+            didSelectChat: mainView.tableView.didSelect,
+            didTapDelete: mainView.tableView.didDelete,
+            didConfirmDelete: didConfirmDeleteTrigger.asSignal()
         ))
         
         output.action
@@ -62,6 +67,11 @@ private extension ChatsViewController {
         case .openChat(let chat):
             let vc = ChatViewController.make(chat: chat)
             navigationController?.pushViewController(vc, animated: true)
+        case .requestConfirmDelete(let chat):
+            let vc = ChatsConfirmDeleteViewController.make { [weak self] in
+                self?.didConfirmDeleteTrigger.accept(chat)
+            }
+            present(vc, animated: false)
         }
     }
 }
