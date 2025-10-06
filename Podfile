@@ -7,7 +7,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'SantaHappyNewYear' do
   pod 'RxSwift'
   pod 'RxCocoa'
-  
+
   pod 'Alamofire'
   
   pod 'SwiftyStoreKit'

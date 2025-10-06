@@ -35,6 +35,11 @@
 		DE2521402E92B6C000557C74 /* SCConfirmDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25213F2E92B6C000557C74 /* SCConfirmDeleteView.swift */; };
 		DE2521432E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521422E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift */; };
 		DE2521452E93B9AC00557C74 /* ChatsConfirmDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521442E93B9AC00557C74 /* ChatsConfirmDeleteView.swift */; };
+		DE25214D2E93BE9300557C74 /* NotificationsAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521462E93BE9300557C74 /* NotificationsAuthorizationStatus.swift */; };
+		DE25214E2E93BE9300557C74 /* NotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521472E93BE9300557C74 /* NotificationsModel.swift */; };
+		DE2521512E93C05700557C74 /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521502E93C05700557C74 /* LocalNotificationsManager.swift */; };
+		DE2521542E93D74700557C74 /* CSCNotNotificationsPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521532E93D74700557C74 /* CSCNotNotificationsPermissionsView.swift */; };
+		DE2521562E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521552E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -184,6 +189,11 @@
 		DE25213F2E92B6C000557C74 /* SCConfirmDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConfirmDeleteView.swift; sourceTree = "<group>"; };
 		DE2521422E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsConfirmDeleteViewController.swift; sourceTree = "<group>"; };
 		DE2521442E93B9AC00557C74 /* ChatsConfirmDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsConfirmDeleteView.swift; sourceTree = "<group>"; };
+		DE2521462E93BE9300557C74 /* NotificationsAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsAuthorizationStatus.swift; sourceTree = "<group>"; };
+		DE2521472E93BE9300557C74 /* NotificationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsModel.swift; sourceTree = "<group>"; };
+		DE2521502E93C05700557C74 /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
+		DE2521532E93D74700557C74 /* CSCNotNotificationsPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCNotNotificationsPermissionsView.swift; sourceTree = "<group>"; };
+		DE2521552E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCNotNotificationsPermissionsViewController.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -389,6 +399,7 @@
 		DE2521152E9036E900557C74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521522E93D73000557C74 /* NotNotificationsPermissions */,
 				DE2521202E92949400557C74 /* InvalidDate */,
 				DE2521162E9036F600557C74 /* CreateScheduleCallDateTimeView.swift */,
 			);
@@ -485,6 +496,33 @@
 				DE2521442E93B9AC00557C74 /* ChatsConfirmDeleteView.swift */,
 			);
 			path = ConfirmDelete;
+			sourceTree = "<group>";
+		};
+		DE2521482E93BE9300557C74 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521462E93BE9300557C74 /* NotificationsAuthorizationStatus.swift */,
+				DE2521472E93BE9300557C74 /* NotificationsModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DE25214B2E93BE9300557C74 /* PushNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521482E93BE9300557C74 /* Models */,
+				DE2521502E93C05700557C74 /* LocalNotificationsManager.swift */,
+			);
+			path = PushNotifications;
+			sourceTree = "<group>";
+		};
+		DE2521522E93D73000557C74 /* NotNotificationsPermissions */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521552E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift */,
+				DE2521532E93D74700557C74 /* CSCNotNotificationsPermissionsView.swift */,
+			);
+			path = NotNotificationsPermissions;
 			sourceTree = "<group>";
 		};
 		DE69631A2E8D5DA2004D4115 = {
@@ -641,6 +679,7 @@
 		DE6963922E8D60C0004D4115 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				DE25214B2E93BE9300557C74 /* PushNotifications */,
 				DE6963662E8D60C0004D4115 /* Components */,
 				DE69636F2E8D60C0004D4115 /* CustomViews */,
 				DE6963772E8D60C0004D4115 /* Extension */,
@@ -1188,6 +1227,7 @@
 				DE6965B72E8D60C0004D4115 /* SplashViewController.swift in Sources */,
 				DE6965BC2E8D60C0004D4115 /* String+Extension.swift in Sources */,
 				DE6965BE2E8D60C0004D4115 /* Weak.swift in Sources */,
+				DE2521542E93D74700557C74 /* CSCNotNotificationsPermissionsView.swift in Sources */,
 				DE6965C22E8D60C0004D4115 /* ObservableRetrySingle.swift in Sources */,
 				DE6965C42E8D60C0004D4115 /* PaygateInfoView.swift in Sources */,
 				DE2521082E901C3D00557C74 /* ChooseCallMethodView.swift in Sources */,
@@ -1218,6 +1258,8 @@
 				DE25211D2E9287C000557C74 /* CallsManager.swift in Sources */,
 				DE6967482E8EB24C004D4115 /* ChatMessage.swift in Sources */,
 				DE6965D22E8D60C0004D4115 /* TryAgainViewController.swift in Sources */,
+				DE25214D2E93BE9300557C74 /* NotificationsAuthorizationStatus.swift in Sources */,
+				DE25214E2E93BE9300557C74 /* NotificationsModel.swift in Sources */,
 				DE6965DA2E8D60C0004D4115 /* SessionManager.swift in Sources */,
 				DE6967052E8E563C004D4115 /* TabItemButton.swift in Sources */,
 				DE6965EA2E8D60C0004D4115 /* UIDevice+Extension.swift in Sources */,
@@ -1238,6 +1280,7 @@
 				DE69677B2E8EB26E004D4115 /* ChatTableElement.swift in Sources */,
 				DE69677D2E8EB26E004D4115 /* ChatViewController.swift in Sources */,
 				DE69677E2E8EB26E004D4115 /* ChatLoadingCell.swift in Sources */,
+				DE2521562E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift in Sources */,
 				DE69677F2E8EB26E004D4115 /* ChatQuestionTextCell.swift in Sources */,
 				DE6965FB2E8D60C0004D4115 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE69660A2E8D60C0004D4115 /* UIView+RxExtension.swift in Sources */,
@@ -1253,6 +1296,7 @@
 				DE69661D2E8D60C0004D4115 /* SplashViewModel.swift in Sources */,
 				DE69661F2E8D60C0004D4115 /* PaygateActionsView.swift in Sources */,
 				DE6966292E8D60C0004D4115 /* ProfileManager.swift in Sources */,
+				DE2521512E93C05700557C74 /* LocalNotificationsManager.swift in Sources */,
 				DE2521142E9035F300557C74 /* CreateScheduleCallViewModel.swift in Sources */,
 				DE69662B2E8D60C0004D4115 /* NavigationController.swift in Sources */,
 				DE69662C2E8D60C0004D4115 /* ScreenSize.swift in Sources */,

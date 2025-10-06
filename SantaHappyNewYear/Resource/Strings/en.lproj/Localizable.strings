@@ -88,8 +88,13 @@
 "CreateScheduleCall.Time" = "Time";
 "CreateScheduleCall.InvalidDate.Title" = "Invalid date time";
 "CreateScheduleCall.InvalidDate.Text" = "You cannot select a date in the past tense.";
+"CreateScheduleCall.NotNotificationsPermissions.Title" = "Notification permission required.";
+"CreateScheduleCall.NotNotificationsPermissions.Text" = "Go to Settings and grant the app permission to receive notifications. Without this, you won’t be able to schedule Santa’s call.";
 
 // MARK: ScheduleCall
 "ScheduleCall.ConfirmDelete.Title" = "Are you sure?";
 "ScheduleCall.ConfirmDelete.Text" = "If you delete the notification, Santa won't call you.";
 
+// MARK: LocalNotifications
+"LocalNotifications.Content.Title" = "Santa’s Call";
+"LocalNotifications.Content.Body" = "Time to talk to Santa.";

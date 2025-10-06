@@ -20,6 +20,8 @@ final class CreateScheduleCallViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var saveScheduleCallTrigger = PublishRelay<(Date, Date)>()
+    
     private init(callMethod: CallMethod) {
         viewModel = CreateScheduleCallViewModel(callMethod: callMethod)
         
@@ -47,16 +49,9 @@ final class CreateScheduleCallViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        let didTapSave: Signal<(Date, Date)> = mainView.saveButton.rx.tap
-            .compactMap { [weak self] void -> (Date, Date)? in
-                guard let self else { return nil }
-                
-                return (mainView.dateView.selectedDate, mainView.timeView.selectedDate)
-            }
-            .asSignal(onErrorSignalWith: .never())
-        
         let output = viewModel.configure(input: CreateScheduleCallViewModel.Input(
-            didTapSave: didTapSave
+            didTapSave: mainView.saveButton.rx.tap.asSignal(),
+            saveScheduleCall: saveScheduleCallTrigger.asSignal()
         ))
         
         output.action
@@ -91,6 +86,24 @@ private extension CreateScheduleCallViewController {
             present(vc, animated: false)
         case .close:
             dismiss()
+        case .checkNotificationsPermissions:
+            LocalNotificationsManager.shared.retriveAuthorizationStatus { [weak self] status in
+                self?.handle(status: status)
+            }
+        }
+    }
+    
+    func handle(status: NotificationsAuthorizationStatus) {
+        switch status {
+        case .authorized:
+            saveScheduleCallTrigger.accept((mainView.dateView.selectedDate, mainView.timeView.selectedDate))
+        case .notDetermined:
+            LocalNotificationsManager.shared.requestAuthorization { [weak self] status in
+                self?.handle(status: status)
+            }
+        case .denied:
+            let vc = CSCNotNotificationsPermissionsViewController.make()
+            present(vc, animated: false)
         }
     }
     

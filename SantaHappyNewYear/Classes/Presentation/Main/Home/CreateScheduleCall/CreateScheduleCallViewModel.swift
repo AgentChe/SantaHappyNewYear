@@ -12,6 +12,7 @@ final class CreateScheduleCallViewModel {
     enum Action {
         case notifyInvalidDate
         case close
+        case checkNotificationsPermissions
     }
     
     private let callMethod: Driver<CreateScheduleCallViewController.CallMethod>
@@ -26,7 +27,8 @@ final class CreateScheduleCallViewModel {
 // MARK: Public
 extension CreateScheduleCallViewModel {
     struct Input {
-        let didTapSave: Signal<(Date, Date)>
+        let didTapSave: Signal<Void>
+        let saveScheduleCall: Signal<(Date, Date)>
     }
     
     struct Output {
@@ -37,7 +39,8 @@ extension CreateScheduleCallViewModel {
         Output(
             action: makeAction(
                 callMethod: callMethod,
-                didTapSave: input.didTapSave
+                didTapSave: input.didTapSave,
+                saveScheduleCall: input.saveScheduleCall
             )
         )
     }
@@ -47,9 +50,14 @@ extension CreateScheduleCallViewModel {
 private extension CreateScheduleCallViewModel {
     func makeAction(
         callMethod: Driver<CreateScheduleCallViewController.CallMethod>,
-        didTapSave: Signal<(Date, Date)>
+        didTapSave: Signal<Void>,
+        saveScheduleCall: Signal<(Date, Date)>
     ) -> Driver<Action> {
-        didTapSave
+        let checkNotificationsPermissions = didTapSave
+            .map { Action.checkNotificationsPermissions }
+            .asDriver(onErrorDriveWith: .never())
+        
+        let save = saveScheduleCall
             .map { Self.combine(date: $0, time: $1) }
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(callMethod) { ($0, $1) }
@@ -74,6 +82,9 @@ private extension CreateScheduleCallViewModel {
                     .map { _ in Action.close }
                     .asDriver(onErrorDriveWith: .never())
             }
+        
+        return Driver
+            .merge(checkNotificationsPermissions, save)
     }
 }
 

@@ -46,6 +46,7 @@ extension CallsManager: CallsManagerProtocol {
                     single(.success(new))
                     
                     CallsMediator.shared.created(scheduleCall: new)
+                    LocalNotificationsManager.shared.schedule(for: new)
                     
                     return Disposables.create()
                 }
@@ -70,6 +71,8 @@ extension CallsManager: CallsManagerProtocol {
                         single(.success(edited))
                         
                         CallsMediator.shared.edited(scheduleCall: edited)
+                        LocalNotificationsManager.shared.cancel(id: edited.id)
+                        LocalNotificationsManager.shared.schedule(for: edited)
                     } else {
                         single(.success(scheduleCall))
                     }
@@ -93,6 +96,7 @@ extension CallsManager: CallsManagerProtocol {
                     single(.success(Void()))
                     
                     CallsMediator.shared.deleted(scheduleCallId: scheduleCallId)
+                    LocalNotificationsManager.shared.cancel(id: scheduleCallId)
                     
                     return Disposables.create()
                 }
