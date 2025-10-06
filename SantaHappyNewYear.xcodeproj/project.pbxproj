@@ -28,6 +28,11 @@
 		DE25212E2E929FEE00557C74 /* HomeTableScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25212D2E929FEE00557C74 /* HomeTableScheduleCell.swift */; };
 		DE2521302E92A22600557C74 /* HomeTableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25212F2E92A22600557C74 /* HomeTableContainer.swift */; };
 		DE2521332E92AB6F00557C74 /* HomeTableScheduleActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521322E92AB6F00557C74 /* HomeTableScheduleActionButton.swift */; };
+		DE2521362E92B26B00557C74 /* ScheduleCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521352E92B26B00557C74 /* ScheduleCallViewController.swift */; };
+		DE2521382E92B27100557C74 /* ScheduleCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521372E92B27100557C74 /* ScheduleCallViewModel.swift */; };
+		DE25213A2E92B27600557C74 /* ScheduleCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521392E92B27600557C74 /* ScheduleCallView.swift */; };
+		DE25213E2E92B6B500557C74 /* SCConfirmDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25213D2E92B6B500557C74 /* SCConfirmDeleteViewController.swift */; };
+		DE2521402E92B6C000557C74 /* SCConfirmDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25213F2E92B6C000557C74 /* SCConfirmDeleteView.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -170,6 +175,11 @@
 		DE25212D2E929FEE00557C74 /* HomeTableScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableScheduleCell.swift; sourceTree = "<group>"; };
 		DE25212F2E92A22600557C74 /* HomeTableContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableContainer.swift; sourceTree = "<group>"; };
 		DE2521322E92AB6F00557C74 /* HomeTableScheduleActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableScheduleActionButton.swift; sourceTree = "<group>"; };
+		DE2521352E92B26B00557C74 /* ScheduleCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallViewController.swift; sourceTree = "<group>"; };
+		DE2521372E92B27100557C74 /* ScheduleCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallViewModel.swift; sourceTree = "<group>"; };
+		DE2521392E92B27600557C74 /* ScheduleCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCallView.swift; sourceTree = "<group>"; };
+		DE25213D2E92B6B500557C74 /* SCConfirmDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConfirmDeleteViewController.swift; sourceTree = "<group>"; };
+		DE25213F2E92B6C000557C74 /* SCConfirmDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConfirmDeleteView.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -434,6 +444,34 @@
 				DE2521322E92AB6F00557C74 /* HomeTableScheduleActionButton.swift */,
 			);
 			path = ScheduleCell;
+			sourceTree = "<group>";
+		};
+		DE2521342E92B25D00557C74 /* ScheduleCall */ = {
+			isa = PBXGroup;
+			children = (
+				DE25213B2E92B69700557C74 /* Views */,
+				DE2521352E92B26B00557C74 /* ScheduleCallViewController.swift */,
+				DE2521372E92B27100557C74 /* ScheduleCallViewModel.swift */,
+				DE2521392E92B27600557C74 /* ScheduleCallView.swift */,
+			);
+			path = ScheduleCall;
+			sourceTree = "<group>";
+		};
+		DE25213B2E92B69700557C74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE25213C2E92B6A800557C74 /* ConfirmDelete */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE25213C2E92B6A800557C74 /* ConfirmDelete */ = {
+			isa = PBXGroup;
+			children = (
+				DE25213D2E92B6B500557C74 /* SCConfirmDeleteViewController.swift */,
+				DE25213F2E92B6C000557C74 /* SCConfirmDeleteView.swift */,
+			);
+			path = ConfirmDelete;
 			sourceTree = "<group>";
 		};
 		DE69631A2E8D5DA2004D4115 = {
@@ -860,6 +898,7 @@
 		DE6967222E8E799A004D4115 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521342E92B25D00557C74 /* ScheduleCall */,
 				DE25210E2E9034BA00557C74 /* CreateScheduleCall */,
 				DE2521042E901C0500557C74 /* ChooseCallMethod */,
 				DE2521032E901BFC00557C74 /* Home */,
@@ -1174,6 +1213,7 @@
 				DE69676C2E8EB26E004D4115 /* ChatsTableView.swift in Sources */,
 				DE69676F2E8EB26E004D4115 /* ChatsView.swift in Sources */,
 				DE6967702E8EB26E004D4115 /* ChatView.swift in Sources */,
+				DE2521402E92B6C000557C74 /* SCConfirmDeleteView.swift in Sources */,
 				DE6967722E8EB26E004D4115 /* ChatAnswerCell.swift in Sources */,
 				DE6967732E8EB26E004D4115 /* ChatsTableCell.swift in Sources */,
 				DE6967762E8EB26E004D4115 /* ChatsViewController.swift in Sources */,
@@ -1188,9 +1228,11 @@
 				DE69660A2E8D60C0004D4115 /* UIView+RxExtension.swift in Sources */,
 				DE69660B2E8D60C0004D4115 /* NumberLaunches.swift in Sources */,
 				DE6966112E8D60C0004D4115 /* TapAreaButton.swift in Sources */,
+				DE25213E2E92B6B500557C74 /* SCConfirmDeleteViewController.swift in Sources */,
 				DE6967142E8E6239004D4115 /* SettingsTableElement.swift in Sources */,
 				DE6966142E8D60C0004D4115 /* RequestReview.swift in Sources */,
 				DE6966172E8D60C0004D4115 /* APIFormDataRequestBody.swift in Sources */,
+				DE2521382E92B27100557C74 /* ScheduleCallViewModel.swift in Sources */,
 				DE2521242E9294B900557C74 /* CSCInvalidDateView.swift in Sources */,
 				DE69661A2E8D60C0004D4115 /* NavigationControllerSettings.swift in Sources */,
 				DE69661D2E8D60C0004D4115 /* SplashViewModel.swift in Sources */,
@@ -1210,6 +1252,7 @@
 				DE69670E2E8E6030004D4115 /* SettingsView.swift in Sources */,
 				DE6966442E8D60C0004D4115 /* UIEdgeInsets+Extension.swift in Sources */,
 				DE6966452E8D60C0004D4115 /* TextAttributes.swift in Sources */,
+				DE25213A2E92B27600557C74 /* ScheduleCallView.swift in Sources */,
 				DE6966492E8D60C0004D4115 /* IAPErrorHelper.swift in Sources */,
 				DE6966512E8D60C0004D4115 /* GradientView.swift in Sources */,
 				DE6966562E8D60C0004D4115 /* SceneDelegate.swift in Sources */,
@@ -1238,6 +1281,7 @@
 				DE6966C72E8D60C0004D4115 /* APIRequestBody.swift in Sources */,
 				DE6966CB2E8D60C0004D4115 /* SplashView.swift in Sources */,
 				DE6966D22E8D60C0004D4115 /* PaddingLabel.swift in Sources */,
+				DE2521362E92B26B00557C74 /* ScheduleCallViewController.swift in Sources */,
 				DE6966D82E8D60C0004D4115 /* SignError.swift in Sources */,
 				DE6967242E8E79A3004D4115 /* HomeViewController.swift in Sources */,
 				DE6966DA2E8D60C0004D4115 /* PurchaseValidationObserver.swift in Sources */,

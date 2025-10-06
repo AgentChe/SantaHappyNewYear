@@ -106,7 +106,7 @@ private extension CSCInvalidDateView {
     
     func makeContainer() -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor(integralRed: 245, green: 245, blue: 245, alpha: 0.6)
+        view.backgroundColor = UIColor(integralRed: 245, green: 245, blue: 245)
         view.layer.cornerRadius = 40.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

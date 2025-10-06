@@ -25,9 +25,9 @@ final class ScheduleCallDateTimeView: UIView {
         .textColor(Appearance.mono200)
         .font(Fonts.SFProRounded.regular(size: 17.scale))
 
-    init(dateTime: DateTime) {
+    init(dateTime: DateTime, initialDate: Date = Date()) {
         self.dateTime = dateTime
-        self.selectedDate = Date()
+        self.selectedDate = initialDate
         
         super.init(frame: .zero)
         
@@ -38,6 +38,14 @@ final class ScheduleCallDateTimeView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: Public
+extension ScheduleCallDateTimeView {
+    func setup(_ date: Date) {
+        self.selectedDate = date
+        updateValueTitle()
     }
 }
 

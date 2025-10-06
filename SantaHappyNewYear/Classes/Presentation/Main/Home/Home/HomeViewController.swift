@@ -76,11 +76,12 @@ private extension HomeViewController {
             }
             present(vc, animated: false)
         case .editScheduleCall(let scheduleCall):
-            break // TODO
+            let vc = ScheduleCallViewController.make(scheduleCall: scheduleCall)
+            present(vc, animated: false)
         case .audioCall:
-            break // TODO
+            break // TODO:
         case .videoCall:
-            break // TODO
+            break // TODO: 
         }
     }
 }

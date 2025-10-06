@@ -14,6 +14,7 @@
 "Skip" = "Skip";
 "OK" = "OK";
 "Save" = "Save";
+"Delete" = "Delete";
 
 // MARK: TryAgain
 "TryAgain.Title" = "The app failed to\nperform a request";
@@ -85,3 +86,7 @@
 "CreateScheduleCall.Time" = "Time";
 "CreateScheduleCall.InvalidDate.Title" = "Invalid date time";
 "CreateScheduleCall.InvalidDate.Text" = "You cannot select a date in the past tense.";
+
+// MARK: ScheduleCall
+"ScheduleCall.ConfirmDelete.Title" = "Are you sure?";
+"ScheduleCall.ConfirmDelete.Text" = "If you delete the notification, Santa won't call you.";

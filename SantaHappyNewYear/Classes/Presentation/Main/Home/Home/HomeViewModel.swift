@@ -93,6 +93,7 @@ private extension HomeViewModel {
                         }
                     }
                     .startWith(initialScheduleCalls)
+                    .map { $0.sorted(by: { $0.dateTime > $1.dateTime }) }
             }
     }
     
@@ -115,13 +116,20 @@ private extension HomeViewModel {
             .asDriver(onErrorDriveWith: .never())
         
         let call = didTapCall
-            .map { scheduleCall -> Action in
-                switch scheduleCall.method {
-                case .audio:
-                    return .audioCall
-                case .video:
-                    return .videoCall
-                }
+            .flatMapLatest { [weak self] scheduleCall -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                return callsManager
+                    .delete(scheduleCallId: scheduleCall.id)
+                    .asDriver(onErrorDriveWith: .never())
+                    .map { void -> Action in
+                        switch scheduleCall.method {
+                        case .audio:
+                            return .audioCall
+                        case .video:
+                            return .videoCall
+                        }
+                    }
             }
             .asDriver(onErrorDriveWith: .never())
         
