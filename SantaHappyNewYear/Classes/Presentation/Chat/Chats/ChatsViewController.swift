@@ -28,7 +28,8 @@ final class ChatsViewController: UIViewController {
         let output = viewModel.configure(input: ChatsViewModel.Input(
             didSelectChat: mainView.tableView.didSelect,
             didTapDelete: mainView.tableView.didDelete,
-            didConfirmDelete: didConfirmDeleteTrigger.asSignal()
+            didConfirmDelete: didConfirmDeleteTrigger.asSignal(),
+            didTapWriteMessage: mainView.emptyView.writeMessageButton.rx.tap.asSignal()
         ))
         
         output.action
@@ -38,8 +39,9 @@ final class ChatsViewController: UIViewController {
             .disposed(by: disposeBag)
         
         output.elements
-            .drive(Binder(mainView.tableView) { base, elements in
-                base.setup(elements: elements)
+            .drive(Binder(mainView) { base, elements in
+                base.tableView.setup(elements: elements)
+                base.emptyView.isHidden = !elements.isEmpty
             })
             .disposed(by: disposeBag)
         

@@ -11,6 +11,7 @@ final class ChatsView: UIView {
     lazy var titleLabel = makeTitleLabel()
     lazy var tableView = makeTableView()
     lazy var preloader = makePreloader()
+    lazy var emptyView = makeEmptyView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,6 +52,12 @@ private extension ChatsView {
             preloader.centerXAnchor.constraint(equalTo: centerXAnchor),
             preloader.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
 }
 
@@ -81,6 +88,14 @@ private extension ChatsView {
         let view = UIActivityIndicatorView()
         view.style = .large
         view.color = Appearance.mono200
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeEmptyView() -> ChatsEmptyView {
+        let view = ChatsEmptyView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

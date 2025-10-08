@@ -71,6 +71,9 @@
 "Chats.Tomorrow" = "Tomorrow";
 "Chats.ConfirmDelete.Title" = "Are you sure?";
 "Chats.ConfirmDelete.Text" = "All messages will be permanently deleted.";
+"Chats.Empty.Title" = "No messages yet";
+"Chats.Empty.Text" = "Send first message to Santa";
+"Chats.Empty.Button" = "Write a message";
 
 // MARK: Chat
 "Chat.Title" = "New messages";

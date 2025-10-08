@@ -48,6 +48,7 @@
 		DE25216A2E96819F00557C74 /* VideoCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521692E96819F00557C74 /* VideoCallViewModel.swift */; };
 		DE25216C2E9681A400557C74 /* VideoCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25216B2E9681A400557C74 /* VideoCallView.swift */; };
 		DE25216F2E9685B200557C74 /* FrontCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25216E2E9685B200557C74 /* FrontCameraView.swift */; };
+		DE2521712E96992900557C74 /* ChatsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521702E96992900557C74 /* ChatsEmptyView.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -210,6 +211,7 @@
 		DE2521692E96819F00557C74 /* VideoCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewModel.swift; sourceTree = "<group>"; };
 		DE25216B2E9681A400557C74 /* VideoCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallView.swift; sourceTree = "<group>"; };
 		DE25216E2E9685B200557C74 /* FrontCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCameraView.swift; sourceTree = "<group>"; };
+		DE2521702E96992900557C74 /* ChatsEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsEmptyView.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1115,6 +1117,7 @@
 			children = (
 				DE2521412E93B98D00557C74 /* ConfirmDelete */,
 				DE69675F2E8EB26E004D4115 /* TableView */,
+				DE2521702E96992900557C74 /* ChatsEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1354,6 +1357,7 @@
 				DE6966172E8D60C0004D4115 /* APIFormDataRequestBody.swift in Sources */,
 				DE2521382E92B27100557C74 /* ScheduleCallViewModel.swift in Sources */,
 				DE2521242E9294B900557C74 /* CSCInvalidDateView.swift in Sources */,
+				DE2521712E96992900557C74 /* ChatsEmptyView.swift in Sources */,
 				DE69661A2E8D60C0004D4115 /* NavigationControllerSettings.swift in Sources */,
 				DE69661D2E8D60C0004D4115 /* SplashViewModel.swift in Sources */,
 				DE25216A2E96819F00557C74 /* VideoCallViewModel.swift in Sources */,

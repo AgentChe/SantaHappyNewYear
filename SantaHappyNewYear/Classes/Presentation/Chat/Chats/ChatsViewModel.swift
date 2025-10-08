@@ -10,7 +10,7 @@ import RxCocoa
 
 final class ChatsViewModel {
     enum Action {
-        case openChat(Chat)
+        case openChat(Chat?)
         case requestConfirmDelete(Chat)
     }
     
@@ -25,6 +25,7 @@ extension ChatsViewModel {
         let didSelectChat: Signal<Chat>
         let didTapDelete: Signal<Chat>
         let didConfirmDelete: Signal<Chat>
+        let didTapWriteMessage: Signal<Void>
     }
     
     struct Output {
@@ -37,7 +38,8 @@ extension ChatsViewModel {
         Output(
             action: makeAction(
                 selectChat: input.didSelectChat,
-                didTapDelete: input.didTapDelete
+                didTapDelete: input.didTapDelete,
+                didTapWriteMessage: input.didTapWriteMessage
             ),
             elements: makeElements(didConfirmDelete: input.didConfirmDelete),
             activity: activity.asDriver()
@@ -49,9 +51,14 @@ extension ChatsViewModel {
 private extension ChatsViewModel {
     func makeAction(
         selectChat: Signal<Chat>,
-        didTapDelete: Signal<Chat>
+        didTapDelete: Signal<Chat>,
+        didTapWriteMessage: Signal<Void>
     ) -> Driver<Action> {
-        let openChat = selectChat
+        let openChat = Signal
+            .merge(
+                selectChat.map { chat -> Chat? in chat },
+                didTapWriteMessage.map { void -> Chat? in nil }
+            )
             .map { Action.openChat($0) }
             .asDriver(onErrorDriveWith: .never())
         
