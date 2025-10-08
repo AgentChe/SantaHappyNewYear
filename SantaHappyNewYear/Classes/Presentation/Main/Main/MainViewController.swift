@@ -13,12 +13,14 @@ final class MainViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
-    private lazy var coordinator = MainCoordinator(parentVC: self)
+    private lazy var coordinator = MainCoordinator(parentVC: self, notificationsModel: notificationsModel)
     
     private let requestReview: Bool
+    private let notificationsModel: NotificationsModel?
     
-    private init(requestReview: Bool) {
+    private init(requestReview: Bool, notificationsModel: NotificationsModel?) {
         self.requestReview = requestReview
+        self.notificationsModel = notificationsModel
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -38,6 +40,7 @@ final class MainViewController: UIViewController {
             .take(1)
             .bind(to: Binder(self) { base, _ in
                 base.coordinator.change(tab: .home)
+                base.coordinator.startSantaCallObserve()
             })
             .disposed(by: disposeBag)
         
@@ -75,8 +78,8 @@ final class MainViewController: UIViewController {
 
 // MARK: Public
 extension MainViewController {
-    static func make(requestReview: Bool) -> NavigationController {
-        let vc = MainViewController(requestReview: requestReview)
+    static func make(requestReview: Bool, notificationsModel: NotificationsModel?) -> NavigationController {
+        let vc = MainViewController(requestReview: requestReview, notificationsModel: notificationsModel)
         vc.navigationItem.backButtonTitle = " "
         return NavigationController(rootViewController: vc)
     }

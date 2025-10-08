@@ -17,6 +17,8 @@ final class LocalNotificationsManager: NSObject {
         static let categoryId = "santa_call_category"
         static let scheduleCallIdKey = "scheduleCallId"
         static let scheduleCallMethodKey = "scheduleCallMethod"
+        static let audioKey = "audio"
+        static let videoKey = "video"
     }
     
     static let shared = LocalNotificationsManager()
@@ -44,7 +46,7 @@ extension LocalNotificationsManager {
         content.categoryIdentifier = Constants.categoryId
         content.userInfo = [
             Constants.scheduleCallIdKey: call.id,
-            Constants.scheduleCallMethodKey: (call.method == .video ? "video" : "audio")
+            Constants.scheduleCallMethodKey: (call.method == .video ? Constants.videoKey : Constants.audioKey)
         ]
 
         var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: call.dateTime)

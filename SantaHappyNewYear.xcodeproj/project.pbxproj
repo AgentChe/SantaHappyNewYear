@@ -40,6 +40,14 @@
 		DE2521512E93C05700557C74 /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521502E93C05700557C74 /* LocalNotificationsManager.swift */; };
 		DE2521542E93D74700557C74 /* CSCNotNotificationsPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521532E93D74700557C74 /* CSCNotNotificationsPermissionsView.swift */; };
 		DE2521562E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521552E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift */; };
+		DE2521592E93E66800557C74 /* SantaCallObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521582E93E66800557C74 /* SantaCallObserver.swift */; };
+		DE25215C2E93F46000557C74 /* AudioCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25215B2E93F46000557C74 /* AudioCallViewController.swift */; };
+		DE25215E2E93F46B00557C74 /* AudioCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25215D2E93F46B00557C74 /* AudioCallViewModel.swift */; };
+		DE2521602E93F47000557C74 /* AudioCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25215F2E93F47000557C74 /* AudioCallView.swift */; };
+		DE2521682E96819700557C74 /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521672E96819700557C74 /* VideoCallViewController.swift */; };
+		DE25216A2E96819F00557C74 /* VideoCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521692E96819F00557C74 /* VideoCallViewModel.swift */; };
+		DE25216C2E9681A400557C74 /* VideoCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25216B2E9681A400557C74 /* VideoCallView.swift */; };
+		DE25216F2E9685B200557C74 /* FrontCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25216E2E9685B200557C74 /* FrontCameraView.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -194,6 +202,14 @@
 		DE2521502E93C05700557C74 /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		DE2521532E93D74700557C74 /* CSCNotNotificationsPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCNotNotificationsPermissionsView.swift; sourceTree = "<group>"; };
 		DE2521552E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCNotNotificationsPermissionsViewController.swift; sourceTree = "<group>"; };
+		DE2521582E93E66800557C74 /* SantaCallObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SantaCallObserver.swift; sourceTree = "<group>"; };
+		DE25215B2E93F46000557C74 /* AudioCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCallViewController.swift; sourceTree = "<group>"; };
+		DE25215D2E93F46B00557C74 /* AudioCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCallViewModel.swift; sourceTree = "<group>"; };
+		DE25215F2E93F47000557C74 /* AudioCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCallView.swift; sourceTree = "<group>"; };
+		DE2521672E96819700557C74 /* VideoCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
+		DE2521692E96819F00557C74 /* VideoCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewModel.swift; sourceTree = "<group>"; };
+		DE25216B2E9681A400557C74 /* VideoCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallView.swift; sourceTree = "<group>"; };
+		DE25216E2E9685B200557C74 /* FrontCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCameraView.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -525,6 +541,45 @@
 			path = NotNotificationsPermissions;
 			sourceTree = "<group>";
 		};
+		DE2521572E93E47400557C74 /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521662E96818400557C74 /* Video */,
+				DE25215A2E93F45600557C74 /* Audio */,
+				DE2521582E93E66800557C74 /* SantaCallObserver.swift */,
+			);
+			path = Call;
+			sourceTree = "<group>";
+		};
+		DE25215A2E93F45600557C74 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				DE25215B2E93F46000557C74 /* AudioCallViewController.swift */,
+				DE25215D2E93F46B00557C74 /* AudioCallViewModel.swift */,
+				DE25215F2E93F47000557C74 /* AudioCallView.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		DE2521662E96818400557C74 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				DE25216D2E9684C400557C74 /* Views */,
+				DE2521672E96819700557C74 /* VideoCallViewController.swift */,
+				DE2521692E96819F00557C74 /* VideoCallViewModel.swift */,
+				DE25216B2E9681A400557C74 /* VideoCallView.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		DE25216D2E9684C400557C74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE25216E2E9685B200557C74 /* FrontCameraView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DE69631A2E8D5DA2004D4115 = {
 			isa = PBXGroup;
 			children = (
@@ -768,6 +823,7 @@
 		DE69652C2E8D60C0004D4115 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521572E93E47400557C74 /* Call */,
 				DE6967692E8EB26E004D4115 /* Chat */,
 				DE6966FA2E8E55D0004D4115 /* Main */,
 				DE6964FD2E8D60C0004D4115 /* Splash */,
@@ -1245,6 +1301,7 @@
 				DE69673E2E8EB24C004D4115 /* GetMessagesRequest.swift in Sources */,
 				DE69673F2E8EB24C004D4115 /* Page.swift in Sources */,
 				DE6967402E8EB24C004D4115 /* CreateChatResponse.swift in Sources */,
+				DE25215C2E93F46000557C74 /* AudioCallViewController.swift in Sources */,
 				DE6967412E8EB24C004D4115 /* CheckMessageCompleteRequest.swift in Sources */,
 				DE6967422E8EB24C004D4115 /* SendMessageResponse.swift in Sources */,
 				DE2521292E929E7400557C74 /* HomeViewModel.swift in Sources */,
@@ -1257,13 +1314,16 @@
 				DE2521172E9036F600557C74 /* CreateScheduleCallDateTimeView.swift in Sources */,
 				DE25211D2E9287C000557C74 /* CallsManager.swift in Sources */,
 				DE6967482E8EB24C004D4115 /* ChatMessage.swift in Sources */,
+				DE2521682E96819700557C74 /* VideoCallViewController.swift in Sources */,
 				DE6965D22E8D60C0004D4115 /* TryAgainViewController.swift in Sources */,
 				DE25214D2E93BE9300557C74 /* NotificationsAuthorizationStatus.swift in Sources */,
 				DE25214E2E93BE9300557C74 /* NotificationsModel.swift in Sources */,
 				DE6965DA2E8D60C0004D4115 /* SessionManager.swift in Sources */,
 				DE6967052E8E563C004D4115 /* TabItemButton.swift in Sources */,
 				DE6965EA2E8D60C0004D4115 /* UIDevice+Extension.swift in Sources */,
+				DE25216C2E9681A400557C74 /* VideoCallView.swift in Sources */,
 				DE6965F02E8D60C0004D4115 /* IAPError.swift in Sources */,
+				DE25216F2E9685B200557C74 /* FrontCameraView.swift in Sources */,
 				DE6965F62E8D60C0004D4115 /* RestAPITransport.swift in Sources */,
 				DE69676A2E8EB26E004D4115 /* ChatInputField.swift in Sources */,
 				DE69676B2E8EB26E004D4115 /* ChatViewModel.swift in Sources */,
@@ -1271,6 +1331,7 @@
 				DE69676F2E8EB26E004D4115 /* ChatsView.swift in Sources */,
 				DE6967702E8EB26E004D4115 /* ChatView.swift in Sources */,
 				DE2521402E92B6C000557C74 /* SCConfirmDeleteView.swift in Sources */,
+				DE25215E2E93F46B00557C74 /* AudioCallViewModel.swift in Sources */,
 				DE6967722E8EB26E004D4115 /* ChatAnswerCell.swift in Sources */,
 				DE6967732E8EB26E004D4115 /* ChatsTableCell.swift in Sources */,
 				DE6967762E8EB26E004D4115 /* ChatsViewController.swift in Sources */,
@@ -1281,6 +1342,7 @@
 				DE69677D2E8EB26E004D4115 /* ChatViewController.swift in Sources */,
 				DE69677E2E8EB26E004D4115 /* ChatLoadingCell.swift in Sources */,
 				DE2521562E93D75100557C74 /* CSCNotNotificationsPermissionsViewController.swift in Sources */,
+				DE2521602E93F47000557C74 /* AudioCallView.swift in Sources */,
 				DE69677F2E8EB26E004D4115 /* ChatQuestionTextCell.swift in Sources */,
 				DE6965FB2E8D60C0004D4115 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE69660A2E8D60C0004D4115 /* UIView+RxExtension.swift in Sources */,
@@ -1294,6 +1356,7 @@
 				DE2521242E9294B900557C74 /* CSCInvalidDateView.swift in Sources */,
 				DE69661A2E8D60C0004D4115 /* NavigationControllerSettings.swift in Sources */,
 				DE69661D2E8D60C0004D4115 /* SplashViewModel.swift in Sources */,
+				DE25216A2E96819F00557C74 /* VideoCallViewModel.swift in Sources */,
 				DE69661F2E8D60C0004D4115 /* PaygateActionsView.swift in Sources */,
 				DE6966292E8D60C0004D4115 /* ProfileManager.swift in Sources */,
 				DE2521512E93C05700557C74 /* LocalNotificationsManager.swift in Sources */,
@@ -1317,6 +1380,7 @@
 				DE6966562E8D60C0004D4115 /* SceneDelegate.swift in Sources */,
 				DE25212E2E929FEE00557C74 /* HomeTableScheduleCell.swift in Sources */,
 				DE25211F2E9287C700557C74 /* CallsMediator.swift in Sources */,
+				DE2521592E93E66800557C74 /* SantaCallObserver.swift in Sources */,
 				DE69665E2E8D60C0004D4115 /* TakePhoto.swift in Sources */,
 				DE6966FD2E8E55FD004D4115 /* MainViewController.swift in Sources */,
 				DE6966642E8D60C0004D4115 /* PaygateProductButton.swift in Sources */,
@@ -1390,6 +1454,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SantaHappyNewYear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Santa Happy New Year";
+				INFOPLIST_KEY_NSCameraUsageDescription = "So Santa can see you when you call him.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Without this, you won’t be able to talk to Santa.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Without this, we won’t be able to recognize what you want to say to Santa.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1431,6 +1496,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SantaHappyNewYear/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Santa Happy New Year";
+				INFOPLIST_KEY_NSCameraUsageDescription = "So Santa can see you when you call him.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Without this, you won’t be able to talk to Santa.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Without this, we won’t be able to recognize what you want to say to Santa.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -63,9 +63,11 @@ private extension HomeViewController {
             let vc = ChooseCallMethodViewController.make { [weak self] result in
                 switch result {
                 case .nowAudio:
-                    print("nowAudio") // TODO
+                    let vc = AudioCallViewController.make(callDirection: .outgoing)
+                    self?.present(vc, animated: false)
                 case .nowVideo:
-                    print("nowVideo") // TODO
+                    let vc = VideoCallViewController.make(callDirection: .outgoing) 
+                    self?.present(vc, animated: false)
                 case .scheduleAudio:
                     let vc = CreateScheduleCallViewController.make(callMethod: .audio)
                     self?.present(vc, animated: false)
@@ -79,9 +81,11 @@ private extension HomeViewController {
             let vc = ScheduleCallViewController.make(scheduleCall: scheduleCall)
             present(vc, animated: false)
         case .audioCall:
-            break // TODO:
+            let vc = AudioCallViewController.make(callDirection: .outgoing)
+            present(vc, animated: false)
         case .videoCall:
-            break // TODO: 
+            let vc = VideoCallViewController.make(callDirection: .outgoing)
+            present(vc, animated: false)
         }
     }
 }

@@ -98,3 +98,16 @@
 // MARK: LocalNotifications
 "LocalNotifications.Content.Title" = "Santa’s Call";
 "LocalNotifications.Content.Body" = "Time to talk to Santa.";
+
+// MARK: AudioCall
+"AudioCall.Title" = "Santa";
+"AudioCall.Phase.Incoming" = "is calling";
+"AudioCall.Phase.Outgoing" = "Calling...";
+
+// MARK: VideoCall
+"VideoCall.Title" = "Santa";
+"VideoCall.Phase.Incoming" = "is calling";
+"VideoCall.Phase.Outgoing" = "Calling...";
+"VideoCall.Camera.NotPermissions" = "Not Permissions";
+"VideoCall.Camera.NotAvailable" = "Camera not available";
+"VideoCall.Camera.Error" = "Camera error: %@";

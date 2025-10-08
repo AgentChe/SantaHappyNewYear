@@ -16,8 +16,29 @@ final class MainCoordinator {
     
     private var previousVC: UIViewController?
     
-    init(parentVC: MainViewController) {
+    private let santaCallObserver: SantaCallObserver
+    
+    init(parentVC: MainViewController, notificationsModel: NotificationsModel?) {
         self.parentVC = parentVC
+        self.santaCallObserver = SantaCallObserver(notificationsModel: notificationsModel)
+    }
+}
+
+// MARK: Public
+extension MainCoordinator {
+    func startSantaCallObserve() {
+        guard santaCallObserver.open == nil else { return }
+        
+        santaCallObserver.open = { [weak self] method in
+            switch method {
+            case .audio:
+                let vc = AudioCallViewController.make(callDirection: .incoming)
+                self?.previousVC?.present(vc, animated: false)
+            case .video:
+                let vc = VideoCallViewController.make(callDirection: .incoming)
+                self?.previousVC?.present(vc, animated: false)
+            }
+        }
     }
     
     func change(tab: TabView.Tab) {

@@ -20,6 +20,18 @@ final class SplashViewController: UIViewController {
     
     private lazy var didSDKConfiguredTrigger = PublishRelay<Void>()
     
+    private let notificationsModel: NotificationsModel?
+    
+    private init(notificationsModel: NotificationsModel?) {
+        self.notificationsModel = notificationsModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = mainView
     }
@@ -49,8 +61,8 @@ final class SplashViewController: UIViewController {
 
 // MARK: Make
 extension SplashViewController {
-    static func make() -> SplashViewController {
-        SplashViewController()
+    static func make(notificationsModel: NotificationsModel?) -> SplashViewController {
+        SplashViewController(notificationsModel: notificationsModel)
     }
 }
 
@@ -68,10 +80,10 @@ private extension SplashViewController {
             
             switch route {
             case .main:
-                window.rootViewController = MainViewController.make(requestReview: false)
+                window.rootViewController = MainViewController.make(requestReview: false, notificationsModel: self?.notificationsModel)
             case .paygateTransitionMain:
                 let vc = PaygateViewController.make { [weak window] in
-                    window?.rootViewController = MainViewController.make(requestReview: false)
+                    window?.rootViewController = MainViewController.make(requestReview: false, notificationsModel: self?.notificationsModel)
                 }
                 self?.present(vc, animated: true)
             }

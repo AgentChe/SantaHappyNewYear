@@ -15,8 +15,17 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
+        let notificationsModel: NotificationsModel? = {
+            guard let notificationResponse = connectionOptions.notificationResponse else {
+                return nil
+            }
+            
+            let userInfo = notificationResponse.notification.request.content.userInfo
+            return NotificationsModel(userInfo: userInfo)
+        }()
+        
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = SplashViewController.make()
+        window?.rootViewController = SplashViewController.make(notificationsModel: notificationsModel)
         window?.makeKeyAndVisible()
     }
 }
