@@ -11,6 +11,8 @@ import RxCocoa
 final class VideoCallViewModel {
     enum Action {
         case cancelCall
+        case playRingtone(RingtonePlayer.CallDirection)
+        case stopRingtone
     }
     
     private let callDirection: Driver<VideoCallViewController.CallDirection>
@@ -42,7 +44,11 @@ extension VideoCallViewModel {
         return Output(
             callPhase: makeViewCallPhase(callPhase: callPhase),
             callUIState: makeCallUIState(callPhase: callPhase),
-            action: makeAction(didTapReject: input.didTapReject)
+            action: makeAction(
+                callDirection: callDirection,
+                didTapReject: input.didTapReject,
+                callPhase: callPhase
+            )
         )
     }
 }
@@ -102,12 +108,36 @@ private extension VideoCallViewModel {
             }
     }
     
-    func makeAction(didTapReject: Signal<Void>) -> Driver<Action> {
+    func makeAction(
+        callDirection: Driver<VideoCallViewController.CallDirection>,
+        didTapReject: Signal<Void>,
+        callPhase: Driver<CallPhase>
+    ) -> Driver<Action> {
         let cancelCall = didTapReject
             .map { Action.cancelCall }
             .asDriver(onErrorDriveWith: .never())
         
+        let ringtone = callPhase
+            .withLatestFrom(callDirection) { ($0, $1) }
+            .map { callPhase, callDirection -> Action in
+                let translateCallDirection: RingtonePlayer.CallDirection = {
+                    switch callDirection {
+                    case .incoming:
+                        return .incoming
+                    case .outgoing:
+                        return .outgoing
+                    }
+                }()
+                
+                switch callPhase {
+                case .ringing:
+                    return .playRingtone(translateCallDirection)
+                case .active:
+                    return .stopRingtone
+                }
+            }
+        
         return Driver
-            .merge(cancelCall)
+            .merge(cancelCall, ringtone)
     }
 }

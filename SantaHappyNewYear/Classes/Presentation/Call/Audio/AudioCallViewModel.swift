@@ -11,6 +11,8 @@ import RxCocoa
 final class AudioCallViewModel {
     enum Action {
         case cancelCall
+        case playRingtone(RingtonePlayer.CallDirection)
+        case stopRingtone
     }
     
     private let callDirection: Driver<AudioCallViewController.CallDirection>
@@ -28,8 +30,8 @@ extension AudioCallViewModel {
     }
     
     struct Output {
-        let callPhase: Driver<AudioCallView.CallPhase>
-        let callUIState: Driver<AudioCallView.CallUIState>
+        let audioViewCallPhase: Driver<AudioCallView.CallPhase>
+        let audioViewCallUIState: Driver<AudioCallView.CallUIState>
         let action: Driver<Action>
     }
     
@@ -40,12 +42,16 @@ extension AudioCallViewModel {
         )
         
         return Output(
-            callPhase: makeViewCallPhase(callPhase: callPhase),
-            callUIState: makeCallUIState(
+            audioViewCallPhase: makeAudioViewCallPhase(callPhase: callPhase),
+            audioViewCallUIState: makeAudioViewCallUIState(
                 callDirection: callDirection,
                 callPhase: callPhase
             ),
-            action: makeAction(didTapReject: input.didTapReject)
+            action: makeAction(
+                callDirection: callDirection,
+                didTapReject: input.didTapReject,
+                callPhase: callPhase
+            )
         )
     }
 }
@@ -78,7 +84,7 @@ private extension AudioCallViewModel {
             }
     }
     
-    func makeViewCallPhase(callPhase: Driver<CallPhase>) -> Driver<AudioCallView.CallPhase> {
+    func makeAudioViewCallPhase(callPhase: Driver<CallPhase>) -> Driver<AudioCallView.CallPhase> {
         callPhase
             .flatMapLatest { callPhase -> Driver<AudioCallView.CallPhase> in
                 switch callPhase {
@@ -93,7 +99,7 @@ private extension AudioCallViewModel {
             }
     }
     
-    func makeCallUIState(
+    func makeAudioViewCallUIState(
         callDirection: Driver<AudioCallViewController.CallDirection>,
         callPhase: Driver<CallPhase>
     ) -> Driver<AudioCallView.CallUIState> {
@@ -110,12 +116,36 @@ private extension AudioCallViewModel {
             }
     }
     
-    func makeAction(didTapReject: Signal<Void>) -> Driver<Action> {
+    func makeAction(
+        callDirection: Driver<AudioCallViewController.CallDirection>,
+        didTapReject: Signal<Void>,
+        callPhase: Driver<CallPhase>
+    ) -> Driver<Action> {
         let cancelCall = didTapReject
             .map { Action.cancelCall }
             .asDriver(onErrorDriveWith: .never())
         
+        let ringtone = callPhase
+            .withLatestFrom(callDirection) { ($0, $1) }
+            .map { callPhase, callDirection -> Action in
+                let translateCallDirection: RingtonePlayer.CallDirection = {
+                    switch callDirection {
+                    case .incoming:
+                        return .incoming
+                    case .outgoing:
+                        return .outgoing
+                    }
+                }()
+                
+                switch callPhase {
+                case .ringing:
+                    return .playRingtone(translateCallDirection)
+                case .active:
+                    return .stopRingtone
+                }
+            }
+        
         return Driver
-            .merge(cancelCall)
+            .merge(cancelCall, ringtone)
     }
 }

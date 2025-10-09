@@ -13,6 +13,10 @@ final class VideoCallViewController: UIViewController {
         case incoming, outgoing
     }
     
+    deinit {
+        RingtonePlayer.shared.stop()
+    }
+    
     private let mainView: VideoCallView
     
     private let viewModel: VideoCallViewModel
@@ -77,6 +81,10 @@ private extension VideoCallViewController {
         switch action {
         case .cancelCall:
             dismiss(animated: false)
+        case .playRingtone(let callDirection):
+            RingtonePlayer.shared.play(callDirection)
+        case .stopRingtone:
+            RingtonePlayer.shared.stop()
         }
     }
 }

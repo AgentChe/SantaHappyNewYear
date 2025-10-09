@@ -52,6 +52,9 @@
 		DE2521842E97A1F800557C74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25217D2E97A1F700557C74 /* OnboardingView.swift */; };
 		DE2521852E97A1F800557C74 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25217E2E97A1F700557C74 /* OnboardingViewController.swift */; };
 		DE25218A2E97A48800557C74 /* OIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521892E97A48800557C74 /* OIntroView.swift */; };
+		DE2521962E97B03400557C74 /* CallIncoming.caf in Resources */ = {isa = PBXBuildFile; fileRef = DE2521942E97B03400557C74 /* CallIncoming.caf */; };
+		DE2521972E97B03400557C74 /* CallOutgoing.caf in Resources */ = {isa = PBXBuildFile; fileRef = DE2521952E97B03400557C74 /* CallOutgoing.caf */; };
+		DE2521992E97B1B200557C74 /* RingtonePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521982E97B1B200557C74 /* RingtonePlayer.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -218,6 +221,9 @@
 		DE25217D2E97A1F700557C74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DE25217E2E97A1F700557C74 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DE2521892E97A48800557C74 /* OIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OIntroView.swift; sourceTree = "<group>"; };
+		DE2521942E97B03400557C74 /* CallIncoming.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CallIncoming.caf; sourceTree = "<group>"; };
+		DE2521952E97B03400557C74 /* CallOutgoing.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CallOutgoing.caf; sourceTree = "<group>"; };
+		DE2521982E97B1B200557C74 /* RingtonePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtonePlayer.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -552,9 +558,12 @@
 		DE2521572E93E47400557C74 /* Call */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521942E97B03400557C74 /* CallIncoming.caf */,
+				DE2521952E97B03400557C74 /* CallOutgoing.caf */,
 				DE2521662E96818400557C74 /* Video */,
 				DE25215A2E93F45600557C74 /* Audio */,
 				DE2521582E93E66800557C74 /* SantaCallObserver.swift */,
+				DE2521982E97B1B200557C74 /* RingtonePlayer.swift */,
 			);
 			path = Call;
 			sourceTree = "<group>";
@@ -1234,6 +1243,8 @@
 				DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */,
 				DE6966EA2E8D82B1004D4115 /* PlayfairDisplay-ExtraBold.ttf in Resources */,
 				DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */,
+				DE2521962E97B03400557C74 /* CallIncoming.caf in Resources */,
+				DE2521972E97B03400557C74 /* CallOutgoing.caf in Resources */,
 				DE6966EC2E8D82B8004D4115 /* PlayfairDisplay-Medium.ttf in Resources */,
 				DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -1337,6 +1348,7 @@
 				DE2521302E92A22600557C74 /* HomeTableContainer.swift in Sources */,
 				DE6967442E8EB24C004D4115 /* CreateChatRequest.swift in Sources */,
 				DE6967452E8EB24C004D4115 /* GetChatsRequest.swift in Sources */,
+				DE2521992E97B1B200557C74 /* RingtonePlayer.swift in Sources */,
 				DE6967462E8EB24C004D4115 /* ChatManager.swift in Sources */,
 				DE6967472E8EB24C004D4115 /* Chat.swift in Sources */,
 				DE2521172E9036F600557C74 /* CreateScheduleCallDateTimeView.swift in Sources */,

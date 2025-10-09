@@ -13,6 +13,10 @@ final class AudioCallViewController: UIViewController {
         case incoming, outgoing
     }
     
+    deinit {
+        RingtonePlayer.shared.stop()
+    }
+    
     private let mainView: AudioCallView
     
     private let viewModel: AudioCallViewModel
@@ -42,13 +46,13 @@ final class AudioCallViewController: UIViewController {
             didTapAccept: mainView.acceptButton?.rx.tap.asSignal() ?? .never()
         ))
         
-        output.callPhase
+        output.audioViewCallPhase
             .drive(Binder(mainView) { base, callPhase in
                 base.setup(callPhase: callPhase)
             })
             .disposed(by: disposeBag)
         
-        output.callUIState
+        output.audioViewCallUIState
             .drive(Binder(mainView) { base, callUIState in
                 base.setup(callUIState: callUIState)
             })
@@ -77,6 +81,10 @@ private extension AudioCallViewController {
         switch action {
         case .cancelCall:
             dismiss(animated: false)
+        case .playRingtone(let callDirection):
+            RingtonePlayer.shared.play(callDirection)
+        case .stopRingtone:
+            RingtonePlayer.shared.stop()
         }
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// TODO: audio input
 final class ChatsViewController: UIViewController {
     private lazy var mainView = ChatsView()
     
