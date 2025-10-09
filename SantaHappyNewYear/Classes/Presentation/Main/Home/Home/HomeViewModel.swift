@@ -15,6 +15,7 @@ final class HomeViewModel {
         case editScheduleCall(ScheduleCall)
         case audioCall
         case videoCall
+        case openPaygate
     }
     
     private lazy var callsManager = CallsManager()
@@ -118,6 +119,10 @@ private extension HomeViewModel {
         let call = didTapCall
             .flatMapLatest { [weak self] scheduleCall -> Driver<Action> in
                 guard let self else { return .never() }
+                
+                guard SessionManager().hasActiveSubscriptions() else {
+                    return .just(.openPaygate)
+                }
                 
                 return callsManager
                     .delete(scheduleCallId: scheduleCall.id)

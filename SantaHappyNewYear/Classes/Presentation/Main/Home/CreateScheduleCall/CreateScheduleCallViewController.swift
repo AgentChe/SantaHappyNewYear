@@ -90,6 +90,9 @@ private extension CreateScheduleCallViewController {
             LocalNotificationsManager.shared.retriveAuthorizationStatus { [weak self] status in
                 self?.handle(status: status)
             }
+        case .openPaygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
         }
     }
     

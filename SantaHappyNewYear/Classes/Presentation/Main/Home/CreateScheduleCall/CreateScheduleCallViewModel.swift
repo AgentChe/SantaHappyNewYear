@@ -13,6 +13,7 @@ final class CreateScheduleCallViewModel {
         case notifyInvalidDate
         case close
         case checkNotificationsPermissions
+        case openPaygate
     }
     
     private let callMethod: Driver<CreateScheduleCallViewController.CallMethod>
@@ -63,6 +64,10 @@ private extension CreateScheduleCallViewModel {
             .withLatestFrom(callMethod) { ($0, $1) }
             .flatMapLatest { [weak self] dateTime, callMethod -> Driver<Action> in
                 guard let self else { return .never() }
+                
+                guard SessionManager().hasActiveSubscriptions() else {
+                    return .just(.openPaygate)
+                }
                 
                 if dateTime <= Date() {
                     return .just(.notifyInvalidDate)
