@@ -78,7 +78,10 @@ extension PaygateInteractor: OtterScaleReceiptValidationDelegate {
             let anonymousId = sessionManager.anonymousId
             let internalId = sessionManager.internalId
         
-            return (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+            let login = (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+            
+            return login
+                .mapToVoid()
                 .catchAndReturn(())
         }()
         

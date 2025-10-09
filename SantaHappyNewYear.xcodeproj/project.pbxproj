@@ -55,6 +55,8 @@
 		DE2521962E97B03400557C74 /* CallIncoming.caf in Resources */ = {isa = PBXBuildFile; fileRef = DE2521942E97B03400557C74 /* CallIncoming.caf */; };
 		DE2521972E97B03400557C74 /* CallOutgoing.caf in Resources */ = {isa = PBXBuildFile; fileRef = DE2521952E97B03400557C74 /* CallOutgoing.caf */; };
 		DE2521992E97B1B200557C74 /* RingtonePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521982E97B1B200557C74 /* RingtonePlayer.swift */; };
+		DE25219B2E980DBC00557C74 /* ProfileSetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25219A2E980DBC00557C74 /* ProfileSetRequest.swift */; };
+		DE25219E2E980E5B00557C74 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25219D2E980E5B00557C74 /* RequestResult.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -224,6 +226,8 @@
 		DE2521942E97B03400557C74 /* CallIncoming.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CallIncoming.caf; sourceTree = "<group>"; };
 		DE2521952E97B03400557C74 /* CallOutgoing.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CallOutgoing.caf; sourceTree = "<group>"; };
 		DE2521982E97B1B200557C74 /* RingtonePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtonePlayer.swift; sourceTree = "<group>"; };
+		DE25219A2E980DBC00557C74 /* ProfileSetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetRequest.swift; sourceTree = "<group>"; };
+		DE25219D2E980E5B00557C74 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -615,6 +619,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		DE25219C2E980E5100557C74 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				DE25219D2E980E5B00557C74 /* RequestResult.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		DE69631A2E8D5DA2004D4115 = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +884,7 @@
 			children = (
 				DE69655F2E8D60C0004D4115 /* ProfileBindingRequest.swift */,
 				DE6965602E8D60C0004D4115 /* ProfileCreateRequest.swift */,
+				DE25219A2E980DBC00557C74 /* ProfileSetRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -879,6 +892,7 @@
 		DE6965652E8D60C0004D4115 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				DE25219C2E980E5100557C74 /* Response */,
 				DE6965622E8D60C0004D4115 /* Request */,
 				DE6965632E8D60C0004D4115 /* ProfileManager.swift */,
 			);
@@ -1327,6 +1341,7 @@
 				DE6965C42E8D60C0004D4115 /* PaygateInfoView.swift in Sources */,
 				DE2521082E901C3D00557C74 /* ChooseCallMethodView.swift in Sources */,
 				DE6965C72E8D60C0004D4115 /* Currency.swift in Sources */,
+				DE25219B2E980DBC00557C74 /* ProfileSetRequest.swift in Sources */,
 				DE6967012E8E562A004D4115 /* MainCoordinator.swift in Sources */,
 				DE6965C92E8D60C0004D4115 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE69670A2E8E6025004D4115 /* SettingsViewController.swift in Sources */,
@@ -1453,6 +1468,7 @@
 				DE6967242E8E79A3004D4115 /* HomeViewController.swift in Sources */,
 				DE6966DA2E8D60C0004D4115 /* PurchaseValidationObserver.swift in Sources */,
 				DE6966DE2E8D60C0004D4115 /* Scalable.swift in Sources */,
+				DE25219E2E980E5B00557C74 /* RequestResult.swift in Sources */,
 				DE6967812E8EDCFB004D4115 /* ChatsTableElement.swift in Sources */,
 				DE2521432E93B9A400557C74 /* ChatsConfirmDeleteViewController.swift in Sources */,
 				DE2521122E9034D500557C74 /* CreateScheduleCallView.swift in Sources */,

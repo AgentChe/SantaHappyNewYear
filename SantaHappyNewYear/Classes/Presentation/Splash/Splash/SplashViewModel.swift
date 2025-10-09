@@ -63,7 +63,24 @@ private extension SplashViewModel {
                     let anonymousId = sessionManager.anonymousId
                     let internalId = sessionManager.internalId
                     
-                    return (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+                    let login = (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+                    
+                    return login
+                        .flatMap { result -> Single<Void> in
+                            guard result.success else {
+                                return .error(ContentError(.notContent))
+                            }
+                            
+                            return self.profileManager
+                                .set(locale: Locale.current.identifier)
+                                .map { result -> Void in
+                                    guard result.success else {
+                                        throw ContentError(.notContent)
+                                    }
+                                    
+                                    return Void()
+                                }
+                        }
                 }
                 
                 func trigger(error: Error) -> Observable<Void> {

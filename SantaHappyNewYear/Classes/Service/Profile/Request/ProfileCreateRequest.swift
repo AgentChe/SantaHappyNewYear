@@ -7,13 +7,12 @@
 
 import Alamofire
 
-// TODO: проверить
 struct ProfileCreateRequest: APIRequestBody {
     let anonymousId: String
     let internalId: String
     
     var url: String {
-        GlobalDefinitions.domain + "/api/v1/user/create"
+        GlobalDefinitions.domain + "/api/v1/profile/create"
     }
     
     var method: HTTPMethod {
