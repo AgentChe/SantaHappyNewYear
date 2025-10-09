@@ -145,7 +145,7 @@ private extension AudioCallView {
 private extension AudioCallView {
     func makeBackgroundView() -> UIImageView {
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
         view.image = UIImage(named: "Audio.Background")
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

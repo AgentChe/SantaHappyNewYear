@@ -49,6 +49,9 @@
 		DE25216C2E9681A400557C74 /* VideoCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25216B2E9681A400557C74 /* VideoCallView.swift */; };
 		DE25216F2E9685B200557C74 /* FrontCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25216E2E9685B200557C74 /* FrontCameraView.swift */; };
 		DE2521712E96992900557C74 /* ChatsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521702E96992900557C74 /* ChatsEmptyView.swift */; };
+		DE2521842E97A1F800557C74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25217D2E97A1F700557C74 /* OnboardingView.swift */; };
+		DE2521852E97A1F800557C74 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25217E2E97A1F700557C74 /* OnboardingViewController.swift */; };
+		DE25218A2E97A48800557C74 /* OIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521892E97A48800557C74 /* OIntroView.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -212,6 +215,9 @@
 		DE25216B2E9681A400557C74 /* VideoCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallView.swift; sourceTree = "<group>"; };
 		DE25216E2E9685B200557C74 /* FrontCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCameraView.swift; sourceTree = "<group>"; };
 		DE2521702E96992900557C74 /* ChatsEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsEmptyView.swift; sourceTree = "<group>"; };
+		DE25217D2E97A1F700557C74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		DE25217E2E97A1F700557C74 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		DE2521892E97A48800557C74 /* OIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OIntroView.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -582,6 +588,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DE25217C2E97A1F700557C74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521892E97A48800557C74 /* OIntroView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE25217F2E97A1F700557C74 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DE25217C2E97A1F700557C74 /* Views */,
+				DE25217E2E97A1F700557C74 /* OnboardingViewController.swift */,
+				DE25217D2E97A1F700557C74 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		DE69631A2E8D5DA2004D4115 = {
 			isa = PBXGroup;
 			children = (
@@ -806,6 +830,7 @@
 		DE6964FD2E8D60C0004D4115 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				DE25217F2E97A1F700557C74 /* Onboarding */,
 				DE6965002E8D60C0004D4115 /* TryAgain */,
 				DE6964F62E8D60C0004D4115 /* Paygate */,
 				DE6964FC2E8D60C0004D4115 /* Splash */,
@@ -1391,9 +1416,12 @@
 				DE6966652E8D60C0004D4115 /* PaygateInteractor.swift in Sources */,
 				DE6966712E8D60C0004D4115 /* GlobalDefinitions.swift in Sources */,
 				DE69668C2E8D60C0004D4115 /* ChoosePhotoFromGallery.swift in Sources */,
+				DE2521842E97A1F800557C74 /* OnboardingView.swift in Sources */,
+				DE2521852E97A1F800557C74 /* OnboardingViewController.swift in Sources */,
 				DE6966FF2E8E5624004D4115 /* MainView.swift in Sources */,
 				DE6966922E8D60C0004D4115 /* Fonts.swift in Sources */,
 				DE6966942E8D60C0004D4115 /* IAPActionResult.swift in Sources */,
+				DE25218A2E97A48800557C74 /* OIntroView.swift in Sources */,
 				DE6966952E8D60C0004D4115 /* IAPProduct.swift in Sources */,
 				DE2521062E901C2C00557C74 /* ChooseCallMethodViewController.swift in Sources */,
 				DE69669A2E8D60C0004D4115 /* PaygateBestOfferView.swift in Sources */,

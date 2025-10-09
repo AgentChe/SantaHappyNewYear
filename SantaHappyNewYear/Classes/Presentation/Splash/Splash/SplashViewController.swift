@@ -79,6 +79,8 @@ private extension SplashViewController {
             }
             
             switch route {
+            case .onboarding:
+                window.rootViewController = OnboardingViewController.make()
             case .main:
                 window.rootViewController = MainViewController.make(requestReview: false, notificationsModel: self?.notificationsModel)
             case .paygateTransitionMain:

@@ -46,6 +46,17 @@
 "Paygate.RestorePurchases" = "Restore Purchases";
 "Paygate.BestOffer" = "⭐ Best Offer";
 
+// MARK: Splash
+"Splash.Loading" = "Loading...";
+
+// MARK: Onboarding
+"Onboarding.SantaCalling.Title" = "Santa’s Calling!";
+"Onboarding.SantaCalling.SubTitle" = "See and hear Santa through magical video and audio calls — straight from the North Pole!";
+"Onboarding.Schedule.Title" = "Schedule Your Santa Call";
+"Onboarding.Schedule.SubTitle" = "Pick the perfect time for Santa to ring — make every call a special surprise!";
+"Onboarding.ChatWithSanta.Title" = "Chat with Santa Anytime";
+"Onboarding.ChatWithSanta.SubTitle" = "Send Santa messages, tell him your wishes, and get joyful replies full of Christmas cheer!";
+
 // MARK: Main
 "Main.Home" = "Home";
 "Main.Messages" = "Messages";

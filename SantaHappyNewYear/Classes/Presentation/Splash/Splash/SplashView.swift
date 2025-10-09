@@ -9,7 +9,7 @@ import UIKit
 
 final class SplashView: UIView {
     lazy var imageView = makeImageView()
-    lazy var preloader = makePreloader()
+    lazy var loadingLabel = makeLoadingLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,17 +33,15 @@ private extension SplashView {
 private extension SplashView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 230.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 97.scale)
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            preloader.widthAnchor.constraint(equalToConstant: 24.scale),
-            preloader.heightAnchor.constraint(equalToConstant: 24.scale),
-            preloader.centerXAnchor.constraint(equalTo: centerXAnchor),
-            preloader.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -33.scale)
+            loadingLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadingLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -33.scale)
         ])
     }
 }
@@ -60,11 +58,15 @@ private extension SplashView {
         return view
     }
     
-    func makePreloader() -> UIActivityIndicatorView {
-        let view = UIActivityIndicatorView()
-        view.style = .medium
-        view.startAnimating()
-        view.color = Appearance.mono100
+    func makeLoadingLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .textColor(Appearance.mono100)
+            .font(Fonts.SFProRounded.regular(size: 17.scale))
+            .lineHeight(23.scale)
+            .textAlignment(.center)
+        
+        let view = UILabel()
+        view.attributedText = "Splash.Loading".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

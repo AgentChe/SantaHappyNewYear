@@ -166,7 +166,7 @@ private extension VideoCallView {
 private extension VideoCallView {
     func makeBackgroundView() -> UIImageView {
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
         view.image = UIImage(named: "Video.Background")
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

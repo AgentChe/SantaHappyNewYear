@@ -80,7 +80,7 @@ private extension HomeView {
 private extension HomeView {
     func makeImageView() -> UIImageView {
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         view.image = UIImage(named: "Home.Image")
         view.translatesAutoresizingMaskIntoConstraints = false

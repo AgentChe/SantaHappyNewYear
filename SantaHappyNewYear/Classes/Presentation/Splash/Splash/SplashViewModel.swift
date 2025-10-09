@@ -10,7 +10,7 @@ import RxCocoa
 
 final class SplashViewModel {
     enum Route {
-        case paygateTransitionMain, main
+        case onboarding, paygateTransitionMain, main
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -43,7 +43,13 @@ extension SplashViewModel {
 private extension SplashViewModel {
     func makeRoute(login: Signal<Void>) -> Driver<Route> {
         login
-            .map { SessionManager().hasActiveSubscriptions() ? Route.main : Route.paygateTransitionMain }
+            .map { void -> Route in
+                if !OnboardingViewController.wasViewed() {
+                    return .onboarding
+                }
+                
+                return SessionManager().hasActiveSubscriptions() ? Route.main : Route.paygateTransitionMain
+            }
             .asDriver(onErrorDriveWith: .never())
     }
     
