@@ -13,6 +13,8 @@ final class ChatInputField: UIView {
     lazy var audioButton = makeAudioButton()
     lazy var sendButton = makeSendButton()
     
+    private lazy var stt = ChatSpeechToTextService()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -37,6 +39,27 @@ extension ChatInputField: UITextFieldDelegate {
 private extension ChatInputField {
     func initialize() {
         backgroundColor = UIColor.clear
+    }
+    
+    @objc
+    func audioButtonTapped() {
+        if stt.isRunning {
+            stt.stop()
+            
+            audioButton.setImage(UIImage(named: "Chat.Micro.NotActive"), for: .normal)
+        } else {
+            stt.start(
+                onPartial: { [weak self] text in
+                    guard !text.isEmpty else { return }
+                    
+                    self?.textField.text = text
+                    
+                    print("___ text: \(text)")
+                }
+            )
+            
+            audioButton.setImage(UIImage(named: "Chat.Micro.Active"), for: .normal)
+        }
     }
 }
 
@@ -113,8 +136,9 @@ private extension ChatInputField {
     
     func makeAudioButton() -> TapAreaButton {
         let view = TapAreaButton()
-        view.setImage(UIImage(named: "Chat.Audio"), for: .normal)
+        view.setImage(UIImage(named: "Chat.Micro.NotActive"), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.addTarget(self, action: #selector(audioButtonTapped), for: .touchUpInside)
         inputContainer.addSubview(view)
         return view
     }
