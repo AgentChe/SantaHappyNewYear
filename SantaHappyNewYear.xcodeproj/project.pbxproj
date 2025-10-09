@@ -57,6 +57,7 @@
 		DE2521992E97B1B200557C74 /* RingtonePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521982E97B1B200557C74 /* RingtonePlayer.swift */; };
 		DE25219B2E980DBC00557C74 /* ProfileSetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25219A2E980DBC00557C74 /* ProfileSetRequest.swift */; };
 		DE25219E2E980E5B00557C74 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25219D2E980E5B00557C74 /* RequestResult.swift */; };
+		DE2521A02E98113900557C74 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25219F2E98113900557C74 /* Page.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -147,10 +148,9 @@
 		DE6967242E8E79A3004D4115 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967232E8E79A3004D4115 /* HomeViewController.swift */; };
 		DE6967262E8E79AA004D4115 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967252E8E79AA004D4115 /* HomeView.swift */; };
 		DE69673B2E8EB24C004D4115 /* DeleteChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967352E8EB24C004D4115 /* DeleteChatRequest.swift */; };
-		DE69673C2E8EB24C004D4115 /* ChatMessagesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69672C2E8EB24C004D4115 /* ChatMessagesPage.swift */; };
 		DE69673D2E8EB24C004D4115 /* CheckMessageCompleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69672D2E8EB24C004D4115 /* CheckMessageCompleteResponse.swift */; };
 		DE69673E2E8EB24C004D4115 /* GetMessagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967372E8EB24C004D4115 /* GetMessagesRequest.swift */; };
-		DE69673F2E8EB24C004D4115 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69672E2E8EB24C004D4115 /* Page.swift */; };
+		DE69673F2E8EB24C004D4115 /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69672E2E8EB24C004D4115 /* PageInfo.swift */; };
 		DE6967402E8EB24C004D4115 /* CreateChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967322E8EB24C004D4115 /* CreateChatResponse.swift */; };
 		DE6967412E8EB24C004D4115 /* CheckMessageCompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967342E8EB24C004D4115 /* CheckMessageCompleteRequest.swift */; };
 		DE6967422E8EB24C004D4115 /* SendMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69672F2E8EB24C004D4115 /* SendMessageResponse.swift */; };
@@ -228,6 +228,7 @@
 		DE2521982E97B1B200557C74 /* RingtonePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtonePlayer.swift; sourceTree = "<group>"; };
 		DE25219A2E980DBC00557C74 /* ProfileSetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetRequest.swift; sourceTree = "<group>"; };
 		DE25219D2E980E5B00557C74 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		DE25219F2E98113900557C74 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -322,9 +323,8 @@
 		DE6967292E8EB24C004D4115 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		DE69672A2E8EB24C004D4115 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		DE69672B2E8EB24C004D4115 /* ChatMessageRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageRunner.swift; sourceTree = "<group>"; };
-		DE69672C2E8EB24C004D4115 /* ChatMessagesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessagesPage.swift; sourceTree = "<group>"; };
 		DE69672D2E8EB24C004D4115 /* CheckMessageCompleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMessageCompleteResponse.swift; sourceTree = "<group>"; };
-		DE69672E2E8EB24C004D4115 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		DE69672E2E8EB24C004D4115 /* PageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
 		DE69672F2E8EB24C004D4115 /* SendMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageResponse.swift; sourceTree = "<group>"; };
 		DE6967312E8EB24C004D4115 /* CreateChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatRequest.swift; sourceTree = "<group>"; };
 		DE6967322E8EB24C004D4115 /* CreateChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatResponse.swift; sourceTree = "<group>"; };
@@ -1070,9 +1070,9 @@
 				DE6967292E8EB24C004D4115 /* Chat.swift */,
 				DE69672A2E8EB24C004D4115 /* ChatMessage.swift */,
 				DE69672B2E8EB24C004D4115 /* ChatMessageRunner.swift */,
-				DE69672C2E8EB24C004D4115 /* ChatMessagesPage.swift */,
 				DE69672D2E8EB24C004D4115 /* CheckMessageCompleteResponse.swift */,
-				DE69672E2E8EB24C004D4115 /* Page.swift */,
+				DE69672E2E8EB24C004D4115 /* PageInfo.swift */,
+				DE25219F2E98113900557C74 /* Page.swift */,
 				DE69672F2E8EB24C004D4115 /* SendMessageResponse.swift */,
 			);
 			path = Model;
@@ -1350,10 +1350,9 @@
 				DE2521102E9034CF00557C74 /* CreateScheduleCallViewController.swift in Sources */,
 				DE6967192E8E6252004D4115 /* SettingsTableLinksCell.swift in Sources */,
 				DE69673B2E8EB24C004D4115 /* DeleteChatRequest.swift in Sources */,
-				DE69673C2E8EB24C004D4115 /* ChatMessagesPage.swift in Sources */,
 				DE69673D2E8EB24C004D4115 /* CheckMessageCompleteResponse.swift in Sources */,
 				DE69673E2E8EB24C004D4115 /* GetMessagesRequest.swift in Sources */,
-				DE69673F2E8EB24C004D4115 /* Page.swift in Sources */,
+				DE69673F2E8EB24C004D4115 /* PageInfo.swift in Sources */,
 				DE6967402E8EB24C004D4115 /* CreateChatResponse.swift in Sources */,
 				DE25215C2E93F46000557C74 /* AudioCallViewController.swift in Sources */,
 				DE6967412E8EB24C004D4115 /* CheckMessageCompleteRequest.swift in Sources */,
@@ -1401,6 +1400,7 @@
 				DE69677F2E8EB26E004D4115 /* ChatQuestionTextCell.swift in Sources */,
 				DE6965FB2E8D60C0004D4115 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE69660A2E8D60C0004D4115 /* UIView+RxExtension.swift in Sources */,
+				DE2521A02E98113900557C74 /* Page.swift in Sources */,
 				DE69660B2E8D60C0004D4115 /* NumberLaunches.swift in Sources */,
 				DE6966112E8D60C0004D4115 /* TapAreaButton.swift in Sources */,
 				DE25213E2E92B6B500557C74 /* SCConfirmDeleteViewController.swift in Sources */,

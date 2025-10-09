@@ -29,7 +29,8 @@ final class ChatsViewController: UIViewController {
             didSelectChat: mainView.tableView.didSelect,
             didTapDelete: mainView.tableView.didDelete,
             didConfirmDelete: didConfirmDeleteTrigger.asSignal(),
-            didTapWriteMessage: mainView.emptyView.writeMessageButton.rx.tap.asSignal()
+            didTapWriteMessage: mainView.emptyView.writeMessageButton.rx.tap.asSignal(),
+            didScrollToBottom: mainView.tableView.didScrollToBottom
         ))
         
         output.action

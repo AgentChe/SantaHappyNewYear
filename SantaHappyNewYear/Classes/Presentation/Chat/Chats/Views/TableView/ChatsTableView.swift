@@ -14,6 +14,7 @@ final class ChatsTableView: UITableView {
     
     private lazy var didSelectTrigger = PublishRelay<Chat>()
     private lazy var didDeleteTrigger = PublishRelay<Chat>()
+    private lazy var didScrollToBottomTrigger = PublishRelay<Void>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -40,6 +41,10 @@ extension ChatsTableView {
     
     var didDelete: Signal<Chat> {
         didDeleteTrigger.asSignal()
+    }
+    
+    var didScrollToBottom: Signal<Void> {
+        didScrollToBottomTrigger.asSignal()
     }
 }
 
@@ -84,6 +89,11 @@ extension ChatsTableView: UITableViewDelegate {
         let config = UISwipeActionsConfiguration(actions: [delete])
         config.performsFirstActionWithFullSwipe = true
         return config
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard (elements.count - 1) == indexPath.row else { return }
+        didScrollToBottomTrigger.accept(Void())
     }
 }
 

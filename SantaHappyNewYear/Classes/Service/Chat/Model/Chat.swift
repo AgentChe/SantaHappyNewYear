@@ -15,13 +15,18 @@ struct Chat {
 
 // MARK: Public
 extension Chat {
-    static func map(response: Any) -> [Chat] {
+    static func map(response: Any) -> Page<[Chat]>? {
         guard
             let json = response as? [String: Any],
-            let body = json["body"] as? [[String: Any]]
-        else { return [] }
+            let body = json["body"] as? [String: Any],
+            let pageInfo: PageInfo = {
+                guard let pagination = body["pagination"] as? [String: Any] else { return nil }
+                return PageInfo(json: pagination)
+            }(),
+            let array = body["items"] as? [[String: Any]]
+        else { return nil }
         
-        return body.compactMap { json -> Chat? in
+        let chats = array.compactMap { json -> Chat? in
             guard
                 let id = json["thread_id"] as? String,
                 let created = json["created_timestamp"] as? TimeInterval,
@@ -35,5 +40,7 @@ extension Chat {
                 lastMessage: message
             )
         }
+        
+        return Page(info: pageInfo, elements: chats)
     }
 }

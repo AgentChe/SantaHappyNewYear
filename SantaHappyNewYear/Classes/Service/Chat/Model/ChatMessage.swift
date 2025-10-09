@@ -23,6 +23,22 @@ struct ChatMessage {
 
 // MARK: Public
 extension ChatMessage {
+    static func make(response: Any, chatId: String) -> Page<[ChatMessage]>? {
+        guard
+            let json = response as? [String: Any],
+            let body = json["body"] as? [String: Any],
+            let pageInfo: PageInfo = {
+                guard let pagination = body["pagination"] as? [String: Any] else { return nil }
+                return PageInfo(json: pagination)
+            }(),
+            let array = body["items"] as? [[String: Any]]
+        else { return nil }
+        
+        let messages = array.compactMap { ChatMessage(chatId: chatId, json: $0) }
+        
+        return Page(info: pageInfo, elements: messages)
+    }
+    
     init?(json: [String: Any]) {
         guard
             let chatId = json["thread_id"] as? String,

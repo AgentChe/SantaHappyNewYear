@@ -26,6 +26,7 @@ extension ChatsViewModel {
         let didTapDelete: Signal<Chat>
         let didConfirmDelete: Signal<Chat>
         let didTapWriteMessage: Signal<Void>
+        let didScrollToBottom: Signal<Void>
     }
     
     struct Output {
@@ -41,7 +42,10 @@ extension ChatsViewModel {
                 didTapDelete: input.didTapDelete,
                 didTapWriteMessage: input.didTapWriteMessage
             ),
-            elements: makeElements(didConfirmDelete: input.didConfirmDelete),
+            elements: makeElements(
+                didScrollToBottom: input.didScrollToBottom,
+                didConfirmDelete: input.didConfirmDelete
+            ),
             activity: activity.asDriver()
         )
     }
@@ -70,16 +74,39 @@ private extension ChatsViewModel {
             .merge(openChat, requestConfirmDelete)
     }
     
-    func makeElements(didConfirmDelete: Signal<Chat>) -> Driver<[ChatsTableElement]> {
-        let initialChats = chatManager
-            .chats()
-            .trackActivity(activity)
-            .asDriver(onErrorJustReturn: [])
+    func makeElements(
+        didScrollToBottom: Signal<Void>,
+        didConfirmDelete: Signal<Chat>
+    ) -> Driver<[ChatsTableElement]> {
+        var lastPageInfo: PageInfo?
         
-        let chats = initialChats
-            .flatMapLatest { initialChats -> Driver<[Chat]> in
+        func fetch(page: Int) -> Driver<Page<[Chat]>> {
+            chatManager
+                .chats()
+                .trackActivity(page == 1 ? activity : RxActivityIndicator())
+                .asDriver(onErrorJustReturn: nil)
+                .compactMap { $0 }
+                .do(onNext: { page in
+                    lastPageInfo = page.info
+                })
+        }
+        
+        let firstPage = fetch(page: 1)
+        
+        let chats = firstPage
+            .flatMapLatest { firstPage -> Driver<[Chat]> in
+                let downloadPage = didScrollToBottom
+                    .asDriver(onErrorDriveWith: .never())
+                    .compactMap { lastPageInfo }
+                    .filter { ($0.nextPage <= $0.total) && ($0.current != $0.total) }
+                    .flatMapFirst { lastPageInfo -> Driver<Page<[Chat]>> in
+                        fetch(page: lastPageInfo.nextPage)
+                    }
+                    .startWith(firstPage)
+                
                 enum Action {
-                    case delete(Chat)
+                    case page(Page<[Chat]>)
+                    case delete(String)
                 }
                 
                 let delete = didConfirmDelete
@@ -89,19 +116,26 @@ private extension ChatsViewModel {
                         return chatManager
                             .deleteChat(id: chat.id)
                             .asDriver(onErrorDriveWith: .never())
-                            .map { Action.delete(chat) }
+                            .map { Action.delete(chat.id) }
                     }
                 
-                return delete
-                    .scan(initialChats) { chats, action -> [Chat] in
+                let action = Driver
+                    .merge(
+                        downloadPage.map { Action.page($0) },
+                        delete
+                    )
+                
+                return action
+                    .scan([]) { chats, action -> [Chat] in
                         switch action {
-                        case .delete(let chat):
+                        case .page(let page):
+                            return page.info.current == 1 ? page.elements : (chats + page.elements)
+                        case .delete(let id):
                             var result = chats
-                            result.removeAll(where: { $0.id == chat.id })
+                            result.removeAll(where: { $0.id == id })
                             return result
                         }
                     }
-                    .startWith(initialChats)
             }
         
         return chats
