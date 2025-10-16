@@ -58,6 +58,9 @@
 		DE25219B2E980DBC00557C74 /* ProfileSetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25219A2E980DBC00557C74 /* ProfileSetRequest.swift */; };
 		DE25219E2E980E5B00557C74 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25219D2E980E5B00557C74 /* RequestResult.swift */; };
 		DE2521A02E98113900557C74 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25219F2E98113900557C74 /* Page.swift */; };
+		DE2521A32E981E8F00557C74 /* CallWebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521A22E981E8F00557C74 /* CallWebSocketService.swift */; };
+		DE2521A52E990FF800557C74 /* StreamingAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521A42E990FF800557C74 /* StreamingAudioPlayer.swift */; };
+		DE2521A72E99659800557C74 /* CallSTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521A62E99659700557C74 /* CallSTTService.swift */; };
 		DE6963452E8D5DA9004D4115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE69633C2E8D5DA9004D4115 /* Assets.xcassets */; };
 		DE6963472E8D5DA9004D4115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE69633F2E8D5DA9004D4115 /* LaunchScreen.storyboard */; };
 		DE69635E2E8D60B6004D4115 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE69635C2E8D60B6004D4115 /* Localizable.strings */; };
@@ -229,6 +232,9 @@
 		DE25219A2E980DBC00557C74 /* ProfileSetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetRequest.swift; sourceTree = "<group>"; };
 		DE25219D2E980E5B00557C74 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		DE25219F2E98113900557C74 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		DE2521A22E981E8F00557C74 /* CallWebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallWebSocketService.swift; sourceTree = "<group>"; };
+		DE2521A42E990FF800557C74 /* StreamingAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingAudioPlayer.swift; sourceTree = "<group>"; };
+		DE2521A62E99659700557C74 /* CallSTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSTTService.swift; sourceTree = "<group>"; };
 		DE6963232E8D5DA3004D4115 /* SantaHappyNewYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SantaHappyNewYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE69633C2E8D5DA9004D4115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE69633D2E8D5DA9004D4115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -562,6 +568,7 @@
 		DE2521572E93E47400557C74 /* Call */ = {
 			isa = PBXGroup;
 			children = (
+				DE2521A12E981E7700557C74 /* Streaming */,
 				DE2521942E97B03400557C74 /* CallIncoming.caf */,
 				DE2521952E97B03400557C74 /* CallOutgoing.caf */,
 				DE2521662E96818400557C74 /* Video */,
@@ -625,6 +632,16 @@
 				DE25219D2E980E5B00557C74 /* RequestResult.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		DE2521A12E981E7700557C74 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				DE2521A22E981E8F00557C74 /* CallWebSocketService.swift */,
+				DE2521A42E990FF800557C74 /* StreamingAudioPlayer.swift */,
+				DE2521A62E99659700557C74 /* CallSTTService.swift */,
+			);
+			path = Streaming;
 			sourceTree = "<group>";
 		};
 		DE69631A2E8D5DA2004D4115 = {
@@ -1323,6 +1340,7 @@
 				DE2521272E929C4700557C74 /* HomeActionsView.swift in Sources */,
 				DE6965802E8D60C0004D4115 /* ProductPrice.swift in Sources */,
 				DE6965812E8D60C0004D4115 /* ProfileBindingRequest.swift in Sources */,
+				DE2521A52E990FF800557C74 /* StreamingAudioPlayer.swift in Sources */,
 				DE69658A2E8D60C0004D4115 /* PaygateInfoCell.swift in Sources */,
 				DE6967122E8E6231004D4115 /* SettingsTableView.swift in Sources */,
 				DE69658C2E8D60C0004D4115 /* PaygateView.swift in Sources */,
@@ -1466,6 +1484,8 @@
 				DE2521362E92B26B00557C74 /* ScheduleCallViewController.swift in Sources */,
 				DE6966D82E8D60C0004D4115 /* SignError.swift in Sources */,
 				DE6967242E8E79A3004D4115 /* HomeViewController.swift in Sources */,
+				DE2521A32E981E8F00557C74 /* CallWebSocketService.swift in Sources */,
+				DE2521A72E99659800557C74 /* CallSTTService.swift in Sources */,
 				DE6966DA2E8D60C0004D4115 /* PurchaseValidationObserver.swift in Sources */,
 				DE6966DE2E8D60C0004D4115 /* Scalable.swift in Sources */,
 				DE25219E2E980E5B00557C74 /* RequestResult.swift in Sources */,

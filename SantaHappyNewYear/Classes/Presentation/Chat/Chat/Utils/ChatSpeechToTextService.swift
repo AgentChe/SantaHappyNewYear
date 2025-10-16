@@ -23,7 +23,7 @@ final class ChatSpeechToTextService {
     private let recognizer: SFSpeechRecognizer
     private var cancelPendingStart = false
 
-    init(locale: Locale = Locale(identifier: "ru-RU")) {
+    init(locale: Locale = Locale(identifier: "ru_RU")) { // TODO: en_EN
         recognizer = SFSpeechRecognizer(locale: locale)!
     }
 

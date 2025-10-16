@@ -13,6 +13,7 @@ final class AudioCallViewModel {
         case cancelCall
         case playRingtone(RingtonePlayer.CallDirection)
         case stopRingtone
+        case connect
     }
     
     private let callDirection: Driver<AudioCallViewController.CallDirection>
@@ -145,7 +146,11 @@ private extension AudioCallViewModel {
                 }
             }
         
+        let connect = callPhase
+            .filter { $0 == .active }
+            .map { _ in Action.connect }
+        
         return Driver
-            .merge(cancelCall, ringtone)
+            .merge(cancelCall, ringtone, connect)
     }
 }

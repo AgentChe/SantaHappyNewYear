@@ -72,7 +72,7 @@ private extension SplashViewModel {
                             }
                             
                             return self.profileManager
-                                .set(locale: Locale.current.identifier)
+                                .set(locale: "ru_RU") // TODO: en_EN
                                 .map { result -> Void in
                                     guard result.success else {
                                         throw ContentError(.notContent)

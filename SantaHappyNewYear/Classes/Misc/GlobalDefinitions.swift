@@ -10,6 +10,7 @@ import Foundation
 // TODO
 final class GlobalDefinitions {
     static let domain = "https://santa.korrekted.com"
+    static let wssDomain = "wss://santa.korrekted.com"
     static let apiKey = "v7m5rcLUz4j6XIPGpw"
     
     static let otterScaleHost = "https://api.korrekted.com"
