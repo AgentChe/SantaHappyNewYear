@@ -20,7 +20,7 @@ final class CallSTTService {
     enum Err: Error { case notAuthorized, busy }
 
     private let audioEngine = AVAudioEngine()
-    private let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "ru_RU")) // TODO: en_EN
+    private let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en_EN")) 
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
 

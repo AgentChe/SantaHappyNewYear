@@ -19,6 +19,7 @@ final class VideoCallView: UIView {
     }
     
     lazy var backgroundView = makeBackgroundView()
+    lazy var animationView = makeAnimationView()
     lazy var titleLabel = makeTitleLabel()
     lazy var subTitleLabel = makeSubTitleLabel()
     lazy var rejectButton = makeRejectButton()
@@ -120,6 +121,13 @@ private extension VideoCallView {
         ])
         
         NSLayoutConstraint.activate([
+            animationView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            animationView.topAnchor.constraint(equalTo: topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.scale)
         ])
@@ -168,6 +176,14 @@ private extension VideoCallView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.image = UIImage(named: "Video.Background")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeAnimationView() -> VideoSantaAnimationView {
+        let view = VideoSantaAnimationView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

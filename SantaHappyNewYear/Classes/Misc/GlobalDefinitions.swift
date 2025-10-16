@@ -16,7 +16,6 @@ final class GlobalDefinitions {
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "v6yHI2AQpAq7YNYX"
     
-    static let applicationTag = "SMART_CLOSET"
     static let amplitudeApiKey = "17fa94a421fa4349d8b1db59c8e06fbe"
     
     static let termsOfServiceUrl = URL(string: "https://camplain-apps.com/terms-of-use.html")!

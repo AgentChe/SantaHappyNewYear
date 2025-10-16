@@ -178,6 +178,9 @@
 		DE69677E2E8EB26E004D4115 /* ChatLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69674A2E8EB26E004D4115 /* ChatLoadingCell.swift */; };
 		DE69677F2E8EB26E004D4115 /* ChatQuestionTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69674C2E8EB26E004D4115 /* ChatQuestionTextCell.swift */; };
 		DE6967812E8EDCFB004D4115 /* ChatsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967802E8EDCFB004D4115 /* ChatsTableElement.swift */; };
+		DEB983962EA0FC9F0027A72C /* VideoSantaAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB983952EA0FC9F0027A72C /* VideoSantaAnimationView.swift */; };
+		DEB9839A2EA0FD270027A72C /* Santa.Speaking.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = DEB983992EA0FD270027A72C /* Santa.Speaking.MP4 */; };
+		DEB9839B2EA0FD270027A72C /* Santa.Listening.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = DEB983982EA0FD270027A72C /* Santa.Listening.MP4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -354,6 +357,9 @@
 		DE6967622E8EB26E004D4115 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		DE6967632E8EB26E004D4115 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		DE6967802E8EDCFB004D4115 /* ChatsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableElement.swift; sourceTree = "<group>"; };
+		DEB983952EA0FC9F0027A72C /* VideoSantaAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSantaAnimationView.swift; sourceTree = "<group>"; };
+		DEB983982EA0FD270027A72C /* Santa.Listening.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Santa.Listening.MP4; sourceTree = "<group>"; };
+		DEB983992EA0FD270027A72C /* Santa.Speaking.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Santa.Speaking.MP4; sourceTree = "<group>"; };
 		F26B083FDB382D9325FD39F0 /* Pods_SantaHappyNewYear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SantaHappyNewYear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F345A752228B5D53298AD4 /* Pods-SantaHappyNewYear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SantaHappyNewYear.release.xcconfig"; path = "Target Support Files/Pods-SantaHappyNewYear/Pods-SantaHappyNewYear.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -603,6 +609,7 @@
 		DE25216D2E9684C400557C74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DEB983972EA0FCA10027A72C /* SantaAnimation */,
 				DE25216E2E9685B200557C74 /* FrontCameraView.swift */,
 			);
 			path = Views;
@@ -1207,6 +1214,16 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		DEB983972EA0FCA10027A72C /* SantaAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				DEB983982EA0FD270027A72C /* Santa.Listening.MP4 */,
+				DEB983992EA0FD270027A72C /* Santa.Speaking.MP4 */,
+				DEB983952EA0FC9F0027A72C /* VideoSantaAnimationView.swift */,
+			);
+			path = SantaAnimation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1268,6 +1285,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB9839A2EA0FD270027A72C /* Santa.Speaking.MP4 in Resources */,
+				DEB9839B2EA0FD270027A72C /* Santa.Listening.MP4 in Resources */,
 				DE6966E82E8D82A7004D4115 /* PlayfairDisplay-Bold.ttf in Resources */,
 				DE6966EF2E8D82C0004D4115 /* PlayfairDisplay-Regular.ttf in Resources */,
 				DE6966F02E8D82C0004D4115 /* PlayfairDisplay-SemiBold.ttf in Resources */,
@@ -1425,6 +1444,7 @@
 				DE6967142E8E6239004D4115 /* SettingsTableElement.swift in Sources */,
 				DE6966142E8D60C0004D4115 /* RequestReview.swift in Sources */,
 				DE6966172E8D60C0004D4115 /* APIFormDataRequestBody.swift in Sources */,
+				DEB983962EA0FC9F0027A72C /* VideoSantaAnimationView.swift in Sources */,
 				DE2521382E92B27100557C74 /* ScheduleCallViewModel.swift in Sources */,
 				DE2521242E9294B900557C74 /* CSCInvalidDateView.swift in Sources */,
 				DE2521712E96992900557C74 /* ChatsEmptyView.swift in Sources */,

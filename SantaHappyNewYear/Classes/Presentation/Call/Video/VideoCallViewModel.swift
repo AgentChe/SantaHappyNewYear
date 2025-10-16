@@ -13,6 +13,7 @@ final class VideoCallViewModel {
         case cancelCall
         case playRingtone(RingtonePlayer.CallDirection)
         case stopRingtone
+        case connect
     }
     
     private let callDirection: Driver<VideoCallViewController.CallDirection>
@@ -30,8 +31,8 @@ extension VideoCallViewModel {
     }
     
     struct Output {
-        let callPhase: Driver<VideoCallView.CallPhase>
-        let callUIState: Driver<VideoCallView.CallUIState>
+        let videoViewCallPhase: Driver<VideoCallView.CallPhase>
+        let videoViewCallUIState: Driver<VideoCallView.CallUIState>
         let action: Driver<Action>
     }
     
@@ -42,8 +43,11 @@ extension VideoCallViewModel {
         )
         
         return Output(
-            callPhase: makeViewCallPhase(callPhase: callPhase),
-            callUIState: makeCallUIState(callPhase: callPhase),
+            videoViewCallPhase: makeVideoViewCallPhase(callPhase: callPhase),
+            videoViewCallUIState: makeVideoCallUIState(
+                callDirection: callDirection,
+                callPhase: callPhase
+            ),
             action: makeAction(
                 callDirection: callDirection,
                 didTapReject: input.didTapReject,
@@ -81,7 +85,7 @@ private extension VideoCallViewModel {
             }
     }
     
-    func makeViewCallPhase(callPhase: Driver<CallPhase>) -> Driver<VideoCallView.CallPhase> {
+    func makeVideoViewCallPhase(callPhase: Driver<CallPhase>) -> Driver<VideoCallView.CallPhase> {
         callPhase
             .flatMapLatest { callPhase -> Driver<VideoCallView.CallPhase> in
                 switch callPhase {
@@ -96,7 +100,10 @@ private extension VideoCallViewModel {
             }
     }
     
-    func makeCallUIState(callPhase: Driver<CallPhase>) -> Driver<VideoCallView.CallUIState> {
+    func makeVideoCallUIState(
+        callDirection: Driver<VideoCallViewController.CallDirection>,
+        callPhase: Driver<CallPhase>
+    ) -> Driver<VideoCallView.CallUIState> {
         callPhase
             .map { callPhase -> VideoCallView.CallUIState in
                 switch callPhase {
@@ -137,7 +144,11 @@ private extension VideoCallViewModel {
                 }
             }
         
+        let connect = callPhase
+            .filter { $0 == .active }
+            .map { _ in Action.connect }
+        
         return Driver
-            .merge(cancelCall, ringtone)
+            .merge(cancelCall, ringtone, connect)
     }
 }

@@ -15,7 +15,14 @@ final class VideoCallViewController: UIViewController {
     
     deinit {
         RingtonePlayer.shared.stop()
+        webSocketService.disconnect()
+        streamingAudioPlayer.stop()
+        callSTTService.cancel()
     }
+    
+    private lazy var webSocketService = CallWebSocketService()
+    private lazy var streamingAudioPlayer = StreamingAudioPlayer()
+    private lazy var callSTTService = CallSTTService()
     
     private let mainView: VideoCallView
     
@@ -41,18 +48,50 @@ final class VideoCallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        webSocketService.agentState
+            .emit(to: Binder(self) { base, agentState in
+                switch agentState {
+                case .listening:
+                    base.streamingAudioPlayer.stop()
+                    try? base.callSTTService.start { [weak base] text in
+                        base?.webSocketService.send(message: text)
+                    }
+                    base.mainView.animationView.setup(animation: .listening)
+                case .speaking:
+                    base.callSTTService.cancel()
+                    base.streamingAudioPlayer.start()
+                    base.mainView.animationView.setup(animation: .speaking)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        webSocketService.agentState
+            .filter { $0 == .listening }
+            .asObservable()
+            .take(1)
+            .bind(to: Binder(webSocketService) { base, _ in
+                base.send(message: "Hello Santa! I'm ready to listen to your greeting message!", status: "start")
+            })
+            .disposed(by: disposeBag)
+        
+        webSocketService.audioChunks
+            .emit(to: Binder(streamingAudioPlayer) { base, audioChunks in
+                base.enqueue(audioChunks)
+            })
+            .disposed(by: disposeBag)
+        
         let output = viewModel.configure(input: VideoCallViewModel.Input(
             didTapReject: mainView.rejectButton.rx.tap.asSignal(),
             didTapAccept: mainView.acceptButton?.rx.tap.asSignal() ?? .never()
         ))
         
-        output.callPhase
+        output.videoViewCallPhase
             .drive(Binder(mainView) { base, callPhase in
                 base.setup(callPhase: callPhase)
             })
             .disposed(by: disposeBag)
         
-        output.callUIState
+        output.videoViewCallUIState
             .drive(Binder(mainView) { base, callUIState in
                 base.setup(callUIState: callUIState)
             })
@@ -80,11 +119,16 @@ private extension VideoCallViewController {
     func action(_ action: VideoCallViewModel.Action) {
         switch action {
         case .cancelCall:
+            webSocketService.disconnect()
+            streamingAudioPlayer.stop()
+            
             dismiss(animated: false)
         case .playRingtone(let callDirection):
             RingtonePlayer.shared.play(callDirection)
         case .stopRingtone:
             RingtonePlayer.shared.stop()
+        case .connect:
+            webSocketService.connect()
         }
     }
 }
