@@ -1545,15 +1545,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7FN7933CDF;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VMT89YT6U4;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SantaHappyNewYear/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Santa Happy New Year";
+				INFOPLIST_KEY_CFBundleDisplayName = "Santa Chat";
 				INFOPLIST_KEY_NSCameraUsageDescription = "So Santa can see you when you call him.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Without this, you won’t be able to talk to Santa.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Without this, we won’t be able to recognize what you want to say to Santa.";
@@ -1567,10 +1567,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.vin.proverka.auto;
+				PRODUCT_BUNDLE_IDENTIFIER = iphone.santa.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Proverka Auto Development";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Santa Chat";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1587,15 +1587,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7FN7933CDF;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VMT89YT6U4;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SantaHappyNewYear/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Santa Happy New Year";
+				INFOPLIST_KEY_CFBundleDisplayName = "Santa Chat";
 				INFOPLIST_KEY_NSCameraUsageDescription = "So Santa can see you when you call him.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Without this, you won’t be able to talk to Santa.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Without this, we won’t be able to recognize what you want to say to Santa.";
@@ -1609,10 +1609,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.vin.proverka.auto;
+				PRODUCT_BUNDLE_IDENTIFIER = iphone.santa.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Proverka Auto Development";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Santa Chat";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
