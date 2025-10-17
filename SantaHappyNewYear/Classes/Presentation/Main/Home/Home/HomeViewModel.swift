@@ -73,7 +73,7 @@ private extension HomeViewModel {
                             .asDriver(onErrorDriveWith: .never()),
                         CallsMediator.shared.didDeletedScheduleCall
                             .map { Action.delete($0) }
-                            .asDriver(onErrorDriveWith: .never()),
+                            .asDriver(onErrorDriveWith: .never())
                     )
                 
                 return action

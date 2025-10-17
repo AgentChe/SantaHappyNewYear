@@ -52,7 +52,7 @@ final class ChooseCallMethodViewController: UIViewController {
         Observable
             .merge(
                 mainView.audioButton.rx.tap.map { CCMMethodButton.Method.audio },
-                mainView.videoButton.rx.tap.map { CCMMethodButton.Method.video },
+                mainView.videoButton.rx.tap.map { CCMMethodButton.Method.video }
             )
             .startWith(.audio)
             .bind(to: Binder(mainView) { base, method in
