@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03FBCBD127171E8BE25ACBDE /* Pods_SantaHappyNewYear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F26B083FDB382D9325FD39F0 /* Pods_SantaHappyNewYear.framework */; };
+		DE1228EC2EAA73CE006A515F /* CallPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1228EB2EAA73CE006A515F /* CallPermissions.swift */; };
 		DE2521022E8FEEE700557C74 /* ChatSpeechToTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521012E8FEEE700557C74 /* ChatSpeechToTextService.swift */; };
 		DE2521062E901C2C00557C74 /* ChooseCallMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521052E901C2C00557C74 /* ChooseCallMethodViewController.swift */; };
 		DE2521082E901C3D00557C74 /* ChooseCallMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521072E901C3D00557C74 /* ChooseCallMethodView.swift */; };
@@ -185,6 +186,7 @@
 
 /* Begin PBXFileReference section */
 		11B7ECF170F9DF4B7EF9C3D0 /* Pods-SantaHappyNewYear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SantaHappyNewYear.debug.xcconfig"; path = "Target Support Files/Pods-SantaHappyNewYear/Pods-SantaHappyNewYear.debug.xcconfig"; sourceTree = "<group>"; };
+		DE1228EB2EAA73CE006A515F /* CallPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallPermissions.swift; sourceTree = "<group>"; };
 		DE2521012E8FEEE700557C74 /* ChatSpeechToTextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSpeechToTextService.swift; sourceTree = "<group>"; };
 		DE2521052E901C2C00557C74 /* ChooseCallMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCallMethodViewController.swift; sourceTree = "<group>"; };
 		DE2521072E901C3D00557C74 /* ChooseCallMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCallMethodView.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				DE2521662E96818400557C74 /* Video */,
 				DE25215A2E93F45600557C74 /* Audio */,
 				DE2521582E93E66800557C74 /* SantaCallObserver.swift */,
+				DE1228EB2EAA73CE006A515F /* CallPermissions.swift */,
 				DE2521982E97B1B200557C74 /* RingtonePlayer.swift */,
 			);
 			path = Call;
@@ -1333,9 +1336,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SantaHappyNewYear/Pods-SantaHappyNewYear-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SantaHappyNewYear/Pods-SantaHappyNewYear-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1483,6 +1490,7 @@
 				DE6966922E8D60C0004D4115 /* Fonts.swift in Sources */,
 				DE6966942E8D60C0004D4115 /* IAPActionResult.swift in Sources */,
 				DE25218A2E97A48800557C74 /* OIntroView.swift in Sources */,
+				DE1228EC2EAA73CE006A515F /* CallPermissions.swift in Sources */,
 				DE6966952E8D60C0004D4115 /* IAPProduct.swift in Sources */,
 				DE2521062E901C2C00557C74 /* ChooseCallMethodViewController.swift in Sources */,
 				DE69669A2E8D60C0004D4115 /* PaygateBestOfferView.swift in Sources */,
@@ -1543,7 +1551,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VMT89YT6U4;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1562,7 +1570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.santa.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1585,7 +1593,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VMT89YT6U4;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1604,7 +1612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.santa.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

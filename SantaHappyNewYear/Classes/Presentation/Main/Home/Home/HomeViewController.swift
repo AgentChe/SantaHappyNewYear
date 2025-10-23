@@ -61,29 +61,45 @@ private extension HomeViewController {
             navigationController?.pushViewController(vc, animated: true)
         case .chooseCallMethod:
             let vc = ChooseCallMethodViewController.make { [weak self] result in
+                guard let self else { return  }
+                
                 switch result {
                 case .nowAudio:
                     if SessionManager().hasActiveSubscriptions() {
-                        let vc = AudioCallViewController.make(callDirection: .outgoing)
-                        self?.present(vc, animated: false)
+                        CallPermissions.requestAll(requireVideo: false) { result in
+                            switch result {
+                            case .success:
+                                let vc = AudioCallViewController.make(callDirection: .outgoing)
+                                self.present(vc, animated: false)
+                            case .failure(let error):
+                                CallPermissions.openErrorAlert(from: self, error: error)
+                            }
+                        }
                     } else {
                         let vc = PaygateViewController.make()
-                        self?.present(vc, animated: true)
+                        self.present(vc, animated: true)
                     }
                 case .nowVideo:
                     if SessionManager().hasActiveSubscriptions() {
-                        let vc = VideoCallViewController.make(callDirection: .outgoing)
-                        self?.present(vc, animated: false)
+                        CallPermissions.requestAll(requireVideo: true) { result in
+                            switch result {
+                            case .success:
+                                let vc = VideoCallViewController.make(callDirection: .outgoing)
+                                self.present(vc, animated: false)
+                            case .failure(let error):
+                                CallPermissions.openErrorAlert(from: self, error: error)
+                            }
+                        }
                     } else {
                         let vc = PaygateViewController.make()
-                        self?.present(vc, animated: true)
+                        self.present(vc, animated: true)
                     }
                 case .scheduleAudio:
                     let vc = CreateScheduleCallViewController.make(callMethod: .audio)
-                    self?.present(vc, animated: false)
+                    self.present(vc, animated: false)
                 case .scheduleVideo:
                     let vc = CreateScheduleCallViewController.make(callMethod: .video)
-                    self?.present(vc, animated: false)
+                    self.present(vc, animated: false)
                 }
             }
             present(vc, animated: false)
@@ -91,11 +107,29 @@ private extension HomeViewController {
             let vc = ScheduleCallViewController.make(scheduleCall: scheduleCall)
             present(vc, animated: false)
         case .audioCall:
-            let vc = AudioCallViewController.make(callDirection: .outgoing)
-            present(vc, animated: false)
+            CallPermissions.requestAll(requireVideo: false) { [weak self] result in
+                guard let self else { return }
+                
+                switch result {
+                case .success:
+                    let vc = AudioCallViewController.make(callDirection: .outgoing)
+                    present(vc, animated: false)
+                case .failure(let error):
+                    CallPermissions.openErrorAlert(from: self, error: error)
+                }
+            }
         case .videoCall:
-            let vc = VideoCallViewController.make(callDirection: .outgoing)
-            present(vc, animated: false)
+            CallPermissions.requestAll(requireVideo: true) { [weak self] result in
+                guard let self else { return }
+                
+                switch result {
+                case .success:
+                    let vc = VideoCallViewController.make(callDirection: .outgoing)
+                    present(vc, animated: false)
+                case .failure(let error):
+                    CallPermissions.openErrorAlert(from: self, error: error)
+                }
+            }
         case .openPaygate:
             let vc = PaygateViewController.make()
             present(vc, animated: true)

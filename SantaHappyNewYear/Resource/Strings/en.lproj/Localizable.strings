@@ -125,3 +125,7 @@
 "VideoCall.Camera.NotPermissions" = "Not Permissions";
 "VideoCall.Camera.NotAvailable" = "Camera not available";
 "VideoCall.Camera.Error" = "Camera error: %@";
+
+// MARK: CallPermissions
+"CallPermissions.Error.Title" = "Permits required";
+"CallPermissions.Error.Message" = "To make a call, you need to grant permissions. Go to Settings and grant permissions.";

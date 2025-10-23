@@ -99,7 +99,16 @@ private extension CreateScheduleCallViewController {
     func handle(status: NotificationsAuthorizationStatus) {
         switch status {
         case .authorized:
-            saveScheduleCallTrigger.accept((mainView.dateView.selectedDate, mainView.timeView.selectedDate))
+            CallPermissions.requestAll(requireVideo: true) { [weak self] result in
+                guard let self else { return }
+                
+                switch result {
+                case .success:
+                    saveScheduleCallTrigger.accept((mainView.dateView.selectedDate, mainView.timeView.selectedDate))
+                case .failure(let error):
+                    CallPermissions.openErrorAlert(from: self, error: error)
+                }
+            }
         case .notDetermined:
             LocalNotificationsManager.shared.requestAuthorization { [weak self] status in
                 self?.handle(status: status)
