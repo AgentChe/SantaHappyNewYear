@@ -16,7 +16,11 @@ final class FrontCameraView: UIView {
         .font(Fonts.SFProRounded.regular(size: 16.scale))
         .textAlignment(.center)
     
-    private lazy var session = AVCaptureSession()
+    private lazy var session: AVCaptureSession = {
+        let session = AVCaptureSession()
+        session.automaticallyConfiguresApplicationAudioSession = false
+        return session
+    }()
     private lazy var sessionQueue = DispatchQueue(label: "frontcamera.session.queue")
     private lazy var isConfigured = false
 
