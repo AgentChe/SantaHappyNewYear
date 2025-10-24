@@ -21,6 +21,7 @@ final class AudioCallView: UIView {
     lazy var backgroundView = makeBackgroundView()
     lazy var titleLabel = makeTitleLabel()
     lazy var subTitleLabel = makeSubTitleLabel()
+    lazy var canSpeakView = makeCanSpeakView()
     lazy var rejectButton = makeRejectButton()
     lazy var acceptButton = makeAcceptButton()
     
@@ -115,6 +116,11 @@ private extension AudioCallView {
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4.scale)
         ])
         
+        NSLayoutConstraint.activate([
+            canSpeakView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            canSpeakView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 16.scale)
+        ])
+        
         if let acceptButton {
             rejectButtonHorizontalConstraint = rejectButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 57.scale)
             NSLayoutConstraint.activate([
@@ -168,6 +174,14 @@ private extension AudioCallView {
     
     func makeSubTitleLabel() -> UILabel {
         let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeCanSpeakView() -> CanSpeakView {
+        let view = CanSpeakView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

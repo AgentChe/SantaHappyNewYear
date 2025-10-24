@@ -56,9 +56,11 @@ final class AudioCallViewController: UIViewController {
                     try? base.callSTTService.start { [weak base] text in
                         base?.webSocketService.send(message: text)
                     }
+                    base.mainView.canSpeakView.isHidden = false
                 case .speaking:
                     base.callSTTService.cancel()
                     base.streamingAudioPlayer.start()
+                    base.mainView.canSpeakView.isHidden = true
                 }
             })
             .disposed(by: disposeBag)

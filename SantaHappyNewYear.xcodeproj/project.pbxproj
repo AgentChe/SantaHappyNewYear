@@ -179,6 +179,7 @@
 		DE69677E2E8EB26E004D4115 /* ChatLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69674A2E8EB26E004D4115 /* ChatLoadingCell.swift */; };
 		DE69677F2E8EB26E004D4115 /* ChatQuestionTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69674C2E8EB26E004D4115 /* ChatQuestionTextCell.swift */; };
 		DE6967812E8EDCFB004D4115 /* ChatsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6967802E8EDCFB004D4115 /* ChatsTableElement.swift */; };
+		DE89BF772EABCC68005C2070 /* CanSpeakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE89BF762EABCC68005C2070 /* CanSpeakView.swift */; };
 		DEB983962EA0FC9F0027A72C /* VideoSantaAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB983952EA0FC9F0027A72C /* VideoSantaAnimationView.swift */; };
 		DEB9839A2EA0FD270027A72C /* Santa.Speaking.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = DEB983992EA0FD270027A72C /* Santa.Speaking.MP4 */; };
 		DEB9839B2EA0FD270027A72C /* Santa.Listening.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = DEB983982EA0FD270027A72C /* Santa.Listening.MP4 */; };
@@ -359,6 +360,7 @@
 		DE6967622E8EB26E004D4115 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		DE6967632E8EB26E004D4115 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		DE6967802E8EDCFB004D4115 /* ChatsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableElement.swift; sourceTree = "<group>"; };
+		DE89BF762EABCC68005C2070 /* CanSpeakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanSpeakView.swift; sourceTree = "<group>"; };
 		DEB983952EA0FC9F0027A72C /* VideoSantaAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSantaAnimationView.swift; sourceTree = "<group>"; };
 		DEB983982EA0FD270027A72C /* Santa.Listening.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Santa.Listening.MP4; sourceTree = "<group>"; };
 		DEB983992EA0FD270027A72C /* Santa.Speaking.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Santa.Speaking.MP4; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 			children = (
 				DEB983972EA0FCA10027A72C /* SantaAnimation */,
 				DE25216E2E9685B200557C74 /* FrontCameraView.swift */,
+				DE89BF762EABCC68005C2070 /* CanSpeakView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1485,6 +1488,7 @@
 				DE6966712E8D60C0004D4115 /* GlobalDefinitions.swift in Sources */,
 				DE69668C2E8D60C0004D4115 /* ChoosePhotoFromGallery.swift in Sources */,
 				DE2521842E97A1F800557C74 /* OnboardingView.swift in Sources */,
+				DE89BF772EABCC68005C2070 /* CanSpeakView.swift in Sources */,
 				DE2521852E97A1F800557C74 /* OnboardingViewController.swift in Sources */,
 				DE6966FF2E8E5624004D4115 /* MainView.swift in Sources */,
 				DE6966922E8D60C0004D4115 /* Fonts.swift in Sources */,
@@ -1551,7 +1555,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VMT89YT6U4;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1593,7 +1597,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VMT89YT6U4;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;

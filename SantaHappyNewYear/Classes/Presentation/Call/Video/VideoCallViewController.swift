@@ -57,10 +57,12 @@ final class VideoCallViewController: UIViewController {
                         base?.webSocketService.send(message: text)
                     }
                     base.mainView.animationView.setup(animation: .listening)
+                    base.mainView.canSpeakView.isHidden = false
                 case .speaking:
                     base.callSTTService.cancel()
                     base.streamingAudioPlayer.start()
                     base.mainView.animationView.setup(animation: .speaking)
+                    base.mainView.canSpeakView.isHidden = true
                 }
             })
             .disposed(by: disposeBag)
