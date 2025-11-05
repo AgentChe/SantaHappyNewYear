@@ -22,7 +22,7 @@ final class FrontCameraView: UIView {
         return session
     }()
     private lazy var sessionQueue = DispatchQueue(label: "frontcamera.session.queue")
-    private lazy var isConfigured = false
+    private var isConfigured = false
 
     override class var layerClass: AnyClass { AVCaptureVideoPreviewLayer.self }
     private var previewLayer: AVCaptureVideoPreviewLayer { layer as! AVCaptureVideoPreviewLayer }
@@ -85,7 +85,6 @@ private extension FrontCameraView {
     
     func setupIfNeededAndStart() {
         overlayLabel.isHidden = true
-
         sessionQueue.async { [weak self] in
             guard let self else { return }
 
@@ -94,57 +93,34 @@ private extension FrontCameraView {
                 session.sessionPreset = .high
 
                 guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
-                    DispatchQueue.main.async {
-                        self.showDeniedUI("VideoCall.Camera.NotAvailable".localized)
-                    }
-                    
-                    self.session.commitConfiguration()
-                    
-                    return
-                }
-
-                for input in session.inputs {
-                    session.removeInput(input)
-                }
-
-                do {
-                    let input = try AVCaptureDeviceInput(device: device)
-                    
-                    if session.canAddInput(input) {
-                        session.addInput(input)
-                    }
-                } catch {
-                    DispatchQueue.main.async { [weak self] in
-                        let errorMessage = String(format: "VideoCall.Camera.Error".localized, error.localizedDescription)
-                        self?.showDeniedUI(errorMessage)
-                    }
-                    
                     session.commitConfiguration()
-                    
+                    DispatchQueue.main.async { self.showDeniedUI("VideoCall.Camera.NotAvailable".localized) }
                     return
                 }
 
+                guard let input = try? AVCaptureDeviceInput(device: device),
+                      session.canAddInput(input) else {
+                    session.commitConfiguration()
+                    DispatchQueue.main.async {
+                        self.showDeniedUI("VideoCall.Camera.Error".localized)
+                    }
+                    return
+                }
+                session.addInput(input)
                 session.commitConfiguration()
                 isConfigured = true
 
-                DispatchQueue.main.async { [weak self] in
-                    guard let self else { return }
-                    
+                DispatchQueue.main.async {
                     self.previewLayer.session = self.session
                 }
             } else {
-                DispatchQueue.main.async { [weak self] in
-                    guard let self else { return }
-                    
-                    if previewLayer.session == nil {
-                        previewLayer.session = session
-                    }
+                DispatchQueue.main.async {
+                    if self.previewLayer.session == nil { self.previewLayer.session = self.session }
                 }
             }
-
-            if !session.isRunning {
-                session.startRunning()
-            }
+            
+            guard !session.inputs.isEmpty, !session.isRunning else { return }
+            session.startRunning()
         }
     }
     
