@@ -25,7 +25,6 @@ final class VideoCallView: UIView {
     lazy var canSpeakView = makeCanSpeakView()
     lazy var rejectButton = makeRejectButton()
     lazy var acceptButton = makeAcceptButton()
-    lazy var frontCameraView = makeFrontCameraView()
     
     private lazy var subTitleAttrs = TextAttributes()
         .textColor(Appearance.mono200)
@@ -89,16 +88,7 @@ extension VideoCallView {
             rejectButtonHorizontalConstraint.isActive = true
         }
         
-        func updateFrontCamera() {
-            frontCameraView.isHidden = callUIState == .awaitingPickup
-            
-            if callUIState == .inConversation {
-                frontCameraView.start()
-            }
-        }
-        
         updateButtonsPosition()
-        updateFrontCamera()
         
         layoutIfNeeded()
     }
@@ -166,13 +156,6 @@ private extension VideoCallView {
                 rejectButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -36.scale)
             ])
         }
-        
-        NSLayoutConstraint.activate([
-            frontCameraView.widthAnchor.constraint(equalToConstant: 129.scale),
-            frontCameraView.heightAnchor.constraint(equalToConstant: 189.scale),
-            frontCameraView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13.scale),
-            frontCameraView.bottomAnchor.constraint(equalTo: rejectButton.centerYAnchor)
-        ])
     }
 }
 
@@ -239,13 +222,6 @@ private extension VideoCallView {
         let view = UIButton()
         view.backgroundColor = UIColor.clear
         view.setImage(UIImage(named: "Video.Reject"), for: .normal)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeFrontCameraView() -> FrontCameraView {
-        let view = FrontCameraView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

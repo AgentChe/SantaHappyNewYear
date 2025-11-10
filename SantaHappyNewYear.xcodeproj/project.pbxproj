@@ -48,7 +48,6 @@
 		DE2521682E96819700557C74 /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521672E96819700557C74 /* VideoCallViewController.swift */; };
 		DE25216A2E96819F00557C74 /* VideoCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521692E96819F00557C74 /* VideoCallViewModel.swift */; };
 		DE25216C2E9681A400557C74 /* VideoCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25216B2E9681A400557C74 /* VideoCallView.swift */; };
-		DE25216F2E9685B200557C74 /* FrontCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25216E2E9685B200557C74 /* FrontCameraView.swift */; };
 		DE2521712E96992900557C74 /* ChatsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2521702E96992900557C74 /* ChatsEmptyView.swift */; };
 		DE2521842E97A1F800557C74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25217D2E97A1F700557C74 /* OnboardingView.swift */; };
 		DE2521852E97A1F800557C74 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25217E2E97A1F700557C74 /* OnboardingViewController.swift */; };
@@ -227,7 +226,6 @@
 		DE2521672E96819700557C74 /* VideoCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
 		DE2521692E96819F00557C74 /* VideoCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewModel.swift; sourceTree = "<group>"; };
 		DE25216B2E9681A400557C74 /* VideoCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallView.swift; sourceTree = "<group>"; };
-		DE25216E2E9685B200557C74 /* FrontCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontCameraView.swift; sourceTree = "<group>"; };
 		DE2521702E96992900557C74 /* ChatsEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsEmptyView.swift; sourceTree = "<group>"; };
 		DE25217D2E97A1F700557C74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DE25217E2E97A1F700557C74 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -615,7 +613,6 @@
 			isa = PBXGroup;
 			children = (
 				DEB983972EA0FCA10027A72C /* SantaAnimation */,
-				DE25216E2E9685B200557C74 /* FrontCameraView.swift */,
 				DE89BF762EABCC68005C2070 /* CanSpeakView.swift */,
 			);
 			path = Views;
@@ -1420,7 +1417,6 @@
 				DE6965EA2E8D60C0004D4115 /* UIDevice+Extension.swift in Sources */,
 				DE25216C2E9681A400557C74 /* VideoCallView.swift in Sources */,
 				DE6965F02E8D60C0004D4115 /* IAPError.swift in Sources */,
-				DE25216F2E9685B200557C74 /* FrontCameraView.swift in Sources */,
 				DE6965F62E8D60C0004D4115 /* RestAPITransport.swift in Sources */,
 				DE69676A2E8EB26E004D4115 /* ChatInputField.swift in Sources */,
 				DE69676B2E8EB26E004D4115 /* ChatViewModel.swift in Sources */,
@@ -1555,7 +1551,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VMT89YT6U4;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1574,7 +1570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.santa.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1597,7 +1593,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VMT89YT6U4;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1616,7 +1612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = iphone.santa.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
