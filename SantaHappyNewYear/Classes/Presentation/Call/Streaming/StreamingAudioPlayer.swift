@@ -25,18 +25,37 @@ final class StreamingAudioPlayer {
     private let node = AVAudioPlayerNode()
     private var nodeFormat: AVAudioFormat
     private var isStarted = false
+    
+    private let stateQueue = DispatchQueue(label: "StreamingAudioPlayer.state.queue")
+    private var pendingBuffers: Int = 0
+    private var onQueueEmpty: (() -> Void)?
 
     init(cfg: Config = .init()) {
         self.cfg = cfg
         self.nodeFormat = AVAudioFormat(
             standardFormatWithSampleRate: cfg.sampleRate,
             channels: AVAudioChannelCount(cfg.channels)
-        )! // Float32, non-interleaved
+        )!
         engine.attach(node)
         engine.connect(node, to: engine.mainMixerNode, format: nodeFormat)
     }
+    
+    var hasPendingAudio: Bool {
+        stateQueue.sync { pendingBuffers > 0 }
+    }
 
-    /// Можно вызвать на лету, если сервер внезапно сменил SR/каналы/эндианность
+    func waitUntilQueueIsEmpty(_ completion: @escaping () -> Void) {
+        stateQueue.async { [weak self] in
+            guard let self else { return }
+            
+            if self.pendingBuffers == 0 {
+                DispatchQueue.main.async { completion() }
+            } else {
+                self.onQueueEmpty = completion
+            }
+        }
+    }
+    
     func reconfigure(sampleRate: Double? = nil, channels: Int? = nil, bigEndian: Bool? = nil) {
         let newSR = sampleRate ?? cfg.sampleRate
         let newCh = channels ?? cfg.channels
@@ -63,6 +82,12 @@ final class StreamingAudioPlayer {
         try? session.setActive(true, options: [])
         try? engine.start()
         node.play()
+        
+        stateQueue.async { [weak self] in
+            self?.pendingBuffers = 0
+            self?.onQueueEmpty = nil
+        }
+        
         isStarted = true
     }
 
@@ -71,6 +96,13 @@ final class StreamingAudioPlayer {
         node.stop()
         engine.stop()
         try? AVAudioSession.sharedInstance().setActive(false, options: [.notifyOthersOnDeactivation])
+        
+        stateQueue.async { [weak self] in
+            guard let self else { return }
+            self.pendingBuffers = 0
+            self.onQueueEmpty = nil
+        }
+        
         isStarted = false
     }
 
@@ -126,7 +158,27 @@ final class StreamingAudioPlayer {
                 }
             }
         }
+        
+        stateQueue.async { [weak self] in
+            self?.pendingBuffers += 1
+        }
 
-        node.scheduleBuffer(buf, completionHandler: nil)
+        node.scheduleBuffer(buf) { [weak self] in
+            guard let self else { return }
+            self.stateQueue.async {
+                if self.pendingBuffers > 0 {
+                    self.pendingBuffers -= 1
+                }
+                if self.pendingBuffers == 0 {
+                    let cb = self.onQueueEmpty
+                    self.onQueueEmpty = nil
+                    if let cb {
+                        DispatchQueue.main.async {
+                            cb()
+                        }
+                    }
+                }
+            }
+        }
     }
 }

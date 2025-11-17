@@ -52,15 +52,9 @@ final class AudioCallViewController: UIViewController {
             .emit(to: Binder(self) { base, agentState in
                 switch agentState {
                 case .listening:
-                    base.streamingAudioPlayer.stop()
-                    try? base.callSTTService.start { [weak base] text in
-                        base?.webSocketService.send(message: text)
-                    }
-                    base.mainView.canSpeakView.isHidden = false
+                    base.handleListeningState()
                 case .speaking:
-                    base.callSTTService.cancel()
-                    base.streamingAudioPlayer.start()
-                    base.mainView.canSpeakView.isHidden = true
+                    base.handleSpeakingState()
                 }
             })
             .disposed(by: disposeBag)
@@ -129,6 +123,32 @@ private extension AudioCallViewController {
             RingtonePlayer.shared.stop()
         case .connect:
             webSocketService.connect()
+        }
+    }
+    
+    func handleSpeakingState() {
+        callSTTService.cancel()
+        streamingAudioPlayer.start()
+        mainView.canSpeakView.isHidden = true
+    }
+
+    func handleListeningState() {
+        let switchToListening: () -> Void = { [weak self] in
+            guard let self else { return }
+            
+            streamingAudioPlayer.stop()
+            try? callSTTService.start { [weak self] text in
+                self?.webSocketService.send(message: text)
+            }
+            mainView.canSpeakView.isHidden = false
+        }
+
+        if streamingAudioPlayer.hasPendingAudio {
+            streamingAudioPlayer.waitUntilQueueIsEmpty {
+                switchToListening()
+            }
+        } else {
+            switchToListening()
         }
     }
 }
