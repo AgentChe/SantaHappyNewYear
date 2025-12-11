@@ -20,7 +20,7 @@ final class GlobalDefinitions {
     static let contactUsUrl = URL(string: "https://apps-and-taps.com/#contact")!
     
     enum Paygate {
-        static let yearly = "iphone.santa.chat.yearly"
-        static let weekly = "iphone.santa.chat.weekly"
+        static let yearly = "iphone.santa.chat.yearly1"
+        static let weekly = "iphone.santa.chat.weekly1"
     }
 }
