@@ -21,8 +21,10 @@ final class ChatViewModel {
     var tryAgain: ((Error) -> (Observable<Void>))?
 
     private lazy var chatManager = ChatManager()
-    
+
     private lazy var observableRetrySingle = ObservableRetrySingle()
+
+    private var cachedChatId: String?
 }
 
 // MARK: Public
@@ -157,21 +159,32 @@ private extension ChatViewModel {
     func makeAnswer(runner: Driver<ChatMessageRunner>, chatId: Driver<String>) -> Driver<CheckMessageCompleteResponse?> {
         runner
             .withLatestFrom(chatId) { ($0.id, $1) }
-            .delay(DispatchTimeInterval.seconds(2))
             .flatMapLatest { [weak self] args -> Driver<CheckMessageCompleteResponse?> in
                 guard let self else { return .never() }
-                
+
                 let (runnerId, id) = args
-                
-                return chatManager
-                    .checkMessageComplete(chatId: id, runnerId: runnerId)
-                    .asDriver(onErrorJustReturn: nil)
-                    .flatMap { [weak self] response -> Driver<CheckMessageCompleteResponse?> in
-                        guard let self, let response else { return .just(nil) }
-                        
-                        return response.runner.isComplete ? .just(response) : makeAnswer(runner: runner, chatId: chatId)
-                    }
+
+                return waitAnswer(chatId: id, runnerId: runnerId)
             }
+    }
+
+    func waitAnswer(chatId: String, runnerId: String) -> Driver<CheckMessageCompleteResponse?> {
+        Observable<Int>
+            .timer(.seconds(2), period: .seconds(2), scheduler: MainScheduler.asyncInstance)
+            .flatMapFirst { [weak self] _ -> Observable<CheckMessageCompleteResponse?> in
+                guard let self else { return .empty() }
+
+                return chatManager
+                    .checkMessageComplete(chatId: chatId, runnerId: runnerId)
+                    .asObservable()
+                    .catchAndReturn(nil)
+            }
+            .filter { response -> Bool in
+                guard let response else { return true }
+                return response.runner.isComplete
+            }
+            .take(1)
+            .asDriver(onErrorJustReturn: nil)
     }
     
     func makeSendMessageResponse(
@@ -194,7 +207,11 @@ private extension ChatViewModel {
         mode
             .flatMapLatest { [weak self] mode -> Driver<String> in
                 guard let self else { return .never() }
-                
+
+                if let cachedChatId {
+                    return .just(cachedChatId)
+                }
+
                 func source() -> Single<String> {
                     switch mode {
                     case .newChat:
@@ -219,6 +236,9 @@ private extension ChatViewModel {
                         source: { source() },
                         trigger: { trigger(error: $0) }
                     )
+                    .do(onNext: { [weak self] chatId in
+                        self?.cachedChatId = chatId
+                    })
                     .asDriver(onErrorDriveWith: .never())
             }
     }
